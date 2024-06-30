@@ -25,7 +25,7 @@ export const Header:FC<HeaderProps> = (props) => {
     const { title } = props; 
     return (
       <ThemeProvider theme={theme}>
-          <AppBar position="sticky">
+        <AppBar position="sticky" elevation={0}>
             <Toolbar disableGutters={true}>
               <Typography variant="h4" component="div" sx={{ flexGrow: 1 }}>
                 {title}
