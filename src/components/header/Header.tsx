@@ -9,7 +9,7 @@ import React from 'react';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#000000', // プライマリカラーを黒色に指定
+      main: '#FFFFFF', // プライマリカラーを黒色に指定
     },
   },
   typography: {
