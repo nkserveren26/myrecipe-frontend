@@ -13,9 +13,10 @@ function App() {
           sx={{
             position: 'relative',
             width: '100%',
-            height: '500px',
+            height: '600px',
             overflow: 'hidden',
-            marginTop: '2%'
+            marginTop: '2%',
+            borderRadius: '8px',
           }}
         >
           <Box
