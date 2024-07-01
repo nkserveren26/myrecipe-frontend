@@ -44,11 +44,11 @@ function App() {
               textAlign: 'center',
             }}
           >
-            <Typography variant="h5" component="h2">
-              見出し文字
+            <Typography variant="h3" sx={{ fontWeight: 'bold' }}>
+              My Recipe
             </Typography>
             <Typography variant="body1">
-              １行の説明
+              This app is my favorite recipe list.
             </Typography>
           </Box>
         </Box>
