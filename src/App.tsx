@@ -44,10 +44,10 @@ function App() {
               textAlign: 'center',
             }}
           >
-            <Typography variant="h3" sx={{ fontWeight: 'bold' }}>
+            <Typography variant="h3" sx={{ fontWeight: 'bold', marginBottom: '10px' }}>
               My Recipe
             </Typography>
-            <Typography variant="body1">
+            <Typography variant="body1" sx={{ fontSize: '24px' }}>
               This app is my favorite recipe list.
             </Typography>
           </Box>
