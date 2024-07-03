@@ -12,7 +12,7 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: "Georgia",
+    fontFamily: "Roboto",
   },
 });
 
@@ -26,7 +26,7 @@ export const Header:FC<HeaderProps> = (props) => {
       <ThemeProvider theme={theme}>
         <AppBar position="sticky" elevation={0}>
             <Toolbar disableGutters={true}>
-              <Typography variant="h4" component="div">
+            <Typography variant="h4" component="div" sx={{ fontWeight: 'bold' }}>
                 {title}
               </Typography>
             </Toolbar>
