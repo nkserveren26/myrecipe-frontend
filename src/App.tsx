@@ -16,6 +16,7 @@ function App() {
             height: '600px',
             overflow: 'hidden',
             marginTop: '2%',
+            marginBottom: '4%',
             borderRadius: '8px',
           }}
         >
@@ -51,6 +52,9 @@ function App() {
               This app is my favorite recipe list.
             </Typography>
           </Box>
+        </Box>
+        <Box>
+          <Typography paddingBottom={3} fontWeight="bold" variant="h4">Recipe Category</Typography>
         </Box>
       </Box>
     </div>
