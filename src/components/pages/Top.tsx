@@ -1,4 +1,5 @@
-import { Box, Typography } from '@mui/material';
+import { Box, Button, Typography } from '@mui/material';
+import AddIcon from '@mui/icons-material/Add';
 import HomeHeaderImage from "../../HomeHeaderImage.jpg";
 import React from 'react';
 
@@ -51,6 +52,9 @@ export const Top: React.FC = () => {
             </Box>
             <Box>
               <Typography paddingBottom={3} fontWeight="bold" variant="h4">Recipe Category</Typography>
+                <Button variant="contained" startIcon={<AddIcon />}>
+                  Add Recipe
+              </Button>
             </Box>
         </>
     )
