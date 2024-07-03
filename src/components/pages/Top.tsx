@@ -1,4 +1,4 @@
-import { Box, Button, Typography } from '@mui/material';
+import { Box, Button, Grid, Typography } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import HomeHeaderImage from "../../HomeHeaderImage.jpg";
 import React from 'react';
@@ -54,7 +54,20 @@ export const Top: React.FC = () => {
               <Typography paddingBottom={3} fontWeight="bold" variant="h4">Recipe Category</Typography>
                 <Button variant="contained" startIcon={<AddIcon />}>
                   Add Recipe
-              </Button>
+                </Button>
+                <Grid columns={{ xs: 6, sm: 8, md: 12 }} pt={4} container columnSpacing={6} alignItems="center" justifyContent="center">
+                  <Grid item xs={6} sm="auto" md="auto" pb={6}>
+                    <Box
+                        component="img"
+                        src={HomeHeaderImage}
+                        alt="説明画像"
+                        sx={{
+                            width: '400px',
+                            height: '150px',
+                        }}
+                    />
+                    </Grid>
+                </Grid>
             </Box>
         </>
     )
