@@ -76,6 +76,10 @@ export const Top: React.FC = () => {
                                 justifyContent: 'center',
                                 alignItems: 'center',
                                 textTransform: 'none', // ボタンラベルのテキスト変換を無効にする
+                                '&:hover .backgroundImage': {
+                                    transform: 'scale(1.1)', // 背景画像を少し拡大
+                                    transition: 'transform 0.5s ease', // アニメーションの遷移を設定
+                                },
                             }}
                         >
                             <Box
@@ -96,6 +100,7 @@ export const Top: React.FC = () => {
                                     position: 'relative',
                                     zIndex: 2,
                                     color: 'white', // 必要に応じてテキストカラーを変更
+                                    fontWeight: 'bold',
                                 }}
                             >
                                 ボタンラベル
