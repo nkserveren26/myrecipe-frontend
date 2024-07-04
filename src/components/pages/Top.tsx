@@ -92,6 +92,7 @@ export const Top: React.FC = () => {
                                     height: '100%',
                                     objectFit: 'cover',
                                     zIndex: 1,
+                                    transition: 'transform 0.5s ease',
                                 }}
                             />
                             <Typography
