@@ -102,9 +102,10 @@ export const Top: React.FC = () => {
                                     zIndex: 2,
                                     color: 'white', // 必要に応じてテキストカラーを変更
                                     fontWeight: 'bold',
+                                    fontSize: '30px',
                                 }}
                             >
-                                ボタンラベル
+                                お肉
                             </Typography>
                         </Button>
                   </Grid>
