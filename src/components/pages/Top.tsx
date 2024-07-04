@@ -1,9 +1,15 @@
 import { Box, Button, Grid, Typography } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import HomeHeaderImage from "../../HomeHeaderImage.jpg";
+import { useNavigate } from "react-router-dom";
 import React from 'react';
 
 export const Top: React.FC = () => {
+    const navigate = useNavigate();
+    const handleButtonClick = () => {
+        navigate("/"); // 遷移先のURLを指定
+    };
+
     return (
         <>
             <Box
@@ -57,16 +63,45 @@ export const Top: React.FC = () => {
                 </Button>
                 <Grid columns={{ xs: 6, sm: 8, md: 12 }} pt={4} container columnSpacing={6} alignItems="center" justifyContent="center">
                   <Grid item xs={6} sm="auto" md="auto" pb={6}>
-                    <Box
-                        component="img"
-                        src={HomeHeaderImage}
-                        alt="説明画像"
-                        sx={{
-                            width: '400px',
-                            height: '150px',
-                        }}
-                    />
-                    </Grid>
+                        <Button
+                            onClick={handleButtonClick}
+                            sx={{
+                                position: 'relative',
+                                width: '400px',
+                                height: '150px',
+                                padding: 0,
+                                borderRadius: '8px', // 長方形の角を丸くする場合
+                                overflow: 'hidden',
+                                display: 'flex',
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                textTransform: 'none', // ボタンラベルのテキスト変換を無効にする
+                            }}
+                        >
+                            <Box
+                                component="img"
+                                src={HomeHeaderImage}
+                                className="backgroundImage"
+                                sx={{
+                                    position: 'absolute',
+                                    width: '100%',
+                                    height: '100%',
+                                    objectFit: 'cover',
+                                    zIndex: 1,
+                                }}
+                            />
+                            <Typography
+                                variant="h6"
+                                sx={{
+                                    position: 'relative',
+                                    zIndex: 2,
+                                    color: 'white', // 必要に応じてテキストカラーを変更
+                                }}
+                            >
+                                ボタンラベル
+                            </Typography>
+                        </Button>
+                  </Grid>
                 </Grid>
             </Box>
         </>
