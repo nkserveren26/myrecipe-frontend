@@ -20,7 +20,7 @@ type HeaderProps = {
     title:string
 };
 
-export const Header:FC<HeaderProps> = (props) => {
+export const Header:React.FC<HeaderProps> = (props) => {
     const { title } = props; 
     return (
       <ThemeProvider theme={theme}>
