@@ -3,6 +3,7 @@ import AddIcon from '@mui/icons-material/Add';
 import HomeHeaderImage from "../../HomeHeaderImage.jpg";
 import { useNavigate } from "react-router-dom";
 import React from 'react';
+import { RecipeCategoryButton } from '../buttons/RecipeCategoryButton';
 
 export const Top: React.FC = () => {
     const navigate = useNavigate();
@@ -108,6 +109,7 @@ export const Top: React.FC = () => {
                                 お肉
                             </Typography>
                         </Button>
+                        <RecipeCategoryButton buttonLabelName="お肉" buttonBackgroundImage={HomeHeaderImage} destinationUrlPath="/" />
                   </Grid>
                 </Grid>
             </Box>

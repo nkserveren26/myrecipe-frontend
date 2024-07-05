@@ -1,17 +1,16 @@
 import { Box, Button, Typography } from '@mui/material';
-import HomeHeaderImage from "../../HomeHeaderImage.jpg";
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { RecipeCategoryButtonProps } from '../interface/interface';
 
 export const RecipeCategoryButton: React.FC<RecipeCategoryButtonProps> = (props) => {
-    const {buttonLabelName, buttonBackgroundImage} = props;
+    const {buttonLabelName, buttonBackgroundImage, destinationUrlPath} = props;
     
     const navigate = useNavigate();
 
     // ルーティングを行う関数
     const handleButtonClick = () => {
-        navigate("/"); // 遷移先のURLを指定
+        navigate(destinationUrlPath); // 遷移先のURLを指定
     };
 
     return (
