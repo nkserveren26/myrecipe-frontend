@@ -1,8 +1,10 @@
 import { Box, Button, Grid, Typography } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import HomeHeaderImage from "../../HomeHeaderImage.jpg";
+
 import React from 'react';
 import { RecipeCategoryButton } from '../button/RecipeCategoryButton';
+import { RecipeCategoryButtonPropsList } from '../variable/ArrayVariables';
 
 export const Top: React.FC = () => {
 
@@ -58,9 +60,11 @@ export const Top: React.FC = () => {
                   Add Recipe
                 </Button>
                 <Grid columns={{ xs: 6, sm: 8, md: 12 }} pt={4} container columnSpacing={6} alignItems="center" justifyContent="center">
-                  <Grid item xs={6} sm="auto" md="auto" pb={6}>
-                        <RecipeCategoryButton buttonLabelName="お肉" buttonBackgroundImage={HomeHeaderImage} destinationUrlPath="/" />
-                  </Grid>
+                  {RecipeCategoryButtonPropsList.map((props, index) => (
+                    <Grid item xs={6} sm="auto" md="auto" pb={6} key={index}>
+                      <RecipeCategoryButton buttonLabelName={props.buttonLabelName} buttonBackgroundImage={props.buttonBackgroundImage} destinationUrlPath={props.destinationUrlPath} />
+                    </Grid>
+                  ))}
                 </Grid>
             </Box>
         </>
