@@ -2,13 +2,18 @@ import { Box, Button, Typography } from '@mui/material';
 import HomeHeaderImage from "../../HomeHeaderImage.jpg";
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { RecipeCategoryButtonProps } from '../interface/interface';
 
-export const RecipeCategoryButton: React.FC = () => {
+export const RecipeCategoryButton: React.FC<RecipeCategoryButtonProps> = (props) => {
+    const {buttonLabelName, buttonBackgroundImage} = props;
     
     const navigate = useNavigate();
+
+    // ルーティングを行う関数
     const handleButtonClick = () => {
         navigate("/"); // 遷移先のURLを指定
     };
+
     return (
         <>
             <Button
@@ -32,7 +37,7 @@ export const RecipeCategoryButton: React.FC = () => {
             >
                 <Box
                     component="img"
-                    src={HomeHeaderImage}
+                    src={buttonBackgroundImage}
                     className="backgroundImage"
                     sx={{
                         position: 'absolute',
@@ -53,7 +58,7 @@ export const RecipeCategoryButton: React.FC = () => {
                         fontSize: '30px',
                     }}
                 >
-                    お肉
+                    {buttonLabelName}
                 </Typography>
             </Button>
         </>
