@@ -1,15 +1,10 @@
 import { Box, Button, Grid, Typography } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import HomeHeaderImage from "../../HomeHeaderImage.jpg";
-import { useNavigate } from "react-router-dom";
 import React from 'react';
-import { RecipeCategoryButton } from '../buttons/RecipeCategoryButton';
+import { RecipeCategoryButton } from '../button/RecipeCategoryButton';
 
 export const Top: React.FC = () => {
-    const navigate = useNavigate();
-    const handleButtonClick = () => {
-        navigate("/"); // 遷移先のURLを指定
-    };
 
     return (
         <>

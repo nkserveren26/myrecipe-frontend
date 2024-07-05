@@ -2,9 +2,8 @@ import React from 'react';
 import './App.css';
 import { Header } from './components/header/Header';
 import { Box, Typography } from '@mui/material';
-import HomeHeaderImage from "./HomeHeaderImage.jpg";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { Top } from './components/pages/Top';
+import { Top } from './components/page/Top';
 
 function App() {
   return (
