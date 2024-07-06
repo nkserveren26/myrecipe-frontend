@@ -61,7 +61,7 @@ export const Top: React.FC = () => {
                 </Button>
                 <Grid columns={{ xs: 6, sm: 8, md: 12 }} pt={4} container columnSpacing={6} alignItems="center" justifyContent="center">
                   {RecipeCategoryButtonPropsList.map((props, index) => (
-                    <Grid item xs={6} sm="auto" md="auto" pb={6} key={index}>
+                    <Grid item xs={6} sm="auto" md="auto" pb={8} key={index}>
                       <RecipeCategoryButton buttonLabelName={props.buttonLabelName} buttonBackgroundImage={props.buttonBackgroundImage} destinationUrlPath={props.destinationUrlPath} />
                     </Grid>
                   ))}
