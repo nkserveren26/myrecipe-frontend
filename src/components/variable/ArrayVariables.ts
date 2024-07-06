@@ -1,15 +1,16 @@
 import { RecipeCategoryButtonProps } from "../interface/interface";
-import HomeHeaderImage from "../../HomeHeaderImage.jpg";
+import BeefImage from "../../images/Beef.jpg";
+import FishImage from "../../images/Fish.jpg";
 
 export const RecipeCategoryButtonPropsList: RecipeCategoryButtonProps[] = [
     {
         buttonLabelName: "お肉",
-        buttonBackgroundImage: HomeHeaderImage,
+        buttonBackgroundImage: BeefImage,
         destinationUrlPath: "/",
     },
     {
         buttonLabelName: "お魚",
-        buttonBackgroundImage: HomeHeaderImage,
+        buttonBackgroundImage: FishImage,
         destinationUrlPath: "/",
     },
 ];

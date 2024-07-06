@@ -1,6 +1,6 @@
 import { Box, Button, Grid, Typography } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
-import HomeHeaderImage from "../../HomeHeaderImage.jpg";
+import HomeHeaderImage from "../../images/HomeHeaderImage.jpg";
 
 import React from 'react';
 import { RecipeCategoryButton } from '../button/RecipeCategoryButton';
