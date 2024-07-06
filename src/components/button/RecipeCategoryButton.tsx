@@ -3,8 +3,16 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { RecipeCategoryButtonProps } from '../interface/interface';
 
-export const RecipeCategoryButton: React.FC<RecipeCategoryButtonProps> = (props) => {
-    const {buttonLabelName, buttonBackgroundImage, destinationUrlPath} = props;
+// レシピカテゴリボタンのコンポーネント
+export const RecipeCategoryButton: React.FC<RecipeCategoryButtonProps> = ({
+    buttonLabelName,
+    buttonBackgroundImage,
+    destinationUrlPath,
+    backgroundColorR = 0,
+    backgroundColorG = 0,
+    backgroundColorB = 0,
+    backgroundOpacity = 0.25
+}) => {
     
     const navigate = useNavigate();
 
@@ -47,11 +55,20 @@ export const RecipeCategoryButton: React.FC<RecipeCategoryButtonProps> = (props)
                         transition: 'transform 0.5s ease',
                     }}
                 />
+                <Box
+                    sx={{
+                        position: 'absolute',
+                        width: '100%',
+                        height: '100%',
+                        backgroundColor: `rgba(${backgroundColorR}, ${backgroundColorG}, ${backgroundColorB}, ${backgroundOpacity})`, // propsで渡された色と透明度を使用
+                        zIndex: 2,
+                    }}
+                />
                 <Typography
                     variant="h6"
                     sx={{
                         position: 'relative',
-                        zIndex: 2,
+                        zIndex: 3,
                         color: 'white', // 必要に応じてテキストカラーを変更
                         fontWeight: 'bold',
                         fontSize: '30px',
