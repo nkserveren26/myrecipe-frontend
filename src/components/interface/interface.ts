@@ -8,3 +8,10 @@ export interface RecipeCategoryButtonProps {
     backgroundColorB?: number;
     backgroundOpacity?: number, // ボタン背景画像の背景色の透過度。0~1を設定
 }
+
+// RecipeCategoryButtonのpropsの型
+export interface HeroHeaderProps {
+    backgroundImage: string,
+    title: string,
+    description: string;
+}
