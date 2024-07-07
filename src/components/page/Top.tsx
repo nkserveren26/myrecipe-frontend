@@ -6,6 +6,7 @@ import React from 'react';
 import { RecipeCategoryButton } from '../button/RecipeCategoryButton';
 import { RecipeCategoryButtonPropsList } from '../variable/ArrayVariables';
 import { HeroHeader } from '../header/HeroHeader';
+import { AddRecipeButton } from '../button/AddRecipeButton';
 
 export const Top: React.FC = () => {
 
@@ -20,9 +21,7 @@ export const Top: React.FC = () => {
             />
             <Box>
               <Typography paddingBottom={3} fontWeight="bold" variant="h4">Recipe Category</Typography>
-                <Button variant="contained" startIcon={<AddIcon />}>
-                  Add Recipe
-                </Button>
+                <AddRecipeButton />
                 <Grid columns={{ xs: 6, sm: 8, md: 12 }} pt={4} container columnSpacing={6} alignItems="center" justifyContent="center">
                   {RecipeCategoryButtonPropsList.map((props, index) => (
                     <Grid item xs={6} sm="auto" md="auto" pb={8} key={index}>
