@@ -2,11 +2,17 @@ import { Box, Typography } from '@mui/material';
 import React from 'react';
 import { HeroHeaderProps } from '../interface/interface';
 
+// ヒーローヘッダーコンポーネント
+// 背景色のデフォルトは黒で、透過度は0.35
 export const HeroHeader: React.FC<HeroHeaderProps> = ({
     backgroundImage,
     title, 
     description,
-    descriptionFontSize = 24
+    descriptionFontSize = 24,
+    backgroundColorR = 0,
+    backgroundColorG = 0,
+    backgroundColorB = 0,
+    backgroundOpacity = 0.35
 }) => {
     return (
         <>
@@ -40,7 +46,7 @@ export const HeroHeader: React.FC<HeroHeaderProps> = ({
                         position: 'absolute',
                         width: '100%',
                         height: '100%',
-                        backgroundColor: `rgba(0, 0, 0, 0.35)`, // propsで渡された色と透明度を使用
+                        backgroundColor: `rgba(${backgroundColorR}, ${backgroundColorG}, ${backgroundColorB}, ${backgroundOpacity})`, // propsで渡された色と透明度を使用
                         zIndex: 2,
                     }}
                 />
