@@ -5,6 +5,7 @@ import { Box, Typography } from '@mui/material';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Top } from './components/page/Top';
 import { Fish } from './components/page/Fish';
+import { ScrollToTop } from './components/scroll/ScrollToTop';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Box sx={{ marginLeft: '4%', marginRight: '4%' }}>
         <BrowserRouter basename={process.env.PUBLIC_URL}>
           <Header title='My Recipe' />
+          <ScrollToTop />
           <Routes>
             <Route path="/" element={<Top />} />
             <Route path="/fish" element={<Fish />} />

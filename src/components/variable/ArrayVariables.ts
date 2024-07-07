@@ -13,7 +13,7 @@ export const RecipeCategoryButtonPropsList: RecipeCategoryButtonProps[] = [
     {
         buttonLabelName: "お魚",
         buttonBackgroundImage: FishImage,
-        destinationUrlPath: "/",
+        destinationUrlPath: "/fish",
     },
     {
         buttonLabelName: "お野菜",
