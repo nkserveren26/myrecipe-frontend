@@ -13,5 +13,6 @@ export interface RecipeCategoryButtonProps {
 export interface HeroHeaderProps {
     backgroundImage: string,
     title: string,
-    description: string;
+    description: string,
+    descriptionFontSize?: number,
 }

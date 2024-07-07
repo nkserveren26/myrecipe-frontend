@@ -5,7 +5,9 @@ import { HeroHeaderProps } from '../interface/interface';
 export const HeroHeader: React.FC<HeroHeaderProps> = ({
     backgroundImage,
     title, 
-    description}) => {
+    description,
+    descriptionFontSize = 24
+}) => {
     return (
         <>
             <Box
@@ -36,18 +38,27 @@ export const HeroHeader: React.FC<HeroHeaderProps> = ({
                 <Box
                     sx={{
                         position: 'absolute',
+                        width: '100%',
+                        height: '100%',
+                        backgroundColor: `rgba(0, 0, 0, 0.35)`, // propsで渡された色と透明度を使用
+                        zIndex: 2,
+                    }}
+                />
+                <Box
+                    sx={{
+                        position: 'absolute',
                         top: '50%',
                         left: '50%',
                         transform: 'translate(-50%, -50%)',
                         color: 'white',
-                        zIndex: 2,
+                        zIndex: 3,
                         textAlign: 'center',
                     }}
                 >
                     <Typography variant="h3" sx={{ fontWeight: 'bold', marginBottom: '10px' }}>
                         {title}
                     </Typography>
-                    <Typography variant="body1" sx={{ fontSize: '24px' }}>
+                    <Typography variant="body1" sx={{ fontSize: `${descriptionFontSize}px` }}>
                         {description}
                     </Typography>
                 </Box>
