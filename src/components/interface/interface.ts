@@ -9,7 +9,7 @@ export interface RecipeCategoryButtonProps {
     backgroundOpacity?: number, // ボタン背景画像の背景色の透過度。0~1を設定
 }
 
-// RecipeCategoryButtonのpropsの型
+// HeroHeaderのpropsの型
 export interface HeroHeaderProps {
     backgroundImage: string,
     title: string,
@@ -19,4 +19,11 @@ export interface HeroHeaderProps {
     backgroundColorG?: number,
     backgroundColorB?: number,
     backgroundOpacity?: number, // 背景画像の背景色の透過度。0~1を設定
+}
+
+// RecipeCardのpropsの型
+export interface RecipeCardProps {
+    recipeImage: string,
+    title: string,
+    registerdDate: string,
 }
