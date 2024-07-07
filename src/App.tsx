@@ -4,6 +4,7 @@ import { Header } from './components/header/Header';
 import { Box, Typography } from '@mui/material';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Top } from './components/page/Top';
+import { Fish } from './components/page/Fish';
 
 function App() {
   return (
@@ -12,8 +13,8 @@ function App() {
         <BrowserRouter basename={process.env.PUBLIC_URL}>
           <Header title='My Recipe' />
           <Routes>
-            <Route path="/" element={<Top />}>
-            </Route>
+            <Route path="/" element={<Top />} />
+            <Route path="/fish" element={<Fish />} />
           </Routes>
         </BrowserRouter>
       </Box>
