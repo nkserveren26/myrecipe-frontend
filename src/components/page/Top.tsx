@@ -15,7 +15,8 @@ export const Top: React.FC = () => {
               backgroundImage={HomeHeaderImage}
               title="My Recipe"
               description="This app is my favorite recipe list."
-              descriptionFontSize={24}
+              descriptionFontSize={26}
+              backgroundOpacity={0.3}
             />
             <Box>
               <Typography paddingBottom={3} fontWeight="bold" variant="h4">Recipe Category</Typography>
