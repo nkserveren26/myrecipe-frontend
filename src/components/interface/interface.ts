@@ -23,7 +23,7 @@ export interface HeroHeaderProps {
 
 // RecipeCardのpropsの型
 export interface RecipeCardProps {
-    recipeImage: string,
     title: string,
+    recipeImage: string,
     registerdDate: string,
 }
