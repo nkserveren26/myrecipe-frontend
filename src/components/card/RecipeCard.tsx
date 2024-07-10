@@ -1,5 +1,6 @@
-import { Box, Card, CardActions, CardContent, CardMedia, IconButton, Typography } from '@mui/material';
+import { Box, Card, CardActions, CardContent, CardMedia, IconButton, Typography, useTheme } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
+import EditNoteIcon from '@mui/icons-material/EditNote';
 import DeleteIcon from '@mui/icons-material/Delete';
 import styled from "styled-components";
 import React from 'react';
@@ -10,6 +11,8 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({
     title,
     registerdDate
 }) => {
+    const theme = useTheme();
+    
     const onEdit = () => {
         console.log("Editting Recipe");
     }
@@ -20,7 +23,7 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({
 
     return (
         <>
-            <StyledCard style={{ cursor: 'pointer' }} sx={{ width: 300, height: 340 }}>
+            <StyledCard style={{ cursor: 'pointer' }} sx={{ width: 300, height: 320 }}>
               <CardMedia
                 sx={{ height: 180 }}
                 image={recipeImage}
@@ -28,6 +31,8 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({
               <CardContent
                 sx={{
                     textAlign: 'left',
+                    pl: 1,
+                    pb: 0
                 }}
               >
                 <Box height={40}>
@@ -45,10 +50,10 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({
                       padding: 0,
                 }}
               >
-                <IconButton onClick={onEdit} aria-label="edit" sx={{ color: 'blue' }}>
-                  <EditIcon />
+                <IconButton onClick={onEdit} aria-label="edit" sx={{ color: theme.palette.primary.main, fontSize: 30 }}>
+                  <EditNoteIcon fontSize="inherit" />
                 </IconButton>
-                <IconButton onClick={onDelete} aria-label="delete" sx={{ color: 'red' }}>
+                <IconButton onClick={onDelete} aria-label="delete" sx={{ color: 'red', fontSize: 30 }}>
                   <DeleteIcon />
                 </IconButton>
               </CardActions>
