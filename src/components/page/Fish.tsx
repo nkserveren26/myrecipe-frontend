@@ -2,6 +2,8 @@ import React from "react";
 import { HeroHeader } from "../header/HeroHeader";
 import FishHeaderImage from "../../images/FishHeaderImage.jpg";
 import AqquaPazza from "../../images/aqqua_pazza.jpg";
+import SabaShioyaki from "../../images/saba_shioyaki.jpg";
+import SalmonMeunière from "../../images/salmon_meunière.jpg";
 import { Box, Grid, Typography } from "@mui/material";
 import { AddRecipeButton } from "../button/AddRecipeButton";
 import { RecipeCardProps } from "../interface/interface";
@@ -9,11 +11,41 @@ import { RecipeCard } from "../card/RecipeCard";
 
 const fishRecipeList: RecipeCardProps[] = [
     {
-        title: "Acqua Pazza",
+        title: "アクアパッツァ",
         recipeImage:AqquaPazza,
         registerdDate: "2024/07/09"
 
-    }
+    },
+    {
+        title: "鯖の塩焼き",
+        recipeImage: SabaShioyaki,
+        registerdDate: "2024/07/09"
+
+    },
+    {
+        title: "鮭のムニエル",
+        recipeImage: SalmonMeunière,
+        registerdDate: "2024/07/09"
+
+    },
+    {
+        title: "Acqua Pazza",
+        recipeImage: AqquaPazza,
+        registerdDate: "2024/07/09"
+
+    },
+    {
+        title: "Acqua Pazza",
+        recipeImage: AqquaPazza,
+        registerdDate: "2024/07/09"
+
+    },
+    {
+        title: "Acqua Pazza",
+        recipeImage: AqquaPazza,
+        registerdDate: "2024/07/09"
+
+    },
 ];
 
 export const Fish: React.FC = () => {
