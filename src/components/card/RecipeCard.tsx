@@ -23,7 +23,7 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({
 
     return (
         <>
-            <StyledCard style={{ cursor: 'pointer' }} sx={{ width: 300, height: 320 }}>
+            <StyledCard style={{ cursor: 'pointer' }} sx={{ width: 300, height: 300 }}>
               <CardMedia
                 sx={{ height: 180 }}
                 image={recipeImage}
@@ -31,6 +31,7 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({
               <CardContent
                 sx={{
                     textAlign: 'left',
+                    pt: 1,
                     pl: 1,
                     pb: 0
                 }}
@@ -50,10 +51,10 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({
                       padding: 0,
                 }}
               >
-                <IconButton onClick={onEdit} aria-label="edit" sx={{ color: theme.palette.primary.main, fontSize: 30 }}>
+                <IconButton onClick={onEdit} aria-label="edit" sx={{ color: theme.palette.primary.main, fontSize: 30, pr: 0 }}>
                   <EditNoteIcon fontSize="inherit" />
                 </IconButton>
-                <IconButton onClick={onDelete} aria-label="delete" sx={{ color: 'red', fontSize: 30 }}>
+                <IconButton onClick={onDelete} aria-label="delete" sx={{ color: 'red', fontSize: 30, pl: 0 }}>
                   <DeleteIcon />
                 </IconButton>
               </CardActions>
