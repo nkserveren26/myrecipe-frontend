@@ -4,6 +4,7 @@ import { Toolbar } from "@mui/material";
 import {Typography} from "@mui/material";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import React from 'react';
+import { useNavigate } from "react-router-dom";
 
 const theme = createTheme({
   palette: {
@@ -21,12 +22,27 @@ type HeaderProps = {
 };
 
 export const Header:React.FC<HeaderProps> = (props) => {
-    const { title } = props; 
+    const { title } = props;
+    const navigate = useNavigate();
+
+    const handleTitleClick = () => {
+      navigate('/');
+    };
+    
     return (
       <ThemeProvider theme={theme}>
         <AppBar position="sticky" elevation={0}>
             <Toolbar disableGutters={true}>
-            <Typography variant="h4" component="div" sx={{ fontWeight: 'bold' }}>
+            <Typography 
+              variant="h4" 
+              component="div" 
+              sx={{ 
+                fontWeight: 'bold',
+                cursor: 'pointer',
+                userSelect: 'none'  // テキスト選択を無効にする
+              }}
+              onClick={handleTitleClick}
+            >
                 {title}
               </Typography>
             </Toolbar>
