@@ -3,7 +3,7 @@ import { HeroHeader } from "../header/HeroHeader";
 import BeefHeaderImage from "../../images/BeefHeaderImage.jpg";
 import AqquaPazza from "../../images/aqqua_pazza.jpg";
 import SabaShioyaki from "../../images/saba_shioyaki.jpg";
-import SalmonMeunière from "../../images/salmon_meunière.jpg";
+import ChickenCabbageGarlicStirFry from "../../images/chicken_cabbage_garlic_stir_fry.jpg";
 import { Box, Grid, Typography } from "@mui/material";
 import { AddRecipeButton } from "../button/AddRecipeButton";
 import { RecipeCardProps } from "../interface/interface";
@@ -11,20 +11,20 @@ import { RecipeCard } from "../card/RecipeCard";
 
 const BeefRecipeList: RecipeCardProps[] = [
     {
-        title: "アクアパッツァ",
-        recipeImage:AqquaPazza,
-        registerdDate: "2024/07/09"
+        title: "チキンとキャベツのガーリック炒め",
+        recipeImage: ChickenCabbageGarlicStirFry,
+        registerdDate: "2024/07/11"
 
     },
     {
         title: "鯖の塩焼き",
         recipeImage: SabaShioyaki,
-        registerdDate: "2024/07/09"
+        registerdDate: "2024/11/15"
 
     },
     {
         title: "鮭のムニエル",
-        recipeImage: SalmonMeunière,
+        recipeImage: ChickenCabbageGarlicStirFry,
         registerdDate: "2024/07/09"
 
     },

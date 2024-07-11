@@ -23,7 +23,7 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({
 
     return (
         <>
-            <StyledCard style={{ cursor: 'pointer' }} sx={{ width: 300, height: 300 }}>
+            <StyledCard style={{ cursor: 'pointer' }} sx={{ width: 300, height: 310 }}>
               <CardMedia
                 sx={{ height: 180 }}
                 image={recipeImage}
@@ -36,8 +36,8 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({
                     pb: 0
                 }}
               >
-                <Box height={40}>
-                  <Typography fontWeight="bold" variant="h6" >
+                <Box height={50} >
+                  <Typography fontWeight="bold" variant="h6" sx={{fontSize: 16}}>
                       {title}
                   </Typography>
                 </Box>
