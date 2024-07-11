@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Top } from './components/page/Top';
 import { Fish } from './components/page/Fish';
 import { ScrollToTop } from './components/scroll/ScrollToTop';
+import { Beef } from './components/page/Beef';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Top />} />
             <Route path="/fish" element={<Fish />} />
+            <Route path="/beef" element={<Beef />} />
           </Routes>
         </BrowserRouter>
       </Box>
