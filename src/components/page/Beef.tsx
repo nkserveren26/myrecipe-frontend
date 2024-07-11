@@ -1,6 +1,6 @@
 import React from "react";
 import { HeroHeader } from "../header/HeroHeader";
-import FishHeaderImage from "../../images/FishHeaderImage.jpg";
+import BeefHeaderImage from "../../images/BeefHeaderImage.jpg";
 import AqquaPazza from "../../images/aqqua_pazza.jpg";
 import SabaShioyaki from "../../images/saba_shioyaki.jpg";
 import SalmonMeunière from "../../images/salmon_meunière.jpg";
@@ -52,9 +52,9 @@ export const Beef: React.FC = () => {
     return (
         <>
             <HeroHeader 
-                backgroundImage={FishHeaderImage}
-                title="Fish Recipes" 
-                description="This page contains a list of recipes for cooking with fish."
+                backgroundImage={BeefHeaderImage}
+                title="Beef Recipes" 
+                description="This page contains a list of recipes for cooking with beef."
                 descriptionFontSize={26}
             />
             <Box>
