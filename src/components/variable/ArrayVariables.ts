@@ -23,6 +23,6 @@ export const RecipeCategoryButtonPropsList: RecipeCategoryButtonProps[] = [
     {
         buttonLabelName: "スープ",
         buttonBackgroundImage: SoupImage,
-        destinationUrlPath: "/",
+        destinationUrlPath: "/soup",
     },
 ];

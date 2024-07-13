@@ -21,6 +21,7 @@ function App() {
             <Route path="/fish" element={<Fish />} />
             <Route path="/beef" element={<Beef />} />
             <Route path="/vegetable" element={<Vegetable />} />
+            <Route path="/soup" element={<Vegetable />} />
           </Routes>
         </BrowserRouter>
       </Box>
