@@ -8,6 +8,7 @@ import { Box, Grid, Typography } from "@mui/material";
 import { AddRecipeButton } from "../button/AddRecipeButton";
 import { RecipeCardProps } from "../interface/interface";
 import { RecipeCard } from "../card/RecipeCard";
+import { ScrollToTopButton } from "../button/ScrollToTopButton";
 
 const VegetableRecipeList: RecipeCardProps[] = [
     {
@@ -72,6 +73,7 @@ export const Vegetable: React.FC = () => {
                     ))}
                 </Grid>
             </Box>
+            <ScrollToTopButton />
         </>
     )
 }
