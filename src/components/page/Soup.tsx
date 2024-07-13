@@ -1,6 +1,6 @@
 import React from "react";
 import { HeroHeader } from "../header/HeroHeader";
-import VegetableHeaderImage from "../../images/VegetableHeaderImage.jpg";
+import SoupHeaderImage from "../../images/SoupHeaderImage.jpg";
 import AqquaPazza from "../../images/aqqua_pazza.jpg";
 import SabaShioyaki from "../../images/saba_shioyaki.jpg";
 import ChickenCabbageGarlicStirFry from "../../images/chicken_cabbage_garlic_stir_fry.jpg";
@@ -53,9 +53,9 @@ export const Soup: React.FC = () => {
     return (
         <>
             <HeroHeader
-                backgroundImage={VegetableHeaderImage}
-                title="Vegetable Recipes"
-                description="This page contains a list of recipes for cooking with vegetable."
+                backgroundImage={SoupHeaderImage}
+                title="Soup Recipes"
+                description="This page lists recipes for soups."
                 descriptionFontSize={26}
             />
             <Box>
