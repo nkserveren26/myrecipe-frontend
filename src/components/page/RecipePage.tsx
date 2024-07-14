@@ -2,20 +2,17 @@ import React from "react";
 import { useParams } from "react-router-dom";
 
 const RecipePage: React.FC = () => {
-    const { id } = useParams();
+    const { id } = useParams<{ id: string }>();
 
-    // IDがundefinedかどうかを確認
-    if (id === undefined) {
+    // 正規表現を使用してIDが整数であることを確認
+    const isInteger = (str: string) => /^[0-9]+$/.test(str);
+
+    if (!id || !isInteger(id)) {
         return <div>Invalid recipe ID</div>;
-    }
+    };
 
     // IDを10進数として解釈して整数に変換
     const recipeId = parseInt(id, 10);
-
-    // 変換が失敗した場合（NaNを返す）に備える
-    if (isNaN(recipeId)) {
-        return <div>Invalid recipe ID</div>;
-    }
 
     // 例: データを配列から取得
     const recipes = [
