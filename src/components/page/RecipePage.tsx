@@ -24,9 +24,9 @@ export const RecipePage: React.FC = () => {
             name: "アクアパッツァ", 
             videoUrl: "https://www.youtube.com/watch?v=b06xfSfwqjc",
             ingredients: [
-                { name: "玉ねぎ", amount: "1個" },
-                { name: "にんじん", amount: "1本" },
-                { name: "じゃがいも", amount: "2個" },
+                { name: 'あさり', amount: '200g' },
+                { name: 'ミニトマト', amount: '200g' },
+                { name: '塩', amount: '小さじ1/2' },
             ],
          },
         { 
@@ -71,11 +71,11 @@ export const RecipePage: React.FC = () => {
                 <Box sx={{ marginTop: 2 }}>
                     {recipe.ingredients.map((ingredient, index) => (
                         <Grid container key={index}>
-                            <Grid item xs={6}>
-                                <Typography variant="body1" style={{ textAlign: 'left' }}>{ingredient.name}</Typography>
+                            <Grid item xs={6} style={{ textAlign: 'left' }}>
+                                <Typography variant="body1" sx={{ fontSize: '20px' }}>{ingredient.name}</Typography>
                             </Grid>
                             <Grid item xs={6} style={{ textAlign: 'right' }}>
-                                <Typography variant="body1">{ingredient.amount}</Typography>
+                                <Typography variant="body1" sx={{ fontSize: '20px' }}>{ingredient.amount}</Typography>
                             </Grid>
                         </Grid>
                     ))}
