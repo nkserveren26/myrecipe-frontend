@@ -27,3 +27,17 @@ export interface RecipeCardProps {
     recipeImage: string,
     registerdDate: string,
 }
+
+// レシピ情報の中の材料情報の型
+export interface Ingredient {
+    name: string,
+    amount: string,
+}
+
+// 取得するレシピ情報の型
+export interface Recipe {
+    id: number,
+    name: string,
+    videoUrl: string,
+    ingredients: Ingredient[]
+}

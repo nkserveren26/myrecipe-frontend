@@ -1,7 +1,8 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import React from "react";
 import ReactPlayer from "react-player";
 import { useParams } from "react-router-dom";
+import { Recipe } from "../interface/interface";
 
 export const RecipePage: React.FC = () => {
     const { id } = useParams<{ id: string }>();
@@ -17,9 +18,28 @@ export const RecipePage: React.FC = () => {
     const recipeId = parseInt(id, 10);
 
     // 例: データを配列から取得
-    const recipes = [
-        { id: 1, name: "アクアパッツァ", videoUrl: "https://www.youtube.com/watch?v=b06xfSfwqjc" },
-        { id: 2, name: 'Recipe 2', description: 'This is recipe 2' },
+    const recipes: Recipe[] = [
+        { 
+            id: 1, 
+            name: "アクアパッツァ", 
+            videoUrl: "https://www.youtube.com/watch?v=b06xfSfwqjc",
+            ingredients: [
+                { name: "玉ねぎ", amount: "1個" },
+                { name: "にんじん", amount: "1本" },
+                { name: "じゃがいも", amount: "2個" },
+            ],
+         },
+        { 
+            id: 2, 
+            name: 'Recipe 2',
+            videoUrl: "https://www.youtube.com/watch?v=b06xfSfwqjc",
+            ingredients: [
+                { name: "玉ねぎ", amount: "1個" },
+                { name: "にんじん", amount: "1本" },
+                { name: "じゃがいも", amount: "2個" },
+            ],
+
+        },
         // その他のレシピデータ
     ];
 
@@ -47,6 +67,19 @@ export const RecipePage: React.FC = () => {
                 <Typography pb={1} fontWeight="bold" variant="h5" sx={{ textAlign: 'left' }}>
                     材料
                 </Typography>
+                <Typography variant="body1" sx={{ textAlign: 'left' }}>2人前</Typography>
+                <Box sx={{ marginTop: 2 }}>
+                    {recipe.ingredients.map((ingredient, index) => (
+                        <Grid container key={index}>
+                            <Grid item xs={6}>
+                                <Typography variant="body1" style={{ textAlign: 'left' }}>{ingredient.name}</Typography>
+                            </Grid>
+                            <Grid item xs={6} style={{ textAlign: 'right' }}>
+                                <Typography variant="body1">{ingredient.amount}</Typography>
+                            </Grid>
+                        </Grid>
+                    ))}
+                </Box>
             </Box>
         </>
     );
