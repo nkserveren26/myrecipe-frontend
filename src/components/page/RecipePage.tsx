@@ -18,7 +18,7 @@ export const RecipePage: React.FC = () => {
 
     // 例: データを配列から取得
     const recipes = [
-        { id: 1, name: "アクアパッツァ", videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ" },
+        { id: 1, name: "アクアパッツァ", videoUrl: "https://www.youtube.com/watch?v=b06xfSfwqjc" },
         { id: 2, name: 'Recipe 2', description: 'This is recipe 2' },
         // その他のレシピデータ
     ];
@@ -32,9 +32,16 @@ export const RecipePage: React.FC = () => {
 
     return (
         <>
-            <Box pt={5}>
+            <Box pt={3}>
                 <Typography pb={3} fontWeight="bold" variant="h4">{recipe.name}</Typography>
-                <ReactPlayer url={recipe.videoUrl} controls={true} />
+                <Box display="flex" justifyContent="center">
+                    <ReactPlayer 
+                        url={recipe.videoUrl} 
+                        controls={true} 
+                        width="90%"
+                        height="500px"
+                    />
+                    </Box>
             </Box>
         </>
     );
