@@ -67,10 +67,10 @@ export const RecipePage: React.FC = () => {
                 <Typography pb={1} fontWeight="bold" variant="h5" sx={{ textAlign: 'left' }}>
                     材料
                 </Typography>
-                <Typography variant="body1" sx={{ textAlign: 'left' }}>2人前</Typography>
+                <Typography variant="body1" sx={{ textAlign: 'left', fontSize: '16px' }}>2人前</Typography>
                 <Box sx={{ marginTop: 2 }}>
                     {recipe.ingredients.map((ingredient, index) => (
-                        <Grid container key={index}>
+                        <Grid container key={index} sx={{ marginBottom: 1 }}>
                             <Grid item xs={6} style={{ textAlign: 'left' }}>
                                 <Typography variant="body1" sx={{ fontSize: '20px' }}>{ingredient.name}</Typography>
                             </Grid>
