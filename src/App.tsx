@@ -14,7 +14,7 @@ import { RecipePage } from './components/page/RecipePage';
 function App() {
   return (
     <div className="App">
-      <Box sx={{ marginLeft: '4%', marginRight: '4%' }}>
+      <Box sx={{ marginLeft: '7%', marginRight: '7%' }}>
         <BrowserRouter basename={process.env.PUBLIC_URL}>
           <Header title='My Recipe' />
           <ScrollToTop />

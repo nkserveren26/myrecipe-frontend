@@ -32,16 +32,21 @@ export const RecipePage: React.FC = () => {
 
     return (
         <>
-            <Box pt={3}>
+            <Box pt={3} pb={4}>
                 <Typography pb={3} fontWeight="bold" variant="h4">{recipe.name}</Typography>
                 <Box display="flex" justifyContent="center">
                     <ReactPlayer 
                         url={recipe.videoUrl} 
                         controls={true} 
-                        width="90%"
+                        width="100%"
                         height="500px"
                     />
-                    </Box>
+                </Box>
+            </Box>
+            <Box>
+                <Typography pb={1} fontWeight="bold" variant="h5" sx={{ textAlign: 'left' }}>
+                    材料
+                </Typography>
             </Box>
         </>
     );
