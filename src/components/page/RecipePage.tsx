@@ -34,7 +34,7 @@ export const RecipePage: React.FC = () => {
         <>
             <Box pt={5}>
                 <Typography pb={3} fontWeight="bold" variant="h4">{recipe.name}</Typography>
-                <ReactPlayer url={recipe.videoUrl} />
+                <ReactPlayer url={recipe.videoUrl} controls={true} />
             </Box>
         </>
     );
