@@ -1,7 +1,8 @@
+import { Box, Typography } from "@mui/material";
 import React from "react";
 import { useParams } from "react-router-dom";
 
-const RecipePage: React.FC = () => {
+export const RecipePage: React.FC = () => {
     const { id } = useParams<{ id: string }>();
 
     // 正規表現を使用してIDが整数であることを確認
@@ -30,6 +31,9 @@ const RecipePage: React.FC = () => {
 
     return (
         <>
+            <Box>
+                <Typography paddingBottom={3} fontWeight="bold" variant="h4">アクアパッツァ</Typography>
+            </Box>
         </>
     );
 }

@@ -9,6 +9,7 @@ import { ScrollToTop } from './components/scroll/ScrollToTop';
 import { Beef } from './components/page/Beef';
 import { Vegetable } from './components/page/Vegetable';
 import { Soup } from './components/page/Soup';
+import { RecipePage } from './components/page/RecipePage';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path="/beef" element={<Beef />} />
             <Route path="/vegetable" element={<Vegetable />} />
             <Route path="/soup" element={<Soup />} />
+            <Route path="/recipes/:id" element={<RecipePage />} />
           </Routes>
         </BrowserRouter>
       </Box>
