@@ -1,5 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
+import ReactPlayer from "react-player";
 import { useParams } from "react-router-dom";
 
 export const RecipePage: React.FC = () => {
@@ -17,7 +18,7 @@ export const RecipePage: React.FC = () => {
 
     // 例: データを配列から取得
     const recipes = [
-        { id: 1, name: 'Recipe 1', description: 'This is recipe 1' },
+        { id: 1, name: "アクアパッツァ", videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ" },
         { id: 2, name: 'Recipe 2', description: 'This is recipe 2' },
         // その他のレシピデータ
     ];
@@ -31,8 +32,9 @@ export const RecipePage: React.FC = () => {
 
     return (
         <>
-            <Box>
-                <Typography paddingBottom={3} fontWeight="bold" variant="h4">アクアパッツァ</Typography>
+            <Box pt={5}>
+                <Typography pb={3} fontWeight="bold" variant="h4">{recipe.name}</Typography>
+                <ReactPlayer url={recipe.videoUrl} />
             </Box>
         </>
     );
