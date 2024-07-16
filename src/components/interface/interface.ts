@@ -29,9 +29,15 @@ export interface RecipeCardProps {
 }
 
 // レシピ情報の中の材料情報の型
-export interface Ingredient {
+export interface RecipeIngredient {
     name: string,
     amount: string,
+}
+
+// レシピ情報の中の作り方情報の型
+interface RecipeStep {
+    number: string;
+    description: string;
 }
 
 // 取得するレシピ情報の型
@@ -39,5 +45,6 @@ export interface Recipe {
     id: number,
     name: string,
     videoUrl: string,
-    ingredients: Ingredient[]
+    ingredients: RecipeIngredient[],
+    steps: RecipeStep[],
 }
