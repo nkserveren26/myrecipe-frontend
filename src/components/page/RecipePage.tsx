@@ -57,7 +57,7 @@ export const RecipePage: React.FC = () => {
 
     return (
         <>
-            <Box pt={3} pb={4}>
+            <Box pt={3} pb={5}>
                 <Typography pb={3} fontWeight="bold" variant="h4">{recipe.name}</Typography>
                 <Box display="flex" justifyContent="center">
                     <ReactPlayer 
@@ -85,6 +85,11 @@ export const RecipePage: React.FC = () => {
                         </Grid>
                     ))}
                 </Box>
+            </Box>
+            <Box mt={6}>
+                <Typography pb={1} fontWeight="bold" variant="h5" sx={{ textAlign: 'left' }}>
+                    作り方
+                </Typography>
             </Box>
         </>
     );
