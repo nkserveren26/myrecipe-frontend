@@ -101,7 +101,7 @@ export const RecipePage: React.FC = () => {
                 </Typography>
                 <Box mt={2} >
                     {recipe.steps.map((step, index) => (
-                        <Grid container sx={{ marginBottom: 2 }}>
+                        <Grid container key={index} sx={{ marginBottom: 2 }}>
                             <Grid item xs={0.7} style={{ textAlign: 'left' }}>
                                 <Typography variant="body1" sx={{ fontSize: '20px', fontWeight: 'bold' }}>
                                     {step.number}.
