@@ -33,6 +33,12 @@ export const RecipePage: React.FC = () => {
                 { name: 'EVオリーブオイル (仕上げ用)', amount: '50ml' },
                 { name: 'イタリアンパセリ', amount: '適量' },
             ],
+            steps: [
+                { 
+                    number: "準備", 
+                    description: "あさりは砂抜きし、貝同士を擦り合わせて洗っておきます。 イタリアンパセリはみじん切りにしておきます。 ミニトマトはヘタを取っておきます。" 
+                },
+            ]
          },
         { 
             id: 2, 
@@ -43,6 +49,9 @@ export const RecipePage: React.FC = () => {
                 { name: "にんじん", amount: "1本" },
                 { name: "じゃがいも", amount: "2個" },
             ],
+            steps: [
+                { number: "1", description: "hogehoge" },
+            ]
 
         },
         // その他のレシピデータ
@@ -90,6 +99,22 @@ export const RecipePage: React.FC = () => {
                 <Typography pb={1} fontWeight="bold" variant="h5" sx={{ textAlign: 'left' }}>
                     作り方
                 </Typography>
+                <Box mt={2} >
+                    {recipe.steps.map((step, index) => (
+                        <Grid container sx={{ marginBottom: 2 }}>
+                            <Grid item xs={0.7} style={{ textAlign: 'left' }}>
+                                <Typography variant="body1" sx={{ fontSize: '20px', fontWeight: 'bold' }}>
+                                    {step.number}.
+                                </Typography>
+                            </Grid>
+                            <Grid item xs={11.3} style={{ textAlign: 'left' }}>
+                                <Typography variant="body1" sx={{ fontSize: '20px' }}>
+                                    {step.description}
+                                </Typography>
+                            </Grid>
+                        </Grid>
+                    ))}
+                </Box>
             </Box>
         </>
     );
