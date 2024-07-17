@@ -131,19 +131,19 @@ export const RecipePage: React.FC = () => {
                     ))}
                 </Box>
             </Box>
-            <Box mt={6}>
+            <Box mt={7}>
                 <Typography pb={1} fontWeight="bold" variant="h5" sx={{ textAlign: 'left' }}>
                     作り方
                 </Typography>
                 <Box mt={2} >
                     {recipe.steps.map((step, index) => (
-                        <Grid container key={index} sx={{ marginBottom: 2 }}>
-                            <Grid item xs={0.6} style={{ textAlign: 'left' }}>
+                        <Grid container key={index} sx={{ marginBottom: 3 }}>
+                            <Grid item xs={step.number === '準備' ? 0.6 : 0.4} style={{ textAlign: 'left' }}>
                                 <Typography variant="body1" sx={{ fontSize: '19px', fontWeight: 'bold' }}>
                                     {step.number}.
                                 </Typography>
                             </Grid>
-                            <Grid item xs={11.3} style={{ textAlign: 'left' }}>
+                            <Grid item xs={step.number === '準備' ? 11.4 : 11.6} style={{ textAlign: 'left' }}>
                                 <Typography variant="body1" sx={{ fontSize: '20px' }}>
                                     {step.description}
                                 </Typography>
