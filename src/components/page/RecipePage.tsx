@@ -38,6 +38,42 @@ export const RecipePage: React.FC = () => {
                     number: "準備", 
                     description: "あさりは砂抜きし、貝同士を擦り合わせて洗っておきます。 イタリアンパセリはみじん切りにしておきます。 ミニトマトはヘタを取っておきます。" 
                 },
+                {
+                    number: "1",
+                    description: "ミニトマトは横半分に切ります。"
+                },
+                {
+                    number: "2",
+                    description: "カレイは両面に1本ずつ切りこみを入れ、塩を全体にふり、まんべんなくまぶします。"
+                },
+                {
+                    number: "3",
+                    description: "フライパンを強火で熱しEVオリーブオイルをひいたら2を入れます。"
+                },
+                {
+                    number: "4",
+                    description: "弱火で焼き色がつくまで3分ほど焼きます。"
+                },
+                {
+                    number: "5",
+                    description: "焼き色がついたら裏返して反対面を弱火で2分ほど焼きます。"
+                },
+                {
+                    number: "6",
+                    description: "両面に焼き色が付いたら強火にして水を加えます。カレイに煮汁をかけながら2分ほど加熱し、アサリを加えます。"
+                },
+                {
+                    number: "7",
+                    description: "煮汁をカレイにかけながら強火で3分ほど煮込み、カレイに火が通り、アサリの殻が開いたら1を加えます。"
+                },
+                {
+                    number: "8",
+                    description: "全体がなじむまで1分ほど煮込んだら、EVオリーブオイルを加え、煮汁を全体にかけながら乳化するまで30秒ほど強火で煮込みます。"
+                },
+                {
+                    number: "9",
+                    description: "弱火にしてイタリアンパセリを加えたら火から下ろし、お皿に盛り付けて完成です。"
+                },
             ]
          },
         { 
@@ -102,8 +138,8 @@ export const RecipePage: React.FC = () => {
                 <Box mt={2} >
                     {recipe.steps.map((step, index) => (
                         <Grid container key={index} sx={{ marginBottom: 2 }}>
-                            <Grid item xs={0.7} style={{ textAlign: 'left' }}>
-                                <Typography variant="body1" sx={{ fontSize: '20px', fontWeight: 'bold' }}>
+                            <Grid item xs={0.6} style={{ textAlign: 'left' }}>
+                                <Typography variant="body1" sx={{ fontSize: '19px', fontWeight: 'bold' }}>
                                     {step.number}.
                                 </Typography>
                             </Grid>
