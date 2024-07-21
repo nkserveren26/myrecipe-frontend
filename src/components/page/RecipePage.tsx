@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { Recipe } from "../interface/interface";
 import { DropdownButton } from "../button/DropdownButton";
 import zIndex from "@mui/material/styles/zIndex";
+import { ScrollToTopButton } from "../button/ScrollToTopButton";
 
 export const RecipePage: React.FC = () => {
     const { id } = useParams<{ id: string }>();
@@ -171,6 +172,7 @@ export const RecipePage: React.FC = () => {
                     {recipe.point}
                 </Typography>
             </Box>
+            <ScrollToTopButton />
         </>
     );
 }
