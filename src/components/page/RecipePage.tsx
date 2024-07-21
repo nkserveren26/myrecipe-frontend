@@ -3,6 +3,7 @@ import React from "react";
 import ReactPlayer from "react-player";
 import { useParams } from "react-router-dom";
 import { Recipe } from "../interface/interface";
+import { DropdownButton } from "../button/DropdownButton";
 
 export const RecipePage: React.FC = () => {
     const { id } = useParams<{ id: string }>();
@@ -106,6 +107,7 @@ export const RecipePage: React.FC = () => {
         <>
             <Box pt={3} pb={5}>
                 <Typography pb={3} fontWeight="bold" variant="h4">{recipe.name}</Typography>
+                <DropdownButton />
                 <Box display="flex" justifyContent="center">
                     <ReactPlayer 
                         url={recipe.videoUrl} 
