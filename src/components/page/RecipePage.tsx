@@ -4,6 +4,7 @@ import ReactPlayer from "react-player";
 import { useParams } from "react-router-dom";
 import { Recipe } from "../interface/interface";
 import { DropdownButton } from "../button/DropdownButton";
+import zIndex from "@mui/material/styles/zIndex";
 
 export const RecipePage: React.FC = () => {
     const { id } = useParams<{ id: string }>();
@@ -106,8 +107,14 @@ export const RecipePage: React.FC = () => {
     return (
         <>
             <Box pt={3} pb={5}>
-                <Typography pb={3} fontWeight="bold" variant="h4">{recipe.name}</Typography>
-                <DropdownButton />
+                <Box display="flex" alignItems="center" justifyContent="space-between" pb={3}>
+                    <Box flex={1} display="flex" justifyContent="center">
+                        <Typography pl={15} fontWeight="bold" variant="h4">
+                            {recipe.name}
+                        </Typography>
+                    </Box>
+                    <DropdownButton />
+                </Box>
                 <Box display="flex" justifyContent="center">
                     <ReactPlayer 
                         url={recipe.videoUrl} 
