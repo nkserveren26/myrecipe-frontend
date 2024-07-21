@@ -155,7 +155,7 @@ export const RecipePage: React.FC = () => {
                 </Box>
             </Box>
             <Box mt={6}>
-                <Typography pb={1} fontWeight="bold" variant="h5" sx={{ textAlign: 'left' }}>
+                <Typography pb={2} fontWeight="bold" variant="h5" sx={{ textAlign: 'left' }}>
                     料理のコツ・ポイント
                 </Typography>
                 <Typography variant="body1" sx={{ fontSize: '20px', textAlign: 'left', whiteSpace: 'pre-line' }}>
