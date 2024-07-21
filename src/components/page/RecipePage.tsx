@@ -74,7 +74,8 @@ export const RecipePage: React.FC = () => {
                     number: "9",
                     description: "弱火にしてイタリアンパセリを加えたら火から下ろし、お皿に盛り付けて完成です。"
                 },
-            ]
+            ],
+            point: "塩加減は、お好みで調整してください。\n手順7で煮汁が少なくなった場合は、水を加えて調整してください。"
          },
         { 
             id: 2, 
@@ -87,7 +88,8 @@ export const RecipePage: React.FC = () => {
             ],
             steps: [
                 { number: "1", description: "hogehoge" },
-            ]
+            ],
+            point: "",
 
         },
         // その他のレシピデータ
@@ -151,6 +153,14 @@ export const RecipePage: React.FC = () => {
                         </Grid>
                     ))}
                 </Box>
+            </Box>
+            <Box mt={6}>
+                <Typography pb={1} fontWeight="bold" variant="h5" sx={{ textAlign: 'left' }}>
+                    料理のコツ・ポイント
+                </Typography>
+                <Typography variant="body1" sx={{ fontSize: '20px', textAlign: 'left', whiteSpace: 'pre-line' }}>
+                    {recipe.point}
+                </Typography>
             </Box>
         </>
     );

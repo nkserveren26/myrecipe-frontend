@@ -47,4 +47,5 @@ export interface Recipe {
     videoUrl: string,
     ingredients: RecipeIngredient[],
     steps: RecipeStep[],
+    point: string,
 }
