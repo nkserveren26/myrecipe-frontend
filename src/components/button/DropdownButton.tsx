@@ -22,11 +22,12 @@ export const DropdownButton: React.FC = () => {
             <Button
                 aria-controls="simple-menu"
                 aria-haspopup="true"
+                variant="contained"
                 color="primary"
                 onClick={handleClick}
                 endIcon={<ArrowDropDownIcon />}
             >
-                Open Menu
+                Action
             </Button>
             <Menu
                 id="simple-menu"
@@ -35,9 +36,8 @@ export const DropdownButton: React.FC = () => {
                 open={Boolean(anchorEl)} // anchorElがnullでない場合、メニューを表示
                 onClose={handleClose}
             >
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
-                <MenuItem onClick={handleClose}>Logout</MenuItem>
+                <MenuItem onClick={handleClose}>Edit</MenuItem>
+                <MenuItem onClick={handleClose}>Delete</MenuItem>
             </Menu>
         </div>
     );
