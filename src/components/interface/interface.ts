@@ -28,6 +28,12 @@ export interface RecipeCardProps {
     registerdDate: string,
 }
 
+// RequiredLabelのpropsの型
+export interface RequiredLabelProps {
+    text?: string,
+    fontSize?: string | number;
+}
+
 // レシピ情報の中の材料情報の型
 export interface RecipeIngredient {
     name: string,
