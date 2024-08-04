@@ -53,6 +53,9 @@ export const AddRecipe: React.FC = () => {
                 <Typography variant="h6" sx={{ fontWeight: 'bold', mt: 4 }}>
                     材料
                 </Typography>
+                <Typography variant="body1" sx={{ mt: 2 }}>
+                    材料名
+                </Typography>
             </Box>
         </>
     );
