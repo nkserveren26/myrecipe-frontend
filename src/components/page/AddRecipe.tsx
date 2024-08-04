@@ -41,7 +41,7 @@ export const AddRecipe: React.FC = () => {
                     onChange={(e) => setServings(parseInt(e.target.value))}
                     variant="outlined"
                     margin="normal"
-                    sx={{ border: '1px solid', borderRadius: '8px' }}
+                    sx={{ border: '1px solid', borderRadius: '8px', width: 80 }}
                 >
                     {options.map((option) => (
                         <MenuItem key={option} value={option}>
