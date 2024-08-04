@@ -49,6 +49,10 @@ export const AddRecipe: React.FC = () => {
                         </MenuItem>
                     ))}
                 </TextField>
+
+                <Typography variant="h6" sx={{ fontWeight: 'bold', mt: 4 }}>
+                    材料
+                </Typography>
             </Box>
         </>
     );
