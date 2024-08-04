@@ -16,10 +16,10 @@ export const AddRecipe: React.FC = () => {
     };
     return (
         <>
-            <Box component="form" onSubmit={handleSubmit} sx={{  margin: 'auto', pt: 5 }}>
-                <Typography variant="h4" sx={{ fontWeight: 'bold', mb: 2, textAlign: 'left' }}>レシピの追加</Typography>
+            <Box component="form" onSubmit={handleSubmit} sx={{  margin: 'auto', pt: 5, textAlign: 'left' }}>
+                <Typography variant="h4" sx={{ fontWeight: 'bold', mb: 2 }}>レシピの追加</Typography>
 
-                <Typography variant="h6" sx={{ fontWeight: 'bold', mt: 4, textAlign: 'left' }}>
+                <Typography variant="h6" sx={{ fontWeight: 'bold', mt: 4 }}>
                     料理名 <RequiredLabel fontSize='18px' />
                 </Typography>
                 <TextField
@@ -32,7 +32,7 @@ export const AddRecipe: React.FC = () => {
                     sx={{ border: '1px solid', borderRadius: '8px' }}
                 />
 
-                <Typography variant="h6" sx={{ fontWeight: 'bold', mt: 4, textAlign: 'left' }}>
+                <Typography variant="h6" sx={{ fontWeight: 'bold', mt: 4 }}>
                     何人前
                 </Typography>
                 <TextField
@@ -41,7 +41,7 @@ export const AddRecipe: React.FC = () => {
                     onChange={(e) => setServings(parseInt(e.target.value))}
                     variant="outlined"
                     margin="normal"
-                    sx={{ border: '1px solid', borderRadius: '8px', width: 80 }}
+                    sx={{ border: '1px solid', borderRadius: '8px', width: 80, textAlign: 'left' }}
                 >
                     {options.map((option) => (
                         <MenuItem key={option} value={option}>
