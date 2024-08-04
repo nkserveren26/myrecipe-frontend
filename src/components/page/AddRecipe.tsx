@@ -1,5 +1,6 @@
 import { Box, TextField, Typography } from "@mui/material";
 import React, { useState } from "react";
+import { RequiredLabel } from "../label/RequiredLabel";
 
 export const AddRecipe: React.FC = () => {
 
@@ -15,7 +16,7 @@ export const AddRecipe: React.FC = () => {
                 <Typography variant="h4" sx={{ fontWeight: 'bold', mb: 2, textAlign: 'left' }}>レシピの追加</Typography>
 
                 <Typography variant="h6" sx={{ fontWeight: 'bold', mt: 2, textAlign: 'left' }}>
-                    料理名 <Typography component="span" sx={{ color: 'red', fontSize: '18px' }}> (必須) </Typography>
+                    料理名 <RequiredLabel fontSize='18px' />
                 </Typography>
                 <TextField
                     fullWidth
