@@ -1,6 +1,7 @@
 import { Box, Button, MenuItem, TextField, Typography } from "@mui/material";
 import React, { useState } from "react";
 import { RequiredLabel } from "../label/RequiredLabel";
+import { Ingredient } from "../interface/interface";
 
 export const AddRecipe: React.FC = () => {
 
@@ -11,9 +12,9 @@ export const AddRecipe: React.FC = () => {
     const [servings, setServings] = useState(1);
 
     // 材料
-    const [ingredients, setIngredients] = React.useState([{ name: "", amount: "" }]);
+    const [ingredients, setIngredients] = useState<Ingredient[]>([{ name: "", amount: "" }]);
 
-    const handleIngredientChange = (index: number, field: string, value: string) => {
+    const handleIngredientChange = (index: number, field: keyof Ingredient, value: string) => {
         const newIngredients = [...ingredients];
         newIngredients[index][field] = value;
         setIngredients(newIngredients);
