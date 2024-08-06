@@ -1,11 +1,32 @@
-import { Box, MenuItem, TextField, Typography } from "@mui/material";
+import { Box, Button, MenuItem, TextField, Typography } from "@mui/material";
 import React, { useState } from "react";
 import { RequiredLabel } from "../label/RequiredLabel";
 
 export const AddRecipe: React.FC = () => {
 
-    const [recipeName, setRecipeName] = useState('');
+    // レシピ名
+    const [recipeName, setRecipeName] = useState("");
+
+    // 何人前
     const [servings, setServings] = useState(1);
+
+    // 材料
+    const [ingredients, setIngredients] = React.useState([{ name: "", amount: "" }]);
+
+    const handleIngredientChange = (index: number, field: string, value: string) => {
+        const newIngredients = [...ingredients];
+        newIngredients[index][field] = value;
+        setIngredients(newIngredients);
+    };
+
+    const handleAddIngredient = () => {
+        setIngredients([...ingredients, { name: "", amount: "" }]);
+    };
+
+    const handleRemoveIngredient = (index: number) => {
+        const newIngredients = ingredients.filter((_, i) => i !== index);
+        setIngredients(newIngredients);
+    };
 
     // 何人前のオプション用配列
     const options = Array.from({ length: 10 }, (_, index) => index + 1);
@@ -14,6 +35,7 @@ export const AddRecipe: React.FC = () => {
         // ここでフォームの送信処理を行います。
         //console.log({ recipeName, servings, ingredients });
     };
+
     return (
         <>
             <Box component="form" onSubmit={handleSubmit} sx={{  margin: 'auto', pt: 5, textAlign: 'left' }}>
@@ -53,9 +75,35 @@ export const AddRecipe: React.FC = () => {
                 <Typography variant="h6" sx={{ fontWeight: 'bold', mt: 4 }}>
                     材料
                 </Typography>
-                <Typography variant="body1" sx={{ mt: 2 }}>
-                    材料名
-                </Typography>
+                {ingredients.map((ingredient, index) => (
+                    <Box key={index} sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+                        <TextField
+                            label="材料名"
+                            value={ingredient.name}
+                            onChange={(e) => handleIngredientChange(index, "name", e.target.value)}
+                            variant="outlined"
+                            sx={{ mr: 2, flex: 1 }}  // 余白と幅の指定
+                        />
+                        <TextField
+                            label="量"
+                            value={ingredient.amount}
+                            onChange={(e) => handleIngredientChange(index, "amount", e.target.value)}
+                            variant="outlined"
+                            sx={{ flex: 0.5 }}  // 幅の指定
+                        />
+                        <Button
+                            variant="contained"
+                            color="secondary"
+                            onClick={() => handleRemoveIngredient(index)}
+                            sx={{ ml: 2 }}
+                        >
+                            削除
+                        </Button>
+                    </Box>
+                ))}
+                <Button variant="contained" color="primary" onClick={handleAddIngredient}>
+                    材料を追加
+                </Button>
             </Box>
         </>
     );
