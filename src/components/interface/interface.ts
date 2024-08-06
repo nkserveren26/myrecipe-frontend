@@ -55,3 +55,9 @@ export interface Recipe {
     steps: RecipeStep[],
     point: string,
 }
+
+// 材料オブジェクトの型
+export interface Ingredient {
+    name: string;
+    amount: string;
+}
