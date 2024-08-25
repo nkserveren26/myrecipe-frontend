@@ -17,7 +17,7 @@ export const AddRecipe: React.FC = () => {
     const [ingredients, setIngredients] = useState<Ingredient[]>([{ name: "", amount: "" }]);
 
     // 作り方
-    const [steps, setsteps] = useState<Step[]>([{ task: "", description: "" }]);
+    const [steps, setSteps] = useState<Step[]>([{ task: "", description: "" }]);
 
     // 材料オブジェクトを更新する関数
     const handleIngredientChange = (index: number, field: keyof Ingredient, value: string) => {
@@ -37,8 +37,19 @@ export const AddRecipe: React.FC = () => {
         setIngredients(newIngredients);
     };
 
+    // 作り方オブジェクトを更新する関数
+    const handleStepChange = (index: number, field: keyof Step, value: string) => {
+        const newSteps = [...steps];
+        newSteps[index][field] = value;
+        setSteps(newSteps);
+    };
+
     // 何人前のオプション用配列
     const options = Array.from({ length: 10 }, (_, index) => index + 1);
+
+    // 作り方の項番オプション用配列
+    const stepOptions = ["準備", ...Array.from({ length: 10 }, (_, i) => (i + 1).toString())];
+
 
     const handleSubmit = () => {
         // ここでフォームの送信処理を行います。
@@ -125,7 +136,7 @@ export const AddRecipe: React.FC = () => {
                             select
                             label="項番"
                             value={step.task}
-                            onChange={(e) => setSelectedStep(e.target.value)}
+                            onChange={(e) => handleStepChange(index, "task", e.target.value)}
                             variant="outlined"
                             margin="normal"
                             fullWidth
@@ -137,19 +148,6 @@ export const AddRecipe: React.FC = () => {
                                 </MenuItem>
                             ))}
                         </TextField>
-                        <TextField
-                            label="量"
-                            value={ingredient.amount}
-                            onChange={(e) => handleIngredientChange(index, "amount", e.target.value)}
-                            variant="outlined"
-                            sx={{ flex: 0.5, border: '1px solid', borderRadius: '8px' }}  // 幅の指定
-                        />
-                        <IconButton
-                            onClick={() => handleRemoveIngredient(index)}
-                            sx={{ p: 0, ml: 2, color: 'red' }}
-                        >
-                            <DeleteIcon sx={{ fontSize: '30px' }} />
-                        </IconButton>
                     </Box>
                 ))}
             </Box>
