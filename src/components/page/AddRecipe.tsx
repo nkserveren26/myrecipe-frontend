@@ -19,16 +19,19 @@ export const AddRecipe: React.FC = () => {
     // 作り方
     const [steps, setsteps] = useState<Step[]>([{ task: "", description: "" }]);
 
+    // 材料オブジェクトを更新する関数
     const handleIngredientChange = (index: number, field: keyof Ingredient, value: string) => {
         const newIngredients = [...ingredients];
         newIngredients[index][field] = value;
         setIngredients(newIngredients);
     };
 
+    // 材料オブジェクトを追加する関数
     const handleAddIngredient = () => {
         setIngredients([...ingredients, { name: "", amount: "" }]);
     };
 
+    // 材料オブジェクトを削除する関数
     const handleRemoveIngredient = (index: number) => {
         const newIngredients = ingredients.filter((_, i) => i !== index);
         setIngredients(newIngredients);
@@ -116,6 +119,39 @@ export const AddRecipe: React.FC = () => {
                 <Typography variant="h6" sx={{ fontWeight: 'bold', mt: 4 }}>
                     作り方
                 </Typography>
+                {steps.map((step, index) => (
+                    <Box key={index} sx={{ alignItems: 'center', mt: 2 }}>
+                        <TextField
+                            select
+                            label="項番"
+                            value={step.task}
+                            onChange={(e) => setSelectedStep(e.target.value)}
+                            variant="outlined"
+                            margin="normal"
+                            fullWidth
+                            sx={{ mb: 2 }}
+                        >
+                            {stepOptions.map((option, index) => (
+                                <MenuItem key={index} value={option}>
+                                    {option}
+                                </MenuItem>
+                            ))}
+                        </TextField>
+                        <TextField
+                            label="量"
+                            value={ingredient.amount}
+                            onChange={(e) => handleIngredientChange(index, "amount", e.target.value)}
+                            variant="outlined"
+                            sx={{ flex: 0.5, border: '1px solid', borderRadius: '8px' }}  // 幅の指定
+                        />
+                        <IconButton
+                            onClick={() => handleRemoveIngredient(index)}
+                            sx={{ p: 0, ml: 2, color: 'red' }}
+                        >
+                            <DeleteIcon sx={{ fontSize: '30px' }} />
+                        </IconButton>
+                    </Box>
+                ))}
             </Box>
         </>
     );
