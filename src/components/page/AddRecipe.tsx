@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { RequiredLabel } from "../label/RequiredLabel";
 import { Ingredient } from "../interface/interface";
 import DeleteIcon from '@mui/icons-material/Delete';
+import AddIcon from '@mui/icons-material/Add';
 
 export const AddRecipe: React.FC = () => {
 
@@ -101,8 +102,12 @@ export const AddRecipe: React.FC = () => {
                         </IconButton>
                     </Box>
                 ))}
-                <Button variant="contained" color="primary" onClick={handleAddIngredient}>
-                    材料を追加
+                <Button
+                    variant="contained"
+                    onClick={handleAddIngredient}
+                    startIcon={<AddIcon />}
+                >
+                    Add
                 </Button>
             </Box>
         </>
