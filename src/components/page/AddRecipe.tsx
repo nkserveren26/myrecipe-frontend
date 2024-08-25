@@ -131,7 +131,7 @@ export const AddRecipe: React.FC = () => {
                     作り方
                 </Typography>
                 {steps.map((step, index) => (
-                    <Box key={index} sx={{ alignItems: 'center', mt: 1 }}>
+                    <Box key={index} sx={{  mt: 1 }}>
                         <TextField
                             select
                             label="項番"
@@ -147,6 +147,14 @@ export const AddRecipe: React.FC = () => {
                                 </MenuItem>
                             ))}
                         </TextField>
+                        <TextField
+                            label="説明"
+                            value={step.description}
+                            onChange={(e) => handleStepChange(index, "description", e.target.value)}
+                            variant="outlined"
+                            fullWidth
+                            sx={{ mt: 2, flex: 1, border: '1px solid', borderRadius: '8px' }}  // 余白と幅の指定
+                        />
                     </Box>
                 ))}
             </Box>
