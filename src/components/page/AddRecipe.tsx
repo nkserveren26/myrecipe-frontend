@@ -1,7 +1,7 @@
 import { Box, Button, IconButton, MenuItem, TextField, Typography } from "@mui/material";
 import React, { useState } from "react";
 import { RequiredLabel } from "../label/RequiredLabel";
-import { Ingredient } from "../interface/interface";
+import { Ingredient, Step } from "../interface/interface";
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddIcon from '@mui/icons-material/Add';
 
@@ -15,6 +15,9 @@ export const AddRecipe: React.FC = () => {
 
     // 材料
     const [ingredients, setIngredients] = useState<Ingredient[]>([{ name: "", amount: "" }]);
+
+    // 作り方
+    const [steps, setsteps] = useState<Step[]>([{ task: "", description: "" }]);
 
     const handleIngredientChange = (index: number, field: keyof Ingredient, value: string) => {
         const newIngredients = [...ingredients];

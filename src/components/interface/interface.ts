@@ -61,3 +61,9 @@ export interface Ingredient {
     name: string;
     amount: string;
 }
+
+// 作り方オブジェクトの型
+export interface Step {
+    task: string;
+    description: string;
+}
