@@ -50,6 +50,11 @@ export const AddRecipe: React.FC = () => {
         setSteps(newSteps);
     };
 
+    // 作り方オブジェクトを追加する関数
+    const handleAddStep = () => {
+        setSteps([...steps, { task: "", description: "" }]);
+    };
+
     // 何人前のオプション用配列
     const options = Array.from({ length: 10 }, (_, index) => index + 1);
 
@@ -166,6 +171,9 @@ export const AddRecipe: React.FC = () => {
                         </IconButton>
                     </Box>
                 ))}
+                <Button variant="contained" onClick={handleAddStep} sx={{ mt: 2 }}>
+                    +Add
+                </Button>
             </Box>
         </>
     );
