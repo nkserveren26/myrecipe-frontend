@@ -79,7 +79,7 @@ export const AddRecipe: React.FC = () => {
                     材料
                 </Typography>
                 {ingredients.map((ingredient, index) => (
-                    <Box key={index} sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+                    <Box key={index} sx={{ display: 'flex', alignItems: 'center',mt: 2 }}>
                         <TextField
                             label="材料名"
                             value={ingredient.name}
@@ -106,9 +106,13 @@ export const AddRecipe: React.FC = () => {
                     variant="contained"
                     onClick={handleAddIngredient}
                     startIcon={<AddIcon />}
+                    sx={{mt: 2}}
                 >
                     Add
                 </Button>
+                <Typography variant="h6" sx={{ fontWeight: 'bold', mt: 4 }}>
+                    作り方
+                </Typography>
             </Box>
         </>
     );
