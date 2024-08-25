@@ -95,9 +95,9 @@ export const AddRecipe: React.FC = () => {
                         />
                         <IconButton
                             onClick={() => handleRemoveIngredient(index)}
-                            sx={{ ml: 2, color: 'red' }}
+                            sx={{ p: 0, ml: 2, color: 'red' }}
                         >
-                            <DeleteIcon />
+                            <DeleteIcon sx={{ fontSize: '30px' }} />
                         </IconButton>
                     </Box>
                 ))}
