@@ -44,6 +44,12 @@ export const AddRecipe: React.FC = () => {
         setSteps(newSteps);
     };
 
+    // 任意の作り方オブジェクトを削除する関数
+    const handleRemoveStep = (index: number) => {
+        const newSteps = steps.filter((_, i) => i !== index);
+        setSteps(newSteps);
+    };
+
     // 何人前のオプション用配列
     const options = Array.from({ length: 10 }, (_, index) => index + 1);
 
@@ -155,6 +161,9 @@ export const AddRecipe: React.FC = () => {
                             fullWidth
                             sx={{ mt: 2, flex: 1, border: '1px solid', borderRadius: '8px' }}  // 余白と幅の指定
                         />
+                        <IconButton onClick={() => handleRemoveStep(index)} color="error">
+                            <DeleteIcon fontSize="large" />
+                        </IconButton>
                     </Box>
                 ))}
             </Box>
