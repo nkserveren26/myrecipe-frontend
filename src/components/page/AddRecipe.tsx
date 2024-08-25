@@ -1,7 +1,8 @@
-import { Box, Button, MenuItem, TextField, Typography } from "@mui/material";
+import { Box, Button, IconButton, MenuItem, TextField, Typography } from "@mui/material";
 import React, { useState } from "react";
 import { RequiredLabel } from "../label/RequiredLabel";
 import { Ingredient } from "../interface/interface";
+import DeleteIcon from '@mui/icons-material/Delete';
 
 export const AddRecipe: React.FC = () => {
 
@@ -92,14 +93,12 @@ export const AddRecipe: React.FC = () => {
                             variant="outlined"
                             sx={{ flex: 0.5 }}  // 幅の指定
                         />
-                        <Button
-                            variant="contained"
-                            color="secondary"
+                        <IconButton
                             onClick={() => handleRemoveIngredient(index)}
-                            sx={{ ml: 2 }}
+                            sx={{ ml: 2, color: 'red' }}
                         >
-                            削除
-                        </Button>
+                            <DeleteIcon />
+                        </IconButton>
                     </Box>
                 ))}
                 <Button variant="contained" color="primary" onClick={handleAddIngredient}>
