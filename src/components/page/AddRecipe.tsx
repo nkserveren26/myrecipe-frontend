@@ -84,14 +84,14 @@ export const AddRecipe: React.FC = () => {
                             value={ingredient.name}
                             onChange={(e) => handleIngredientChange(index, "name", e.target.value)}
                             variant="outlined"
-                            sx={{ mr: 2, flex: 1 }}  // 余白と幅の指定
+                            sx={{ mr: 2, flex: 1, border: '1px solid', borderRadius: '8px' }}  // 余白と幅の指定
                         />
                         <TextField
                             label="量"
                             value={ingredient.amount}
                             onChange={(e) => handleIngredientChange(index, "amount", e.target.value)}
                             variant="outlined"
-                            sx={{ flex: 0.5 }}  // 幅の指定
+                            sx={{ flex: 0.5, border: '1px solid', borderRadius: '8px' }}  // 幅の指定
                         />
                         <IconButton
                             onClick={() => handleRemoveIngredient(index)}
