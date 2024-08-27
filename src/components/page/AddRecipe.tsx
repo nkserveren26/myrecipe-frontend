@@ -2,8 +2,6 @@ import { Box, Button, IconButton, MenuItem, TextField, Typography } from "@mui/m
 import React, { useState } from "react";
 import { RequiredLabel } from "../label/RequiredLabel";
 import { Ingredient, Step } from "../interface/interface";
-import DeleteIcon from '@mui/icons-material/Delete';
-import AddIcon from '@mui/icons-material/Add';
 import { DeleteButton } from "../button/DeleteButton";
 import { AddButton } from "../button/AddButton";
 
