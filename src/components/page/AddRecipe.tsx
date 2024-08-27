@@ -161,6 +161,11 @@ export const AddRecipe: React.FC = () => {
                     </Box>
                 ))}
                 <AddButton onClick={handleAddStep} />
+
+                <Typography variant="h6" sx={{ fontWeight: 'bold', mt: 4 }}>
+                    料理のコツ・ポイント
+                </Typography>
+
             </Box>
         </>
     );
