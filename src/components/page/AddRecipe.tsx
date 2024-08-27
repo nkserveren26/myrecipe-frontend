@@ -158,17 +158,19 @@ export const AddRecipe: React.FC = () => {
                                 </MenuItem>
                             ))}
                         </TextField>
-                        <TextField
-                            label="説明"
-                            value={step.description}
-                            onChange={(e) => handleStepChange(index, "description", e.target.value)}
-                            variant="outlined"
-                            fullWidth
-                            sx={{ mt: 2, flex: 1, border: '1px solid', borderRadius: '8px' }}  // 余白と幅の指定
-                        />
-                        <IconButton onClick={() => handleRemoveStep(index)} color="error">
-                            <DeleteIcon fontSize="large" />
-                        </IconButton>
+                        <Box display="flex" alignItems="center">
+                            <TextField
+                                label="説明"
+                                value={step.description}
+                                onChange={(e) => handleStepChange(index, "description", e.target.value)}
+                                variant="outlined"
+                                fullWidth
+                                sx={{ mt: 2, flex: 1, border: '1px solid', borderRadius: '8px' }}  // 余白と幅の指定
+                            />
+                            <IconButton onClick={() => handleRemoveStep(index)} color="error">
+                                <DeleteIcon fontSize="large" />
+                            </IconButton>
+                        </Box>
                     </Box>
                 ))}
                 <Button variant="contained" onClick={handleAddStep} sx={{ mt: 2 }}>
