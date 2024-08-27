@@ -4,6 +4,7 @@ import { RequiredLabel } from "../label/RequiredLabel";
 import { Ingredient, Step } from "../interface/interface";
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddIcon from '@mui/icons-material/Add';
+import { DeleteButton } from "../button/DeleteButton";
 
 export const AddRecipe: React.FC = () => {
 
@@ -122,12 +123,7 @@ export const AddRecipe: React.FC = () => {
                             variant="outlined"
                             sx={{ flex: 0.5, border: '1px solid', borderRadius: '8px' }}  // 幅の指定
                         />
-                        <IconButton
-                            onClick={() => handleRemoveIngredient(index)}
-                            sx={{ p: 0, ml: 2, color: 'red' }}
-                        >
-                            <DeleteIcon sx={{ fontSize: '30px' }} />
-                        </IconButton>
+                        <DeleteButton onClick={() => handleRemoveIngredient(index)} size="large" />
                     </Box>
                 ))}
                 <Button
@@ -158,23 +154,26 @@ export const AddRecipe: React.FC = () => {
                                 </MenuItem>
                             ))}
                         </TextField>
-                        <Box display="flex" alignItems="center">
+                        <Box display="flex" alignItems="center" mt={2}>
                             <TextField
                                 label="説明"
                                 value={step.description}
                                 onChange={(e) => handleStepChange(index, "description", e.target.value)}
                                 variant="outlined"
                                 fullWidth
-                                sx={{ mt: 2, flex: 1, border: '1px solid', borderRadius: '8px' }}  // 余白と幅の指定
+                                sx={{ border: '1px solid', borderRadius: '8px' }}  // 余白と幅の指定
                             />
-                            <IconButton onClick={() => handleRemoveStep(index)} color="error">
-                                <DeleteIcon fontSize="large" />
-                            </IconButton>
+                            <DeleteButton onClick={() => handleRemoveStep(index)} size="large" />
                         </Box>
                     </Box>
                 ))}
-                <Button variant="contained" onClick={handleAddStep} sx={{ mt: 2 }}>
-                    +Add
+                <Button
+                    variant="contained"
+                    onClick={handleAddStep}
+                    startIcon={<AddIcon />}
+                    sx={{ mt: 2 }}
+                >
+                    Add
                 </Button>
             </Box>
         </>
