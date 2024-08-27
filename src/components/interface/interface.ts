@@ -15,6 +15,13 @@ export interface DeleteButtonProps {
     size?: 'small' | 'medium' | 'large';
 }
 
+// AddButtonのpropsの型
+export interface AddButtonProps {
+    onClick: () => void;
+    label?: string;
+    sx?: object;
+}
+
 // HeroHeaderのpropsの型
 export interface HeroHeaderProps {
     backgroundImage: string,
