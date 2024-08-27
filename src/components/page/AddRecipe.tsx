@@ -5,6 +5,7 @@ import { Ingredient, Step } from "../interface/interface";
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddIcon from '@mui/icons-material/Add';
 import { DeleteButton } from "../button/DeleteButton";
+import { AddButton } from "../button/AddButton";
 
 export const AddRecipe: React.FC = () => {
 
@@ -126,14 +127,8 @@ export const AddRecipe: React.FC = () => {
                         <DeleteButton onClick={() => handleRemoveIngredient(index)} size="large" />
                     </Box>
                 ))}
-                <Button
-                    variant="contained"
-                    onClick={handleAddIngredient}
-                    startIcon={<AddIcon />}
-                    sx={{mt: 2}}
-                >
-                    Add
-                </Button>
+                <AddButton onClick={handleAddIngredient} />
+
                 <Typography variant="h6" sx={{ fontWeight: 'bold', mt: 4 }}>
                     作り方
                 </Typography>
@@ -167,14 +162,7 @@ export const AddRecipe: React.FC = () => {
                         </Box>
                     </Box>
                 ))}
-                <Button
-                    variant="contained"
-                    onClick={handleAddStep}
-                    startIcon={<AddIcon />}
-                    sx={{ mt: 2 }}
-                >
-                    Add
-                </Button>
+                <AddButton onClick={handleAddStep} />
             </Box>
         </>
     );
