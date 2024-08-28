@@ -187,11 +187,11 @@ export const AddRecipe: React.FC = () => {
                         sx={{ border: '1px solid', borderRadius: '8px', mt: 2 }}  // 余白と幅の指定
                     />
                 </Box>
-                <Box display="flex" justifyContent="space-between" sx={{ mt: 5 }}>
+                <Box display="flex" justifyContent="flex-start" sx={{ mt: 5 }}>
                     <Button type="submit" color="primary" variant="contained" size="large" >
                         SUBMIT
                     </Button>
-                    <Button variant="outlined" color="secondary" onClick={handleCancel}>
+                    <Button variant="contained" size="large" onClick={handleCancel} sx={{ml: 3}} style={{ backgroundColor: '#808080' }}>
                         Cancel
                     </Button>
                 </Box>
