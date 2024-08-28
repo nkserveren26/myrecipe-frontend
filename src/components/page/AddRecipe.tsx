@@ -176,6 +176,9 @@ export const AddRecipe: React.FC = () => {
                     fullWidth
                     sx={{ border: '1px solid', borderRadius: '8px' }}  // 余白と幅の指定
                 />
+                <Button type="submit" color="primary" variant="contained" size="large">
+                    SUBMIT
+                </Button>
             </Box>
         </>
     );
