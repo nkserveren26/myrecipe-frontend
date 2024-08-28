@@ -19,6 +19,9 @@ export const AddRecipe: React.FC = () => {
     // 作り方
     const [steps, setSteps] = useState<Step[]>([{ task: "", description: "" }]);
 
+    // 料理のコツ
+    const [recipeTips, setRecipeTips] = useState("");
+
     // 材料オブジェクトを更新する関数
     const handleIngredientChange = (index: number, field: keyof Ingredient, value: string) => {
         const newIngredients = [...ingredients];
@@ -165,7 +168,14 @@ export const AddRecipe: React.FC = () => {
                 <Typography variant="h6" sx={{ fontWeight: 'bold', mt: 4 }}>
                     料理のコツ・ポイント
                 </Typography>
-
+                <TextField
+                    label="説明"
+                    value={recipeTips}
+                    onChange={(e) => setRecipeTips(e.target.value)}
+                    variant="outlined"
+                    fullWidth
+                    sx={{ border: '1px solid', borderRadius: '8px' }}  // 余白と幅の指定
+                />
             </Box>
         </>
     );
