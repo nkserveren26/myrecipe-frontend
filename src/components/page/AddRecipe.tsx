@@ -4,6 +4,7 @@ import { RequiredLabel } from "../label/RequiredLabel";
 import { Ingredient, Step } from "../interface/interface";
 import { DeleteButton } from "../button/DeleteButton";
 import { AddButton } from "../button/AddButton";
+import { useNavigate } from "react-router-dom";
 
 export const AddRecipe: React.FC = () => {
 
@@ -21,6 +22,14 @@ export const AddRecipe: React.FC = () => {
 
     // 料理のコツ
     const [recipeTips, setRecipeTips] = useState("");
+
+    // useNavigate
+    const navigate = useNavigate();
+
+    // 前のページに戻る関数
+    const handleCancel = () => {
+        navigate(-1); // 前の画面に戻る
+    };
 
     // 材料オブジェクトを更新する関数
     const handleIngredientChange = (index: number, field: keyof Ingredient, value: string) => {
@@ -165,7 +174,7 @@ export const AddRecipe: React.FC = () => {
                 ))}
                 <AddButton onClick={handleAddStep} />
 
-                <Box sx={{ mt: 5, mb: 5}}>
+                <Box sx={{ mt: 5}}>
                     <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
                         料理のコツ・ポイント
                     </Typography>
@@ -178,9 +187,14 @@ export const AddRecipe: React.FC = () => {
                         sx={{ border: '1px solid', borderRadius: '8px', mt: 2 }}  // 余白と幅の指定
                     />
                 </Box>
-                <Button type="submit" color="primary" variant="contained" size="large" >
-                    SUBMIT
-                </Button>
+                <Box display="flex" justifyContent="space-between" sx={{ mt: 5 }}>
+                    <Button type="submit" color="primary" variant="contained" size="large" >
+                        SUBMIT
+                    </Button>
+                    <Button variant="outlined" color="secondary" onClick={handleCancel}>
+                        Cancel
+                    </Button>
+                </Box>
             </Box>
         </>
     );
