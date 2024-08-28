@@ -165,18 +165,20 @@ export const AddRecipe: React.FC = () => {
                 ))}
                 <AddButton onClick={handleAddStep} />
 
-                <Typography variant="h6" sx={{ fontWeight: 'bold', mt: 4 }}>
-                    料理のコツ・ポイント
-                </Typography>
-                <TextField
-                    label="説明"
-                    value={recipeTips}
-                    onChange={(e) => setRecipeTips(e.target.value)}
-                    variant="outlined"
-                    fullWidth
-                    sx={{ border: '1px solid', borderRadius: '8px' }}  // 余白と幅の指定
-                />
-                <Button type="submit" color="primary" variant="contained" size="large">
+                <Box sx={{ mt: 5, mb: 5}}>
+                    <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
+                        料理のコツ・ポイント
+                    </Typography>
+                    <TextField
+                        label="説明"
+                        value={recipeTips}
+                        onChange={(e) => setRecipeTips(e.target.value)}
+                        variant="outlined"
+                        fullWidth
+                        sx={{ border: '1px solid', borderRadius: '8px', mt: 2 }}  // 余白と幅の指定
+                    />
+                </Box>
+                <Button type="submit" color="primary" variant="contained" size="large" >
                     SUBMIT
                 </Button>
             </Box>
