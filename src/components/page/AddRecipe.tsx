@@ -81,7 +81,7 @@ export const AddRecipe: React.FC = () => {
 
     return (
         <>
-            <Box component="form" onSubmit={handleSubmit} sx={{  margin: 'auto', pt: 5, textAlign: 'left' }}>
+            <Box component="form" onSubmit={handleSubmit} sx={{  margin: 'auto', pt: 5, pb: 3, textAlign: 'left' }}>
                 <Typography variant="h4" sx={{ fontWeight: 'bold', mb: 2 }}>レシピの追加</Typography>
 
                 <Typography variant="h6" sx={{ fontWeight: 'bold', mt: 4 }}>
