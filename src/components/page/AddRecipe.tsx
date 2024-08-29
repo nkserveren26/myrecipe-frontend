@@ -98,7 +98,7 @@ export const AddRecipe: React.FC = () => {
                 />
 
                 <Typography variant="h6" sx={{ fontWeight: 'bold', mt: 4 }}>
-                    何人前
+                    何人前 <RequiredLabel fontSize='18px' />
                 </Typography>
                 <TextField
                     select
@@ -116,7 +116,7 @@ export const AddRecipe: React.FC = () => {
                 </TextField>
 
                 <Typography variant="h6" sx={{ fontWeight: 'bold', mt: 4 }}>
-                    材料
+                    材料 <RequiredLabel fontSize='18px' />
                 </Typography>
                 {ingredients.map((ingredient, index) => (
                     <Box key={index} sx={{ display: 'flex', alignItems: 'center',mt: 2 }}>
@@ -140,7 +140,7 @@ export const AddRecipe: React.FC = () => {
                 <AddButton onClick={handleAddIngredient} />
 
                 <Typography variant="h6" sx={{ fontWeight: 'bold', mt: 5 }}>
-                    作り方
+                    作り方 <RequiredLabel fontSize='18px' />
                 </Typography>
                 {steps.map((step, index) => (
                     <Box key={index} sx={{  mt: 2 }}>
