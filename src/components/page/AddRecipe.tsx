@@ -139,11 +139,11 @@ export const AddRecipe: React.FC = () => {
                 ))}
                 <AddButton onClick={handleAddIngredient} />
 
-                <Typography variant="h6" sx={{ fontWeight: 'bold', mt: 4 }}>
+                <Typography variant="h6" sx={{ fontWeight: 'bold', mt: 5 }}>
                     作り方
                 </Typography>
                 {steps.map((step, index) => (
-                    <Box key={index} sx={{  mt: 1 }}>
+                    <Box key={index} sx={{  mt: 2 }}>
                         <TextField
                             select
                             label="項番"
@@ -151,7 +151,7 @@ export const AddRecipe: React.FC = () => {
                             onChange={(e) => handleStepChange(index, "task", e.target.value)}
                             variant="outlined"
                             margin="normal"
-                            sx={{ border: '1px solid', borderRadius: '8px', width: 80, textAlign: 'left' }}
+                            sx={{ border: '1px solid', borderRadius: '8px', width: 80, textAlign: 'left', m:0 }}
                         >
                             {stepOptions.map((option, index) => (
                                 <MenuItem key={index} value={option}>
@@ -187,7 +187,7 @@ export const AddRecipe: React.FC = () => {
                         sx={{ border: '1px solid', borderRadius: '8px', mt: 2 }}  // 余白と幅の指定
                     />
                 </Box>
-                <Box display="flex" justifyContent="flex-start" sx={{ mt: 5 }}>
+                <Box display="flex" justifyContent="flex-start" sx={{ mt: 6 }}>
                     <Button type="submit" color="primary" variant="contained" size="large" >
                         SUBMIT
                     </Button>
