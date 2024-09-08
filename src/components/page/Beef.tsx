@@ -9,6 +9,7 @@ import { AddRecipeButton } from "../button/AddRecipeButton";
 import { RecipeCardProps } from "../interface/interface";
 import { RecipeCard } from "../card/RecipeCard";
 import { ScrollToTopButton } from "../button/ScrollToTopButton";
+import axios from "axios";
 
 const BeefRecipeList: RecipeCardProps[] = [
     {
@@ -56,8 +57,12 @@ export const Beef: React.FC = () => {
 
         const getBeefRecipeList = async () => {
             try {
-                const apiUrl: string = process.env.REACT_APP_GET_RECIPES_URL;
-                // APIから、これまで投稿した技術記事の一覧を取得
+                if (!process.env.REACT_APP_GET_RECIPES_URL) {
+                    throw new Error("REACT_APP_GET_RECIPES_URL is not defined");
+                }
+
+                const apiUrl: string = `${process.env.REACT_APP_GET_RECIPES_URL}?categoryName=beef`;
+                // APIから、カテゴリが肉のレシピ一覧を取得
                 const response = await axios.get(apiUrl);
                 const data = [response.data] as const;
                 //取得したデータをblogListにセット
