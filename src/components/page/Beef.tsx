@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { HeroHeader } from "../header/HeroHeader";
 import BeefHeaderImage from "../../images/BeefHeaderImage.jpg";
 import AqquaPazza from "../../images/aqqua_pazza.jpg";
@@ -50,6 +50,26 @@ const BeefRecipeList: RecipeCardProps[] = [
 ];
 
 export const Beef: React.FC = () => {
+    const [beefRecipeList, setBeefRecipeList] = useState([]);
+
+    useEffect(() => {
+
+        const getBeefRecipeList = async () => {
+            try {
+                const apiUrl: string = process.env.REACT_APP_GET_RECIPES_URL;
+                // APIから、これまで投稿した技術記事の一覧を取得
+                const response = await axios.get(apiUrl);
+                const data = [response.data] as const;
+                //取得したデータをblogListにセット
+                setBeefRecipeList(...data);
+
+            } catch (error) {
+                console.error("Error getting beef recipe list:", error);
+            }
+        }
+
+        getBeefRecipeList();
+    }, []);
     return (
         <>
             <HeroHeader 
@@ -63,14 +83,14 @@ export const Beef: React.FC = () => {
               <AddRecipeButton />
                 <Grid columns={{ xs: 6, sm: 8, md: 12 }} container columnSpacing={6} pt={4} alignItems="center" justifyContent="center">
                     {Array.isArray(BeefRecipeList) && BeefRecipeList.map((beefRecipe, index) => (
-                  <Grid item xs={6} sm="auto" md="auto" key={index} pb={6}>
-                    <RecipeCard 
-                      title={beefRecipe.title} 
-                      recipeImage={beefRecipe.recipeImage} 
-                      registerdDate={beefRecipe.registerdDate} 
-                    />
-                  </Grid>
-                ))}
+                        <Grid item xs={6} sm="auto" md="auto" key={index} pb={6}>
+                          <RecipeCard 
+                            title={beefRecipe.title} 
+                            recipeImage={beefRecipe.recipeImage} 
+                            registerdDate={beefRecipe.registerdDate} 
+                          />
+                        </Grid>
+                    ))}
               </Grid>
             </Box>
             <ScrollToTopButton />
