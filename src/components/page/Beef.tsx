@@ -65,7 +65,7 @@ export const Beef: React.FC = () => {
                 // APIから、カテゴリが肉のレシピ一覧を取得
                 const response = await axios.get(apiUrl);
                 const data = [response.data] as const;
-                //取得したデータをblogListにセット
+                //取得したデータをbeefRecipeListにセット
                 setBeefRecipeList(...data);
 
             } catch (error) {
