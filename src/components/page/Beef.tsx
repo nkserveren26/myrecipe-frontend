@@ -11,6 +11,7 @@ import { RecipeCard } from "../card/RecipeCard";
 import { ScrollToTopButton } from "../button/ScrollToTopButton";
 import axios from "axios";
 
+/*
 const BeefRecipeList: RecipeCardProps[] = [
     {
         title: "チキンとキャベツのガーリック炒め",
@@ -49,9 +50,10 @@ const BeefRecipeList: RecipeCardProps[] = [
 
     },
 ];
+*/
 
 export const Beef: React.FC = () => {
-    const [beefRecipeList, setBeefRecipeList] = useState([]);
+    const [beefRecipeList, setBeefRecipeList] = useState<RecipeCardProps[]>([]);
 
     useEffect(() => {
 
@@ -87,12 +89,12 @@ export const Beef: React.FC = () => {
               <Typography paddingBottom={3} fontWeight="bold" variant="h4">Recipe List</Typography>
               <AddRecipeButton />
                 <Grid columns={{ xs: 6, sm: 8, md: 12 }} container columnSpacing={6} pt={4} alignItems="center" justifyContent="center">
-                    {Array.isArray(BeefRecipeList) && BeefRecipeList.map((beefRecipe, index) => (
+                    {Array.isArray(beefRecipeList) && beefRecipeList.map((beefRecipe, index) => (
                         <Grid item xs={6} sm="auto" md="auto" key={index} pb={6}>
                           <RecipeCard 
                             title={beefRecipe.title} 
-                            recipeImage={beefRecipe.recipeImage} 
-                            registerdDate={beefRecipe.registerdDate} 
+                            imagePath={beefRecipe.imagePath} 
+                            createdAt={beefRecipe.createdAt} 
                           />
                         </Grid>
                     ))}

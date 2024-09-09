@@ -37,8 +37,8 @@ export interface HeroHeaderProps {
 // RecipeCardのpropsの型
 export interface RecipeCardProps {
     title: string,
-    recipeImage: string,
-    registerdDate: string,
+    imagePath: string,
+    createdAt: string,
 }
 
 // RequiredLabelのpropsの型
