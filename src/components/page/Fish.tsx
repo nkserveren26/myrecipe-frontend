@@ -13,38 +13,8 @@ import { ScrollToTopButton } from "../button/ScrollToTopButton";
 const fishRecipeList: RecipeCardProps[] = [
     {
         title: "アクアパッツァ",
-        recipeImage:AqquaPazza,
-        registerdDate: "2024/07/09"
-
-    },
-    {
-        title: "鯖の塩焼き",
-        recipeImage: SabaShioyaki,
-        registerdDate: "2024/07/09"
-
-    },
-    {
-        title: "鮭のムニエル",
-        recipeImage: SalmonMeunière,
-        registerdDate: "2024/07/09"
-
-    },
-    {
-        title: "Acqua Pazza",
-        recipeImage: AqquaPazza,
-        registerdDate: "2024/07/09"
-
-    },
-    {
-        title: "Acqua Pazza",
-        recipeImage: AqquaPazza,
-        registerdDate: "2024/07/09"
-
-    },
-    {
-        title: "Acqua Pazza",
-        recipeImage: AqquaPazza,
-        registerdDate: "2024/07/09"
+        imagePath:AqquaPazza,
+        createdAt: "2024/07/09"
 
     },
 ];
@@ -66,8 +36,8 @@ export const Fish: React.FC = () => {
                   <Grid item xs={6} sm="auto" md="auto" key={index} pb={6}>
                     <RecipeCard 
                       title={fishRecipe.title} 
-                      recipeImage={fishRecipe.recipeImage} 
-                      registerdDate={fishRecipe.registerdDate} 
+                      imagePath={fishRecipe.imagePath} 
+                      createdAt={fishRecipe.createdAt} 
                     />
                   </Grid>
                 ))}

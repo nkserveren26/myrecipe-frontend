@@ -13,38 +13,8 @@ import { ScrollToTopButton } from "../button/ScrollToTopButton";
 const SoupRecipeList: RecipeCardProps[] = [
     {
         title: "チキンとキャベツのガーリック炒め",
-        recipeImage: ChickenCabbageGarlicStirFry,
-        registerdDate: "2024/07/11"
-
-    },
-    {
-        title: "鯖の塩焼き",
-        recipeImage: SabaShioyaki,
-        registerdDate: "2024/11/15"
-
-    },
-    {
-        title: "鮭のムニエル",
-        recipeImage: ChickenCabbageGarlicStirFry,
-        registerdDate: "2024/07/09"
-
-    },
-    {
-        title: "Acqua Pazza",
-        recipeImage: AqquaPazza,
-        registerdDate: "2024/07/09"
-
-    },
-    {
-        title: "Acqua Pazza",
-        recipeImage: AqquaPazza,
-        registerdDate: "2024/07/09"
-
-    },
-    {
-        title: "Acqua Pazza",
-        recipeImage: AqquaPazza,
-        registerdDate: "2024/07/09"
+        imagePath: ChickenCabbageGarlicStirFry,
+        createdAt: "2024/07/11"
 
     },
 ];
@@ -66,8 +36,8 @@ export const Soup: React.FC = () => {
                         <Grid item xs={6} sm="auto" md="auto" key={index} pb={6}>
                             <RecipeCard
                                 title={soupRecipe.title}
-                                recipeImage={soupRecipe.recipeImage}
-                                registerdDate={soupRecipe.registerdDate}
+                                imagePath={soupRecipe.imagePath}
+                                createdAt={soupRecipe.createdAt}
                             />
                         </Grid>
                     ))}
