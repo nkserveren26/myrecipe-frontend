@@ -13,40 +13,10 @@ import { ScrollToTopButton } from "../button/ScrollToTopButton";
 const VegetableRecipeList: RecipeCardProps[] = [
     {
         title: "チキンとキャベツのガーリック炒め",
-        recipeImage: ChickenCabbageGarlicStirFry,
-        registerdDate: "2024/07/11"
+        imagePath: ChickenCabbageGarlicStirFry,
+        createdAt: "2024/07/11"
 
-    },
-    {
-        title: "鯖の塩焼き",
-        recipeImage: SabaShioyaki,
-        registerdDate: "2024/11/15"
-
-    },
-    {
-        title: "鮭のムニエル",
-        recipeImage: ChickenCabbageGarlicStirFry,
-        registerdDate: "2024/07/09"
-
-    },
-    {
-        title: "Acqua Pazza",
-        recipeImage: AqquaPazza,
-        registerdDate: "2024/07/09"
-
-    },
-    {
-        title: "Acqua Pazza",
-        recipeImage: AqquaPazza,
-        registerdDate: "2024/07/09"
-
-    },
-    {
-        title: "Acqua Pazza",
-        recipeImage: AqquaPazza,
-        registerdDate: "2024/07/09"
-
-    },
+    }
 ];
 
 export const Vegetable: React.FC = () => {
@@ -66,8 +36,8 @@ export const Vegetable: React.FC = () => {
                         <Grid item xs={6} sm="auto" md="auto" key={index} pb={6}>
                             <RecipeCard
                                 title={vegetableRecipe.title}
-                                recipeImage={vegetableRecipe.recipeImage}
-                                registerdDate={vegetableRecipe.registerdDate}
+                                imagePath={vegetableRecipe.imagePath}
+                                createdAt={vegetableRecipe.createdAt}
                             />
                         </Grid>
                     ))}

@@ -7,9 +7,9 @@ import React from 'react';
 import { RecipeCardProps } from '../interface/interface';
 
 export const RecipeCard: React.FC<RecipeCardProps> = ({
-    recipeImage,
+    imagePath,
     title,
-    registerdDate
+    createdAt
 }) => {
     const theme = useTheme();
     
@@ -26,7 +26,7 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({
             <StyledCard style={{ cursor: 'pointer' }} sx={{ width: 300, height: 310 }}>
               <CardMedia
                 sx={{ height: 180 }}
-                image={recipeImage}
+                image={imagePath}
               />
               <CardContent
                 sx={{
@@ -42,7 +42,7 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({
                   </Typography>
                 </Box>
                 <Typography >
-                  {registerdDate}
+                  {createdAt}
                 </Typography>
               </CardContent>
               <CardActions
