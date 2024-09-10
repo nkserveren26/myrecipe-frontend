@@ -21,6 +21,8 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({
         console.log("Deleting Recipe");
     }
 
+    const formatDate: string = createdAt.slice(0, 10);
+
     return (
         <>
             <StyledCard style={{ cursor: 'pointer' }} sx={{ width: 300, height: 310 }}>
@@ -42,7 +44,7 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({
                   </Typography>
                 </Box>
                 <Typography >
-                  {createdAt}
+                  {formatDate}
                 </Typography>
               </CardContent>
               <CardActions
