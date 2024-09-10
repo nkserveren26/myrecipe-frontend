@@ -93,7 +93,7 @@ export const Beef: React.FC = () => {
                         <Grid item xs={6} sm="auto" md="auto" key={index} pb={6}>
                           <RecipeCard 
                             title={beefRecipe.title} 
-                            imagePath={beefRecipe.imagePath} 
+                            image={beefRecipe.image} 
                             createdAt={beefRecipe.createdAt} 
                           />
                         </Grid>

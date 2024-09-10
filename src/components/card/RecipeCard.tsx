@@ -7,7 +7,7 @@ import React from 'react';
 import { RecipeCardProps } from '../interface/interface';
 
 export const RecipeCard: React.FC<RecipeCardProps> = ({
-    imagePath,
+    image,
     title,
     createdAt
 }) => {
@@ -28,7 +28,7 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({
             <StyledCard style={{ cursor: 'pointer' }} sx={{ width: 300, height: 310 }}>
               <CardMedia
                 sx={{ height: 180 }}
-                image={`${process.env.PUBLIC_URL}/${imagePath}`}
+                image={`${process.env.PUBLIC_URL}/${image}`}
               />
               <CardContent
                 sx={{
