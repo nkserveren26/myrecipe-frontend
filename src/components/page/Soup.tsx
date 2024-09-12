@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { HeroHeader } from "../header/HeroHeader";
 import SoupHeaderImage from "../../images/SoupHeaderImage.jpg";
-import AqquaPazza from "../../images/aqqua_pazza.jpg";
-import SabaShioyaki from "../../images/saba_shioyaki.jpg";
-import ChickenCabbageGarlicStirFry from "../../images/chicken_cabbage_garlic_stir_fry.jpg";
 import { Box, Grid, Typography } from "@mui/material";
 import { AddRecipeButton } from "../button/AddRecipeButton";
 import { RecipeCardProps } from "../interface/interface";

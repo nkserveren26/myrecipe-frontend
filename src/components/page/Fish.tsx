@@ -2,23 +2,12 @@ import React, { useEffect, useState } from "react";
 import { HeroHeader } from "../header/HeroHeader";
 import FishHeaderImage from "../../images/FishHeaderImage.jpg";
 import AqquaPazza from "../../images/aqqua_pazza.jpg";
-import SabaShioyaki from "../../images/saba_shioyaki.jpg";
-import SalmonMeunière from "../../images/salmon_meunière.jpg";
 import { Box, Grid, Typography } from "@mui/material";
 import { AddRecipeButton } from "../button/AddRecipeButton";
 import { RecipeCardProps } from "../interface/interface";
 import { RecipeCard } from "../card/RecipeCard";
 import { ScrollToTopButton } from "../button/ScrollToTopButton";
 import { getRecipeList } from "../function/GetRecipeList";
-
-const fishRecipeList: RecipeCardProps[] = [
-    {
-        title: "アクアパッツァ",
-        image:AqquaPazza,
-        createdAt: "2024/07/09"
-
-    },
-];
 
 export const Fish: React.FC = () => {
     const [fishRecipeList, setFishRecipeList] = useState<RecipeCardProps[]>([]);
