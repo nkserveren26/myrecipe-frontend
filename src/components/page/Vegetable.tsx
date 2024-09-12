@@ -18,7 +18,7 @@ export const Vegetable: React.FC = () => {
     useEffect(() => {
 
         const fetchVegetableRecipes = async () => {
-            const recipes = await getRecipeList("beef");
+            const recipes = await getRecipeList("vegetable");
             setVegetableRecipeList(recipes);
         };
 

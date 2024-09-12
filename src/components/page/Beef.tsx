@@ -12,52 +12,11 @@ import { ScrollToTopButton } from "../button/ScrollToTopButton";
 import axios from "axios";
 import { getRecipeList } from "../function/GetRecipeList";
 
-/*
-const BeefRecipeList: RecipeCardProps[] = [
-    {
-        title: "チキンとキャベツのガーリック炒め",
-        recipeImage: ChickenCabbageGarlicStirFry,
-        registerdDate: "2024/07/11"
-
-    },
-    {
-        title: "鯖の塩焼き",
-        recipeImage: SabaShioyaki,
-        registerdDate: "2024/11/15"
-
-    },
-    {
-        title: "鮭のムニエル",
-        recipeImage: ChickenCabbageGarlicStirFry,
-        registerdDate: "2024/07/09"
-
-    },
-    {
-        title: "Acqua Pazza",
-        recipeImage: AqquaPazza,
-        registerdDate: "2024/07/09"
-
-    },
-    {
-        title: "Acqua Pazza",
-        recipeImage: AqquaPazza,
-        registerdDate: "2024/07/09"
-
-    },
-    {
-        title: "Acqua Pazza",
-        recipeImage: AqquaPazza,
-        registerdDate: "2024/07/09"
-
-    },
-];
-*/
 
 export const Beef: React.FC = () => {
     const [beefRecipeList, setBeefRecipeList] = useState<RecipeCardProps[]>([]);
 
     useEffect(() => {
-
         const fetchBeefRecipes = async () => {
             const recipes = await getRecipeList("beef");
             setBeefRecipeList(recipes);
