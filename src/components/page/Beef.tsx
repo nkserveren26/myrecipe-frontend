@@ -10,6 +10,7 @@ import { RecipeCardProps } from "../interface/interface";
 import { RecipeCard } from "../card/RecipeCard";
 import { ScrollToTopButton } from "../button/ScrollToTopButton";
 import axios from "axios";
+import { getRecipeList } from "../function/GetRecipeList";
 
 /*
 const BeefRecipeList: RecipeCardProps[] = [
@@ -57,25 +58,12 @@ export const Beef: React.FC = () => {
 
     useEffect(() => {
 
-        const getBeefRecipeList = async () => {
-            try {
-                if (!process.env.REACT_APP_GET_RECIPES_URL) {
-                    throw new Error("REACT_APP_GET_RECIPES_URL is not defined");
-                }
+        const fetchBeefRecipes = async () => {
+            const recipes = await getRecipeList("beef");
+            setBeefRecipeList(recipes);
+        };
 
-                const apiUrl: string = `${process.env.REACT_APP_GET_RECIPES_URL}?categoryName=beef`;
-                // APIから、カテゴリが肉のレシピ一覧を取得
-                const response = await axios.get(apiUrl);
-                const data = [response.data] as const;
-                //取得したデータをbeefRecipeListにセット
-                setBeefRecipeList(...data);
-
-            } catch (error) {
-                console.error("Error getting beef recipe list:", error);
-            }
-        }
-
-        getBeefRecipeList();
+        fetchBeefRecipes();
     }, []);
     return (
         <>
