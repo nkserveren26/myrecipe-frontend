@@ -50,7 +50,7 @@ export interface RequiredLabelProps {
 // 取得するレシピ情報の型
 export interface RecipeDetail {
     id: number,
-    name: string,
+    title: string,
     videoUrl: string,
     ingredients: Ingredient[],
     steps: Step[],
@@ -65,6 +65,6 @@ export interface Ingredient {
 
 // 作り方オブジェクトの型
 export interface Step {
-    number: number;
+    stepNumber: number;
     description: string;
 }
