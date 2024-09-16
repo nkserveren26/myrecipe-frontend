@@ -18,7 +18,7 @@ export const AddRecipe: React.FC = () => {
     const [ingredients, setIngredients] = useState<Ingredient[]>([{ name: "", amount: "" }]);
 
     // 作り方
-    const [steps, setSteps] = useState<Step[]>([{ task: "", description: "" }]);
+    const [steps, setSteps] = useState<Step[]>([{ stepNumber: 0, description: "" }]);
 
     // 料理のコツ
     const [recipeTips, setRecipeTips] = useState("");
@@ -50,9 +50,15 @@ export const AddRecipe: React.FC = () => {
     };
 
     // 作り方オブジェクトを更新する関数
-    const handleStepChange = (index: number, field: keyof Step, value: string) => {
+    const handleStepChange = (index: number, field: keyof Step, value: string | number) => {
         const newSteps = [...steps];
-        newSteps[index][field] = value;
+
+        if (field === 'stepNumber' && typeof value === 'number') {
+            newSteps[index][field] = value;
+        } else if (field === 'description' && typeof value === 'string') {
+            newSteps[index][field] = value;
+        }
+        
         setSteps(newSteps);
     };
 
@@ -64,7 +70,7 @@ export const AddRecipe: React.FC = () => {
 
     // 作り方オブジェクトを追加する関数
     const handleAddStep = () => {
-        setSteps([...steps, { task: "", description: "" }]);
+        setSteps([...steps, { stepNumber: 0, description: "" }]);
     };
 
     // 何人前のオプション用配列
@@ -147,8 +153,8 @@ export const AddRecipe: React.FC = () => {
                         <TextField
                             select
                             label="項番"
-                            value={step.task}
-                            onChange={(e) => handleStepChange(index, "task", e.target.value)}
+                            value={step.stepNumber}
+                            onChange={(e) => handleStepChange(index, "stepNumber", e.target.value)}
                             variant="outlined"
                             margin="normal"
                             sx={{ border: '1px solid', borderRadius: '8px', width: 80, textAlign: 'left', m:0 }}
