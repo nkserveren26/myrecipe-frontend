@@ -47,25 +47,13 @@ export interface RequiredLabelProps {
     fontSize?: string | number;
 }
 
-// レシピ情報の中の材料情報の型
-export interface RecipeIngredient {
-    name: string,
-    amount: string,
-}
-
-// レシピ情報の中の作り方情報の型
-interface RecipeStep {
-    number: string;
-    description: string;
-}
-
 // 取得するレシピ情報の型
-export interface Recipe {
+export interface RecipeDetail {
     id: number,
     name: string,
     videoUrl: string,
-    ingredients: RecipeIngredient[],
-    steps: RecipeStep[],
+    ingredients: Ingredient[],
+    steps: Step[],
     point: string,
 }
 
@@ -77,6 +65,6 @@ export interface Ingredient {
 
 // 作り方オブジェクトの型
 export interface Step {
-    task: string;
+    number: number;
     description: string;
 }
