@@ -8,6 +8,7 @@ import { RecipeCardProps } from "../interface/interface";
 import { RecipeCard } from "../card/RecipeCard";
 import { ScrollToTopButton } from "../button/ScrollToTopButton";
 import { getRecipeList } from "../function/GetRecipeList";
+import { useNavigate } from "react-router-dom";
 
 export const Fish: React.FC = () => {
     const [fishRecipeList, setFishRecipeList] = useState<RecipeCardProps[]>([]);
@@ -37,7 +38,8 @@ export const Fish: React.FC = () => {
                     {Array.isArray(fishRecipeList) && fishRecipeList.map((fishRecipe, index) => (
                   <Grid item xs={6} sm="auto" md="auto" key={index} pb={6}>
                     <RecipeCard 
-                      title={fishRecipe.title} 
+                      title={fishRecipe.title}
+                      id={fishRecipe.id} 
                       image={fishRecipe.image} 
                       createdAt={fishRecipe.createdAt} 
                     />
