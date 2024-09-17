@@ -5,13 +5,22 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import styled from "styled-components";
 import React from 'react';
 import { RecipeCardProps } from '../interface/interface';
+import { useNavigate } from 'react-router-dom';
 
 export const RecipeCard: React.FC<RecipeCardProps> = ({
+    id,
     image,
     title,
     createdAt
 }) => {
     const theme = useTheme();
+
+    const navigate = useNavigate();
+
+    const handleCardClick = (id: number) => {
+        // レシピIDに基づいて/recipes/:idページへ遷移
+        navigate(`/recipes/${id}`);
+    };
     
     const onEdit = () => {
         console.log("Editting Recipe");
@@ -25,7 +34,7 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({
 
     return (
         <>
-            <StyledCard style={{ cursor: 'pointer' }} sx={{ width: 300, height: 310 }}>
+        <StyledCard onClick={() => handleCardClick(id)}  style={{ cursor: 'pointer' }} sx={{ width: 300, height: 310 }}>
               <CardMedia
                 sx={{ height: 180 }}
                 image={`${process.env.PUBLIC_URL}/${image}`}
