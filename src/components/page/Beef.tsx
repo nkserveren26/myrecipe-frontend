@@ -35,6 +35,7 @@ export const Beef: React.FC = () => {
                     {Array.isArray(beefRecipeList) && beefRecipeList.map((beefRecipe, index) => (
                         <Grid item xs={6} sm="auto" md="auto" key={index} pb={6}>
                           <RecipeCard 
+                            id={beefRecipe.id}
                             title={beefRecipe.title} 
                             image={beefRecipe.image} 
                             createdAt={beefRecipe.createdAt} 

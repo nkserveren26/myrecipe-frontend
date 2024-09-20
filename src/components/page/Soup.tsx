@@ -37,6 +37,7 @@ export const Soup: React.FC = () => {
                         <Grid item xs={6} sm="auto" md="auto" key={index} pb={6}>
                             <RecipeCard
                                 title={soupRecipe.title}
+                                id={soupRecipe.id}
                                 image={soupRecipe.image}
                                 createdAt={soupRecipe.createdAt}
                             />

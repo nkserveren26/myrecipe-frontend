@@ -37,6 +37,7 @@ export const Vegetable: React.FC = () => {
                         <Grid item xs={6} sm="auto" md="auto" key={index} pb={6}>
                             <RecipeCard
                                 title={vegetableRecipe.title}
+                                id={vegetableRecipe.id}
                                 image={vegetableRecipe.image}
                                 createdAt={vegetableRecipe.createdAt}
                             />
