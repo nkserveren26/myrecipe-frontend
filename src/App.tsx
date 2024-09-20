@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import { Header } from './components/header/Header';
-import { Box, Typography } from '@mui/material';
+import { Box } from '@mui/material';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Top } from './components/page/Top';
 import { Fish } from './components/page/Fish';

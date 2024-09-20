@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { HeroHeader } from "../header/HeroHeader";
 import FishHeaderImage from "../../images/FishHeaderImage.jpg";
-import AqquaPazza from "../../images/aqqua_pazza.jpg";
 import { Box, Grid, Typography } from "@mui/material";
 import { AddRecipeButton } from "../button/AddRecipeButton";
 import { RecipeCardProps } from "../interface/interface";
 import { RecipeCard } from "../card/RecipeCard";
 import { ScrollToTopButton } from "../button/ScrollToTopButton";
 import { getRecipeList } from "../function/GetRecipeList";
-import { useNavigate } from "react-router-dom";
 
 export const Fish: React.FC = () => {
     const [fishRecipeList, setFishRecipeList] = useState<RecipeCardProps[]>([]);

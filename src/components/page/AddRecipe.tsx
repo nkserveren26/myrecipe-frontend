@@ -1,4 +1,4 @@
-import { Box, Button, IconButton, MenuItem, TextField, Typography } from "@mui/material";
+import { Box, Button, MenuItem, TextField, Typography } from "@mui/material";
 import React, { useState } from "react";
 import { RequiredLabel } from "../label/RequiredLabel";
 import { Ingredient, Step } from "../interface/interface";

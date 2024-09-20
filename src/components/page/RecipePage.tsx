@@ -4,7 +4,6 @@ import ReactPlayer from "react-player";
 import { useParams } from "react-router-dom";
 import { RecipeDetail } from "../interface/interface";
 import { DropdownButton } from "../button/DropdownButton";
-import zIndex from "@mui/material/styles/zIndex";
 import { ScrollToTopButton } from "../button/ScrollToTopButton";
 import axios from "axios";
 
@@ -35,7 +34,7 @@ export const RecipePage: React.FC = () => {
         };
 
         fetchRecipeDetail();
-    }, []);
+    }, [id]);
 
 
     // データ取得中は以下の画面を表示
