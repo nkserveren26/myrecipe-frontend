@@ -101,6 +101,7 @@ export const AddRecipe: React.FC = () => {
             name: recipeName,
             servings: servings,
             category: selectedCategory,  // 英語のカテゴリ名を使用
+            videoUrl: videoUrl,
             // 他のレシピデータを追加
         };
 
