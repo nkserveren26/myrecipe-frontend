@@ -25,6 +25,9 @@ export const AddRecipe: React.FC = () => {
     // カテゴリの状態管理
     const [category, setCategory] = useState('');
 
+    // 動画URL
+    const [videoUrl, setVideoUrl] = useState('');
+
     // 材料
     const [ingredients, setIngredients] = useState<Ingredient[]>([{ name: "", amount: "" }]);
 
@@ -145,7 +148,6 @@ export const AddRecipe: React.FC = () => {
                     ))}
                 </TextField>
 
-                {/* カテゴリ選択 */}
                 <Typography variant="h6" sx={{ fontWeight: 'bold', mt: 4 }}>
                     カテゴリ <RequiredLabel fontSize='18px' />
                 </Typography>
@@ -163,6 +165,19 @@ export const AddRecipe: React.FC = () => {
                         </MenuItem>
                     ))}
                 </TextField>
+
+                <Typography variant="h6" sx={{ fontWeight: 'bold', mt: 4 }}>
+                    レシピ動画URL <RequiredLabel fontSize='18px' />
+                </Typography>
+                <TextField
+                    fullWidth
+                    value={videoUrl}  // 動画URL入力欄
+                    onChange={(e) => setVideoUrl(e.target.value)}  // 動画URLの変更をハンドリング
+                    variant="outlined"
+                    margin="normal"
+                    placeholder="例: https://www.youtube.com/watch?v=example"
+                    sx={{ border: '1px solid', borderRadius: '8px' }}
+                />
 
                 <Typography variant="h6" sx={{ fontWeight: 'bold', mt: 4 }}>
                     材料 <RequiredLabel fontSize='18px' />
