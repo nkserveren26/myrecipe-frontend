@@ -8,11 +8,21 @@ import { useNavigate } from "react-router-dom";
 
 export const AddRecipe: React.FC = () => {
 
+    const categories = {
+        '魚': 'fish',
+        '肉': 'beef',
+        'スープ': 'soup',
+        '野菜': 'vegetable',
+    };
+
     // レシピ名
     const [recipeName, setRecipeName] = useState("");
 
     // 何人前
     const [servings, setServings] = useState(1);
+
+    // カテゴリの状態管理
+    const [category, setCategory] = useState('');
 
     // 材料
     const [ingredients, setIngredients] = useState<Ingredient[]>([{ name: "", amount: "" }]);
@@ -117,6 +127,25 @@ export const AddRecipe: React.FC = () => {
                     {options.map((option) => (
                         <MenuItem key={option} value={option}>
                             {option}
+                        </MenuItem>
+                    ))}
+                </TextField>
+
+                {/* カテゴリ選択 */}
+                <Typography variant="h6" sx={{ fontWeight: 'bold', mt: 4 }}>
+                    カテゴリ <RequiredLabel fontSize='18px' />
+                </Typography>
+                <TextField
+                    select
+                    value={category}
+                    onChange={(e) => setCategory(e.target.value)}
+                    variant="outlined"
+                    margin="normal"
+                    sx={{ border: '1px solid', borderRadius: '8px', width: 120, textAlign: 'left' }}
+                >
+                    {Object.keys(categories).map((cat) => (
+                        <MenuItem key={cat} value={cat}>
+                            {cat}
                         </MenuItem>
                     ))}
                 </TextField>
