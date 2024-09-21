@@ -69,3 +69,7 @@ export interface Step {
     stepNumber: number;
     description: string;
 }
+
+export interface Categories {
+    [key: string]: string;
+}

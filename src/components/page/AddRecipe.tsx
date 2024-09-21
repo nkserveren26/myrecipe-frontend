@@ -1,14 +1,15 @@
 import { Box, Button, MenuItem, TextField, Typography } from "@mui/material";
 import React, { useState } from "react";
 import { RequiredLabel } from "../label/RequiredLabel";
-import { Ingredient, Step } from "../interface/interface";
+import { Categories, Ingredient, Step } from "../interface/interface";
 import { DeleteButton } from "../button/DeleteButton";
 import { AddButton } from "../button/AddButton";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export const AddRecipe: React.FC = () => {
 
-    const categories = {
+    const categories: Categories = {
         '魚': 'fish',
         '肉': 'beef',
         'スープ': 'soup',
@@ -90,9 +91,22 @@ export const AddRecipe: React.FC = () => {
     const stepOptions = ["準備", ...Array.from({ length: 10 }, (_, i) => (i + 1).toString())];
 
 
-    const handleSubmit = () => {
-        // ここでフォームの送信処理を行います。
-        //console.log({ recipeName, servings, ingredients });
+    const handleSubmit = async () => {
+        const selectedCategory = categories[category]; // 選択したカテゴリを英語に変換
+
+        const recipeData = {
+            name: recipeName,
+            servings: servings,
+            category: selectedCategory,  // 英語のカテゴリ名を使用
+            // 他のレシピデータを追加
+        };
+
+        try {
+            const response = await axios.post('/api/recipes', recipeData);
+            console.log('Recipe added:', response.data);
+        } catch (error) {
+            console.error('Error adding recipe:', error);
+        }
     };
 
     return (
