@@ -28,6 +28,9 @@ export const AddRecipe: React.FC = () => {
     // 動画URL
     const [videoUrl, setVideoUrl] = useState('');
 
+    // サムネイル画像
+    const [thumbnail, setThumbnail] = useState<File | null>(null);  
+
     // 材料
     const [ingredients, setIngredients] = useState<Ingredient[]>([{ name: "", amount: "" }]);
 
@@ -92,6 +95,14 @@ export const AddRecipe: React.FC = () => {
 
     // 作り方の項番オプション用配列
     const stepOptions = ["準備", ...Array.from({ length: 10 }, (_, i) => (i + 1).toString())];
+
+    // サムネイル画像が選択された時の処理
+    const handleThumbnailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files?.[0];
+        if (file) {
+            setThumbnail(file);  // サムネイルをセット
+        }
+    };
 
 
     const handleSubmit = async () => {
@@ -178,6 +189,15 @@ export const AddRecipe: React.FC = () => {
                     margin="normal"
                     placeholder="例: https://www.youtube.com/watch?v=example"
                     sx={{ border: '1px solid', borderRadius: '8px' }}
+                />
+
+                <Typography variant="h6" sx={{ fontWeight: 'bold', mt: 4, mb: 2 }}>
+                    レシピのサムネイル画像
+                </Typography>
+                <input
+                    accept="image/*"
+                    type="file"
+                    onChange={handleThumbnailChange}
                 />
 
                 <Typography variant="h6" sx={{ fontWeight: 'bold', mt: 4 }}>
