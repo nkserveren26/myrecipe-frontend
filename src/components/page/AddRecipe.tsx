@@ -106,6 +106,12 @@ export const AddRecipe: React.FC = () => {
 
 
     const handleSubmit = async () => {
+        if (!process.env.REACT_APP_RECIPE_API_BASE_URL) {
+            throw new Error("REACT_APP_RECIPE_API_BASE_URL is not defined");
+        }
+
+        const apiUrl: string = process.env.REACT_APP_RECIPE_API_BASE_URL;
+
         const selectedCategory = categories[category]; // 選択したカテゴリを英語に変換
 
         const recipeData = {
@@ -117,11 +123,10 @@ export const AddRecipe: React.FC = () => {
             ingredients: ingredients,
             steps: steps,
             point: point,
-            // 他のレシピデータを追加
         };
 
         try {
-            const response = await axios.post('/api/recipes', recipeData);
+            const response = await axios.post(apiUrl, recipeData);
             console.log('Recipe added:', response.data);
         } catch (error) {
             console.error('Error adding recipe:', error);

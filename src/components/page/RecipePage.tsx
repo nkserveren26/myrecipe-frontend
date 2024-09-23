@@ -17,11 +17,11 @@ export const RecipePage: React.FC = () => {
 
     useEffect(() => {
         const fetchRecipeDetail = async () => {
-            if (!process.env.REACT_APP_GET_RECIPE_DETAIL_URL) {
-                throw new Error("REACT_APP_GET_RECIPE_DETAIL_URL is not defined");
+            if (!process.env.REACT_APP_RECIPE_API_BASE_URL) {
+                throw new Error("REACT_APP_RECIPE_API_BASE_URL is not defined");
             }
 
-            const apiUrl: string = `${process.env.REACT_APP_GET_RECIPE_DETAIL_URL}/${id}`;
+            const apiUrl: string = `${process.env.REACT_APP_RECIPE_API_BASE_URL}/${id}`;
 
             try {
                 const response = await axios.get(apiUrl);
