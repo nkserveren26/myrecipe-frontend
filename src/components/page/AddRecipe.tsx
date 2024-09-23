@@ -6,6 +6,7 @@ import { DeleteButton } from "../button/DeleteButton";
 import { AddButton } from "../button/AddButton";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { stepOptions } from "../variable/ArrayVariables";
 
 export const AddRecipe: React.FC = () => {
 
@@ -35,7 +36,7 @@ export const AddRecipe: React.FC = () => {
     const [ingredients, setIngredients] = useState<Ingredient[]>([{ name: "", amount: "" }]);
 
     // 作り方
-    const [steps, setSteps] = useState<Step[]>([{ stepNumber: 0, description: "" }]);
+    const [steps, setSteps] = useState<Step[]>([{ stepNumber: 1, description: "" }]);
 
     // 料理のコツ
     const [point, setPoint] = useState("");
@@ -70,9 +71,10 @@ export const AddRecipe: React.FC = () => {
     const handleStepChange = (index: number, field: keyof Step, value: string | number) => {
         const newSteps = [...steps];
 
-        if (field === 'stepNumber' && typeof value === 'number') {
-            newSteps[index][field] = value;
-        } else if (field === 'description' && typeof value === 'string') {
+        if (field === "stepNumber") {
+            console.log("stepNumber: aaaaaa");
+            newSteps[index][field] = value === '準備' ? 0 : parseInt(value as string);
+        } else if (field === "description" && typeof value === "string") {
             newSteps[index][field] = value;
         }
         
@@ -92,9 +94,6 @@ export const AddRecipe: React.FC = () => {
 
     // 何人前のオプション用配列
     const options = Array.from({ length: 10 }, (_, index) => index + 1);
-
-    // 作り方の項番オプション用配列
-    const stepOptions = ["準備", ...Array.from({ length: 10 }, (_, i) => (i + 1).toString())];
 
     // サムネイル画像が選択された時の処理
     const handleThumbnailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -248,8 +247,8 @@ export const AddRecipe: React.FC = () => {
                             sx={{ border: '1px solid', borderRadius: '8px', width: 80, textAlign: 'left', m:0 }}
                         >
                             {stepOptions.map((option, index) => (
-                                <MenuItem key={index} value={option}>
-                                    {option}
+                                <MenuItem key={index} value={option.value}>
+                                    {option.label}
                                 </MenuItem>
                             ))}
                         </TextField>
