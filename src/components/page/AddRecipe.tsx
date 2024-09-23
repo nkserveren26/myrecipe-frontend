@@ -109,7 +109,7 @@ export const AddRecipe: React.FC = () => {
         const selectedCategory = categories[category]; // 選択したカテゴリを英語に変換
 
         const recipeData = {
-            name: recipeTitle,
+            title: recipeTitle,
             servings: servings,
             category: selectedCategory,  // 英語のカテゴリ名を使用
             videoUrl: videoUrl,
