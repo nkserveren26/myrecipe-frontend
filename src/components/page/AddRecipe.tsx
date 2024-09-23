@@ -126,7 +126,6 @@ export const AddRecipe: React.FC = () => {
 
         try {
             const response = await axios.post(apiUrl, recipeData);
-            console.log('Recipe added:', response.data);
         } catch (error) {
             console.error('Error adding recipe:', error);
         }
