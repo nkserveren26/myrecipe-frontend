@@ -17,7 +17,7 @@ export const AddRecipe: React.FC = () => {
     };
 
     // レシピ名
-    const [recipeTitle, setRecipeTitle] = useState("");
+    const [title, setTitle] = useState("");
 
     // 何人前
     const [servings, setServings] = useState(1);
@@ -38,7 +38,7 @@ export const AddRecipe: React.FC = () => {
     const [steps, setSteps] = useState<Step[]>([{ stepNumber: 0, description: "" }]);
 
     // 料理のコツ
-    const [recipeTips, setRecipeTips] = useState("");
+    const [point, setPoint] = useState("");
 
     // useNavigate
     const navigate = useNavigate();
@@ -109,10 +109,14 @@ export const AddRecipe: React.FC = () => {
         const selectedCategory = categories[category]; // 選択したカテゴリを英語に変換
 
         const recipeData = {
-            title: recipeTitle,
+            title: title,
             servings: servings,
             category: selectedCategory,  // 英語のカテゴリ名を使用
+            image: thumbnail,
             videoUrl: videoUrl,
+            ingredients: ingredients,
+            steps: steps,
+            point: point,
             // 他のレシピデータを追加
         };
 
@@ -134,8 +138,8 @@ export const AddRecipe: React.FC = () => {
                 </Typography>
                 <TextField
                     fullWidth
-                    value={recipeTitle}
-                    onChange={(e) => setRecipeTitle(e.target.value)}
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
                     variant="outlined"
                     margin="normal"
                     placeholder="例: 鮭のムニエル"
@@ -265,8 +269,8 @@ export const AddRecipe: React.FC = () => {
                     </Typography>
                     <TextField
                         label="説明"
-                        value={recipeTips}
-                        onChange={(e) => setRecipeTips(e.target.value)}
+                        value={point}
+                        onChange={(e) => setPoint(e.target.value)}
                         variant="outlined"
                         fullWidth
                         sx={{ border: '1px solid', borderRadius: '8px', mt: 2 }}  // 余白と幅の指定
