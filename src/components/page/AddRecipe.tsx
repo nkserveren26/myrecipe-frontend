@@ -17,7 +17,7 @@ export const AddRecipe: React.FC = () => {
     };
 
     // レシピ名
-    const [recipeName, setRecipeName] = useState("");
+    const [recipeTitle, setRecipeTitle] = useState("");
 
     // 何人前
     const [servings, setServings] = useState(1);
@@ -109,7 +109,7 @@ export const AddRecipe: React.FC = () => {
         const selectedCategory = categories[category]; // 選択したカテゴリを英語に変換
 
         const recipeData = {
-            name: recipeName,
+            name: recipeTitle,
             servings: servings,
             category: selectedCategory,  // 英語のカテゴリ名を使用
             videoUrl: videoUrl,
@@ -134,8 +134,8 @@ export const AddRecipe: React.FC = () => {
                 </Typography>
                 <TextField
                     fullWidth
-                    value={recipeName}
-                    onChange={(e) => setRecipeName(e.target.value)}
+                    value={recipeTitle}
+                    onChange={(e) => setRecipeTitle(e.target.value)}
                     variant="outlined"
                     margin="normal"
                     placeholder="例: 鮭のムニエル"
