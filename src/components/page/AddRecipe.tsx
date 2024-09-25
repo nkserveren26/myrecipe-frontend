@@ -113,6 +113,8 @@ export const AddRecipe: React.FC = () => {
 
         const selectedCategory = categories[category]; // 選択したカテゴリを英語に変換
 
+        const formData = new FormData();
+
         const recipeData = {
             title: title,
             servings: servings,
@@ -124,8 +126,19 @@ export const AddRecipe: React.FC = () => {
             point: point,
         };
 
+        // JSONデータを文字列化してFormDataに追加
+        formData.append("recipe", new Blob([JSON.stringify(recipeData)], { type: "application/json" }));
+
+        // サムネイル画像をFormDataに追加（存在する場合）
+        if (thumbnail) {
+            formData.append("thumbnail", thumbnail);
+        }
+
         try {
-            const response = await axios.post(apiUrl, recipeData);
+            const response = await fetch(apiUrl, {
+                method: "POST",
+                body: formData
+            });
         } catch (error) {
             console.error('Error adding recipe:', error);
         }
