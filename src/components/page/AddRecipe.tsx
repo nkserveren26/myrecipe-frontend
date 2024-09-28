@@ -111,15 +111,14 @@ export const AddRecipe: React.FC = () => {
 
         const apiUrl: string = process.env.REACT_APP_RECIPE_API_BASE_URL;
 
-        const selectedCategory = categories[category]; // 選択したカテゴリを英語に変換
+        const selectedCategory: string = categories[category]; // 選択したカテゴリを英語に変換
 
-        const formData = new FormData();
+        const formData: FormData = new FormData();
 
         const recipeData = {
             title: title,
             servings: servings,
             category: selectedCategory,  // 英語のカテゴリ名を使用
-            image: thumbnail,
             videoUrl: videoUrl,
             ingredients: ingredients,
             steps: steps,
