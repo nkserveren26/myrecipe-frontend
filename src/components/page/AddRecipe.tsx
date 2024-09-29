@@ -41,6 +41,9 @@ export const AddRecipe: React.FC = () => {
     // 料理のコツ
     const [point, setPoint] = useState("");
 
+    // エラーメッセージ格納用
+    const [errors, setErrors] = useState({ title: "", ingredients: "" });
+
     // useNavigate
     const navigate = useNavigate();
 
@@ -103,44 +106,71 @@ export const AddRecipe: React.FC = () => {
         }
     };
 
+    // 各入力項目のvalidate
+    const validateForm = () => {
+        let valid = true;
+        const newErrors = { title: "", ingredients: "" };
+
+        // タイトルが空の場合
+        if (title.trim() === "") { //入力文字列からスペースを削除
+            newErrors.title = "タイトルは必須です。";
+            valid = false;
+        }
+
+        // 材料が1つも入力されていない場合
+        if (ingredients.length === 0 || ingredients.some(ingredient => ingredient.name.trim() === "")) {
+            newErrors.ingredients = "少なくとも1つの材料を入力してください。";
+            valid = false;
+        }
+
+        setErrors(newErrors);
+        return valid;
+    };
+
 
     const handleSubmit = async () => {
         if (!process.env.REACT_APP_RECIPE_API_BASE_URL) {
             throw new Error("REACT_APP_RECIPE_API_BASE_URL is not defined");
         }
 
-        const apiUrl: string = process.env.REACT_APP_RECIPE_API_BASE_URL;
+        if (validateForm()) {
+            // バリデーション成功時にAPIリクエストを送信する処理
+            const apiUrl: string = process.env.REACT_APP_RECIPE_API_BASE_URL;
 
-        const selectedCategory: string = categories[category]; // 選択したカテゴリを英語に変換
+            const selectedCategory: string = categories[category]; // 選択したカテゴリを英語に変換
 
-        const formData: FormData = new FormData();
+            const formData: FormData = new FormData();
 
-        const recipeData = {
-            title: title,
-            servings: servings,
-            category: selectedCategory,  // 英語のカテゴリ名を使用
-            videoUrl: videoUrl,
-            ingredients: ingredients,
-            steps: steps,
-            point: point,
-        };
+            const recipeData = {
+                title: title,
+                servings: servings,
+                category: selectedCategory,  // 英語のカテゴリ名を使用
+                videoUrl: videoUrl,
+                ingredients: ingredients,
+                steps: steps,
+                point: point,
+            };
 
-        // JSONデータを文字列化してFormDataに追加
-        formData.append("recipe", new Blob([JSON.stringify(recipeData)], { type: "application/json" }));
+            // JSONデータを文字列化してFormDataに追加
+            formData.append("recipe", new Blob([JSON.stringify(recipeData)], { type: "application/json" }));
 
-        // サムネイル画像をFormDataに追加（存在する場合）
-        if (thumbnail) {
-            formData.append("thumbnail", thumbnail);
-        }
+            // サムネイル画像をFormDataに追加（存在する場合）
+            if (thumbnail) {
+                formData.append("thumbnail", thumbnail);
+            }
 
-        try {
-            const response = await fetch(apiUrl, {
-                method: "POST",
-                body: formData
-            });
-        } catch (error) {
-            console.error('Error adding recipe:', error);
-        }
+            try {
+                const response = await fetch(apiUrl, {
+                    method: "POST",
+                    body: formData
+                });
+            } catch (error) {
+                console.error('Error adding recipe:', error);
+            }
+            console.log('レシピを送信');
+        } else {
+            console.log('バリデーションエラーが発生しました');
+        } 
     };
 
     return (
