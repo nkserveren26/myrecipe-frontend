@@ -10,6 +10,8 @@ import { stepOptions } from "../variable/ArrayVariables";
 
 export const AddRecipe: React.FC = () => {
 
+    console.log("aaaaaa");
+
     const categories: Categories = {
         '魚': 'fish',
         '肉': 'beef',
@@ -43,6 +45,7 @@ export const AddRecipe: React.FC = () => {
 
     // エラーメッセージ格納用
     const [errors, setErrors] = useState({ title: "", ingredients: "" });
+    console.log(errors.title);
 
     // useNavigate
     const navigate = useNavigate();
@@ -108,6 +111,7 @@ export const AddRecipe: React.FC = () => {
 
     // 各入力項目のvalidate
     const validateForm = () => {
+        console.log("start validate");
         let valid = true;
         const newErrors = { title: "", ingredients: "" };
 
@@ -124,6 +128,8 @@ export const AddRecipe: React.FC = () => {
         }
 
         setErrors(newErrors);
+        console.log("title error");
+        console.log(newErrors.title);
         return valid;
     };
 
@@ -190,7 +196,12 @@ export const AddRecipe: React.FC = () => {
                     placeholder="例: 鮭のムニエル"
                     sx={{ border: '1px solid', borderRadius: '8px' }}
                 />
-
+                {errors.title && (
+                    <Typography sx={{ color: 'red', mt: 1 }}>
+                        {errors.title}
+                    </Typography>
+                )}
+                
                 <Typography variant="h6" sx={{ fontWeight: 'bold', mt: 4 }}>
                     何人前 <RequiredLabel fontSize='18px' />
                 </Typography>
