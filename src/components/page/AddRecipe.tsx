@@ -129,6 +129,12 @@ export const AddRecipe: React.FC = () => {
         // 全体のエラーメッセージをセット
         if (!valid) {
             setFormError("入力項目にエラーがあります。内容を確認してください。");
+
+            // 画面の一番上にスクロールする処理を追加
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth", // スムーズにスクロール
+            });
         } else {
             setFormError(""); // エラーがない場合は全体のエラーメッセージをリセット
         }
