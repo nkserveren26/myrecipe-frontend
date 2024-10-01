@@ -188,6 +188,12 @@ export const AddRecipe: React.FC = () => {
             <Box component="form" onSubmit={handleSubmit} sx={{  margin: 'auto', pt: 5, pb: 3, textAlign: 'left' }}>
                 <Typography variant="h4" sx={{ fontWeight: 'bold', mb: 2 }}>レシピの追加</Typography>
 
+                {formError && (
+                    <Typography variant="body1" color="error" sx={{ mb: 2 }}>
+                        {formError}
+                    </Typography>
+                )}
+
                 <Typography variant="h6" sx={{ fontWeight: 'bold', mt: 4 }}>
                     料理名 <RequiredLabel fontSize='18px' />
                 </Typography>
