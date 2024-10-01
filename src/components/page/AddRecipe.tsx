@@ -134,7 +134,8 @@ export const AddRecipe: React.FC = () => {
     };
 
 
-    const handleSubmit = async () => {
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
         if (!process.env.REACT_APP_RECIPE_API_BASE_URL) {
             throw new Error("REACT_APP_RECIPE_API_BASE_URL is not defined");
         }
