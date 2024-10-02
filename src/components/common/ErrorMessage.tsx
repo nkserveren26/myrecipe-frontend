@@ -1,10 +1,8 @@
 import React from 'react';
 import { Typography } from '@mui/material';
-import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
+import ErrorIcon from '@mui/icons-material/Error';
+import { ErrorMessageProps } from '../interface/interface';
 
-type ErrorMessageProps = {
-    message: string;
-};
 
 export const ErrorMessage: React.FC<ErrorMessageProps> = () => {
     return (

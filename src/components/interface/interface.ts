@@ -73,3 +73,8 @@ export interface Step {
 export interface Categories {
     [key: string]: string;
 }
+
+// ErrorMessageのPropsの型
+export interface ErrorMessageProps {
+    message: string;
+}
