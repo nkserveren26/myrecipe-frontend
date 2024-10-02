@@ -1,4 +1,6 @@
 import { Box, Button, MenuItem, TextField, Typography } from "@mui/material";
+import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
+import ErrorIcon from '@mui/icons-material/Error';
 import React, { useState } from "react";
 import { RequiredLabel } from "../label/RequiredLabel";
 import { Categories, Ingredient, Step } from "../interface/interface";
@@ -213,7 +215,10 @@ export const AddRecipe: React.FC = () => {
                     sx={{ border: '1px solid', borderRadius: '8px' }}
                 />
                 {errors.title && (
-                    <Typography sx={{ color: 'red', mt: 1 }}>
+                    <Typography sx={{
+                        color: 'red', display: 'flex',
+                        alignItems: 'center', mt: 1 }}>
+                        <ErrorIcon sx={{ mr: 1, fontSize: '20px' }} /> {/* ビックリマークアイコン */}
                         {errors.title}
                     </Typography>
                 )}
