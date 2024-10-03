@@ -8,6 +8,7 @@ import { AddButton } from "../button/AddButton";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { stepOptions } from "../variable/ArrayVariables";
+import { ErrorMessage } from "../common/ErrorMessage";
 
 export const AddRecipe: React.FC = () => {
 
@@ -214,12 +215,7 @@ export const AddRecipe: React.FC = () => {
                     sx={{ border: '1px solid', borderRadius: '8px' }}
                 />
                 {errors.title && (
-                    <Typography sx={{
-                        color: 'red', display: 'flex',
-                        alignItems: 'center', mt: 1 }}>
-                        <ErrorIcon sx={{ mr: 1, fontSize: '20px' }} /> {/* ビックリマークアイコン */}
-                        {errors.title}
-                    </Typography>
+                    <ErrorMessage message={errors.title} />
                 )}
                 
                 <Typography variant="h6" sx={{ fontWeight: 'bold', mt: 4 }}>
