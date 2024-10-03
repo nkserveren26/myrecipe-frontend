@@ -44,7 +44,7 @@ export const AddRecipe: React.FC = () => {
     const [point, setPoint] = useState("");
 
     // エラーメッセージ格納用
-    const [errors, setErrors] = useState({ title: "", ingredients: "" });
+    const [errors, setErrors] = useState({ title: "", videoUrl: "", ingredients: "" });
     const [formError, setFormError] = useState(""); // 全体エラーメッセージ用
 
     // useNavigate
@@ -112,11 +112,17 @@ export const AddRecipe: React.FC = () => {
     // 各入力項目のvalidate
     const validateForm = () => {
         let valid = true;
-        const newErrors = { title: "", ingredients: "" };
+        const newErrors = { title: "", videoUrl: "", ingredients: "" };
 
         // タイトルが空の場合
         if (title.trim() === "") { //入力文字列からスペースを削除
             newErrors.title = "タイトルは必須です。";
+            valid = false;
+        }
+
+        // レシピ動画URLが空の場合
+        if (videoUrl.trim() === "") { //入力文字列からスペースを削除
+            newErrors.videoUrl = "レシピ動画URLは必須です。";
             valid = false;
         }
 
@@ -266,6 +272,9 @@ export const AddRecipe: React.FC = () => {
                     placeholder="例: https://www.youtube.com/watch?v=example"
                     sx={{ border: '1px solid', borderRadius: '8px' }}
                 />
+                {errors.videoUrl && (
+                    <ErrorMessage message={errors.videoUrl} />
+                )}
 
                 <Typography variant="h6" sx={{ fontWeight: 'bold', mt: 4, mb: 2 }}>
                     レシピのサムネイル画像
@@ -299,6 +308,9 @@ export const AddRecipe: React.FC = () => {
                     </Box>
                 ))}
                 <AddButton onClick={handleAddIngredient} />
+                {errors.ingredients && (
+                    <ErrorMessage message={errors.ingredients} />
+                )}
 
                 <Typography variant="h6" sx={{ fontWeight: 'bold', mt: 5 }}>
                     作り方 <RequiredLabel fontSize='18px' />
