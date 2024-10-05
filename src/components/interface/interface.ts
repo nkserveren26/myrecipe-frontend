@@ -85,4 +85,5 @@ export interface FormErrors {
     category: string;
     videoUrl: string;
     ingredients: string;
+    steps: string;
 }

@@ -44,7 +44,7 @@ export const AddRecipe: React.FC = () => {
     const [point, setPoint] = useState("");
 
     // エラーメッセージ格納用
-    const [errors, setErrors] = useState<FormErrors>({ title: "", category: "", videoUrl: "", ingredients: "" });
+    const [errors, setErrors] = useState<FormErrors>({ title: "", category: "", videoUrl: "", ingredients: "", steps: "" });
     const [formError, setFormError] = useState(""); // 全体エラーメッセージ用
 
     // useNavigate
@@ -112,7 +112,7 @@ export const AddRecipe: React.FC = () => {
     // 各入力項目のvalidate
     const validateForm = () => {
         let valid = true;
-        const newErrors: FormErrors = { title: "", category: "", videoUrl: "", ingredients: "" };
+        const newErrors: FormErrors = { title: "", category: "", videoUrl: "", ingredients: "", steps: "" };
 
         // タイトルが空の場合
         if (title.trim() === "") { //入力文字列からスペースを削除
@@ -135,6 +135,12 @@ export const AddRecipe: React.FC = () => {
         // 材料が1つも入力されていない場合
         if (ingredients.length === 0 || ingredients.some(ingredient => ingredient.name.trim() === "")) {
             newErrors.ingredients = "少なくとも1つの材料を入力してください。";
+            valid = false;
+        }
+
+        // 作り方が1つも入力されていない場合
+        if (steps.length === 0 || steps.some(step => step.description.trim() === "")) {
+            newErrors.steps = "少なくとも作り方は1つ以上入力してください。";
             valid = false;
         }
 
@@ -355,6 +361,9 @@ export const AddRecipe: React.FC = () => {
                     </Box>
                 ))}
                 <AddButton onClick={handleAddStep} />
+                {errors.steps && (
+                    <ErrorMessage message={errors.steps} />
+                )}
 
                 <Box sx={{ mt: 5}}>
                     <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
