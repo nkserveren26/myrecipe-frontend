@@ -2,7 +2,7 @@ import { Box, Button, MenuItem, TextField, Typography } from "@mui/material";
 import ErrorIcon from '@mui/icons-material/Error';
 import React, { useState } from "react";
 import { RequiredLabel } from "../label/RequiredLabel";
-import { Categories, Ingredient, Step } from "../interface/interface";
+import { Categories, FormErrors, Ingredient, Step } from "../interface/interface";
 import { DeleteButton } from "../button/DeleteButton";
 import { AddButton } from "../button/AddButton";
 import { useNavigate } from "react-router-dom";
@@ -44,7 +44,7 @@ export const AddRecipe: React.FC = () => {
     const [point, setPoint] = useState("");
 
     // エラーメッセージ格納用
-    const [errors, setErrors] = useState({ title: "", videoUrl: "", ingredients: "" });
+    const [errors, setErrors] = useState<FormErrors>({ title: "", category: "", videoUrl: "", ingredients: "" });
     const [formError, setFormError] = useState(""); // 全体エラーメッセージ用
 
     // useNavigate
@@ -112,11 +112,17 @@ export const AddRecipe: React.FC = () => {
     // 各入力項目のvalidate
     const validateForm = () => {
         let valid = true;
-        const newErrors = { title: "", videoUrl: "", ingredients: "" };
+        const newErrors: FormErrors = { title: "", category: "", videoUrl: "", ingredients: "" };
 
         // タイトルが空の場合
         if (title.trim() === "") { //入力文字列からスペースを削除
             newErrors.title = "タイトルは必須です。";
+            valid = false;
+        }
+
+        // カテゴリが未選択の場合
+        if (category === "") { //入力文字列からスペースを削除
+            newErrors.category = "カテゴリを選択してください。";
             valid = false;
         }
 
@@ -259,6 +265,9 @@ export const AddRecipe: React.FC = () => {
                         </MenuItem>
                     ))}
                 </TextField>
+                {errors.category && (
+                    <ErrorMessage message={errors.category} />
+                )}
 
                 <Typography variant="h6" sx={{ fontWeight: 'bold', mt: 4 }}>
                     レシピ動画URL <RequiredLabel fontSize='18px' />

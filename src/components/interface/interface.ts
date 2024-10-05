@@ -78,3 +78,11 @@ export interface Categories {
 export interface ErrorMessageProps {
     message: string;
 }
+
+// 各入力項目のvalidateエラーメッセージを格納するオブジェクトの型
+export interface FormErrors {
+    title: string;
+    category: string;
+    videoUrl: string;
+    ingredients: string;
+}
