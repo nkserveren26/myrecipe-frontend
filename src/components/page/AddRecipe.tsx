@@ -113,6 +113,14 @@ export const AddRecipe: React.FC = () => {
         }
     };
 
+    // 登録完了ダイアログのclose処理
+    const handleCloseDialog = () => {
+        const selectedCategory: string = categories[category]; // 選択したカテゴリを英語に変換
+        setDialogOpen(false);  // ダイアログを閉じる
+        // 選択されたカテゴリのページに遷移
+        navigate(`/${selectedCategory}`);
+    };
+
     // 各入力項目のvalidate
     const validateForm = () => {
         let valid = true;
@@ -185,7 +193,7 @@ export const AddRecipe: React.FC = () => {
             const recipeData = {
                 title: title,
                 servings: servings,
-                category: selectedCategory,  // 英語のカテゴリ名を使用
+                category: selectedCategory,
                 videoUrl: videoUrl,
                 ingredients: ingredients,
                 steps: steps,
@@ -401,13 +409,10 @@ export const AddRecipe: React.FC = () => {
                     </Button>
                 </Box>
 
-                <Dialog open={dialogOpen} onClose={() => setDialogOpen(false)}>
+                <Dialog open={dialogOpen} onClose={handleCloseDialog}>
                     <DialogTitle>レシピの登録が完了しました！</DialogTitle>
                     <DialogActions sx={{ justifyContent: 'center' }}>
-                        <Button onClick={() => {
-                            setDialogOpen(false);  // ダイアログを閉じる
-                            navigate(-1);  // 前の画面に戻る
-                        }} color="primary" variant="contained">
+                        <Button onClick={handleCloseDialog} color="primary" variant="contained">
                             Close
                         </Button>
                     </DialogActions>
