@@ -1,5 +1,4 @@
-import { Box, Button, CircularProgress, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, MenuItem, TextField, Typography } from "@mui/material";
-import ErrorIcon from '@mui/icons-material/Error';
+import { Box, Button, CircularProgress, Dialog, DialogActions, DialogTitle, MenuItem, TextField, Typography } from "@mui/material";
 import React, { useState } from "react";
 import { RequiredLabel } from "../label/RequiredLabel";
 import { Categories, FormErrors, Ingredient, Step } from "../interface/interface";
