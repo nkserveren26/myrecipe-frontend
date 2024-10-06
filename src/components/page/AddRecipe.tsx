@@ -201,10 +201,12 @@ export const AddRecipe: React.FC = () => {
             }
 
             try {
+                /*
                 const response = await fetch(apiUrl, {
                     method: "POST",
                     body: formData
                 });
+                */
                 setLoading(false);  // ローディング終了
                 setDialogOpen(true);  // 完了ダイアログを開く
             } catch (error) {
@@ -401,7 +403,7 @@ export const AddRecipe: React.FC = () => {
 
                 <Dialog open={dialogOpen} onClose={() => setDialogOpen(false)}>
                     <DialogTitle>レシピの登録が完了しました！</DialogTitle>
-                    <DialogActions>
+                    <DialogActions sx={{ justifyContent: 'center' }}>
                         <Button onClick={() => {
                             setDialogOpen(false);  // ダイアログを閉じる
                             navigate(-1);  // 前の画面に戻る
