@@ -1,4 +1,4 @@
-import { Box, Button, MenuItem, TextField, Typography } from "@mui/material";
+import { Box, Button, CircularProgress, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, MenuItem, TextField, Typography } from "@mui/material";
 import ErrorIcon from '@mui/icons-material/Error';
 import React, { useState } from "react";
 import { RequiredLabel } from "../label/RequiredLabel";
@@ -46,6 +46,10 @@ export const AddRecipe: React.FC = () => {
     // エラーメッセージ格納用
     const [errors, setErrors] = useState<FormErrors>({ title: "", category: "", videoUrl: "", ingredients: "", steps: "" });
     const [formError, setFormError] = useState(""); // 全体エラーメッセージ用
+
+    // ロード表示用
+    const [loading, setLoading] = useState(false);
+    const [dialogOpen, setDialogOpen] = useState(false);
 
     // useNavigate
     const navigate = useNavigate();
@@ -165,6 +169,7 @@ export const AddRecipe: React.FC = () => {
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+        setLoading(true);  // ローディング開始
         if (!process.env.REACT_APP_RECIPE_API_BASE_URL) {
             throw new Error("REACT_APP_RECIPE_API_BASE_URL is not defined");
         }
@@ -200,10 +205,12 @@ export const AddRecipe: React.FC = () => {
                     method: "POST",
                     body: formData
                 });
+                setLoading(false);  // ローディング終了
+                setDialogOpen(true);  // 完了ダイアログを開く
             } catch (error) {
                 console.error('Error adding recipe:', error);
+                setLoading(false);
             }
-            console.log('レシピを送信');
         } else {
             console.log('バリデーションエラーが発生しました');
         } 
@@ -379,13 +386,30 @@ export const AddRecipe: React.FC = () => {
                     />
                 </Box>
                 <Box display="flex" justifyContent="flex-start" sx={{ mt: 6 }}>
-                    <Button type="submit" color="primary" variant="contained" size="large" >
-                        SUBMIT
-                    </Button>
+                    {loading ? (
+                        // Submitボタンの代わりにローディングスピナーを表示
+                        <CircularProgress size={24} />
+                    ) : (
+                        <Button type="submit" color="primary" variant="contained" size="large">
+                            SUBMIT
+                        </Button>
+                    )}
                     <Button variant="contained" size="large" onClick={handleCancel} sx={{ml: 3}} style={{ backgroundColor: '#808080' }}>
                         Cancel
                     </Button>
                 </Box>
+
+                <Dialog open={dialogOpen} onClose={() => setDialogOpen(false)}>
+                    <DialogTitle>レシピの登録が完了しました！</DialogTitle>
+                    <DialogActions>
+                        <Button onClick={() => {
+                            setDialogOpen(false);  // ダイアログを閉じる
+                            navigate(-1);  // 前の画面に戻る
+                        }} color="primary" variant="contained">
+                            Close
+                        </Button>
+                    </DialogActions>
+                </Dialog>
             </Box>
         </>
     );
