@@ -1,11 +1,10 @@
 import { Box, Button, CircularProgress, Dialog, DialogActions, DialogTitle, MenuItem, TextField, Typography } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { RequiredLabel } from "../label/RequiredLabel";
 import { Categories, FormErrors, Ingredient, Step } from "../interface/interface";
 import { DeleteButton } from "../button/DeleteButton";
 import { AddButton } from "../button/AddButton";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import { useLocation, useNavigate } from "react-router-dom";
 import { stepOptions } from "../variable/ArrayVariables";
 import { ErrorMessage } from "../common/ErrorMessage";
 
@@ -52,6 +51,22 @@ export const AddRecipe: React.FC = () => {
 
     // useNavigate
     const navigate = useNavigate();
+
+    // useLocation
+    const location = useLocation();
+
+    // URL遷移時にカテゴリ情報を受け取り、カテゴリ選択項目を設定する
+    useEffect(() => {
+        if (location.state && location.state.category) {
+            // 値 (fish, beefなど) をラベル ('魚', '肉') に変換して設定
+            const selectedCategory = Object.keys(categories).find(
+                (key) => categories[key] === location.state.category
+            );
+            if (selectedCategory) {
+                setCategory(selectedCategory);
+            }
+        }
+    }, [location.state]);
 
     // 前のページに戻る関数
     const handleCancel = () => {
