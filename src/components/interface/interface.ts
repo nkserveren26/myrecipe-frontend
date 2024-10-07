@@ -79,6 +79,11 @@ export interface ErrorMessageProps {
     message: string;
 }
 
+// AddRecipeButtonのPropsの型
+export interface AddRecipeButtonProps {
+    currentCategory: string;
+}
+
 // 各入力項目のvalidateエラーメッセージを格納するオブジェクトの型
 export interface FormErrors {
     title: string;
