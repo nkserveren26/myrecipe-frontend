@@ -7,10 +7,14 @@ import { RecipeCardProps } from "../interface/interface";
 import { RecipeCard } from "../card/RecipeCard";
 import { ScrollToTopButton } from "../button/ScrollToTopButton";
 import { getRecipeList } from "../function/GetRecipeList";
+import { useNavigate } from "react-router-dom";
 
 
 export const Beef: React.FC = () => {
     const [beefRecipeList, setBeefRecipeList] = useState<RecipeCardProps[]>([]);
+
+    const navigate = useNavigate();
+    const currentCategory = "beef";
 
     useEffect(() => {
         const fetchBeefRecipes = async () => {
@@ -30,7 +34,7 @@ export const Beef: React.FC = () => {
             />
             <Box>
               <Typography paddingBottom={3} fontWeight="bold" variant="h4">Recipe List</Typography>
-              <AddRecipeButton />
+              <AddRecipeButton currentCategory={currentCategory} />
                 <Grid columns={{ xs: 6, sm: 8, md: 12 }} container columnSpacing={6} pt={4} alignItems="center" justifyContent="center">
                     {Array.isArray(beefRecipeList) && beefRecipeList.map((beefRecipe, index) => (
                         <Grid item xs={6} sm="auto" md="auto" key={index} pb={6}>

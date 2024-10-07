@@ -11,6 +11,7 @@ import { getRecipeList } from "../function/GetRecipeList";
 
 export const Vegetable: React.FC = () => {
     const [vegetableRecipeList, setVegetableRecipeList] = useState<RecipeCardProps[]>([]);
+    const currentCategory = "vegetable";
 
     useEffect(() => {
 
@@ -31,7 +32,7 @@ export const Vegetable: React.FC = () => {
             />
             <Box>
                 <Typography paddingBottom={3} fontWeight="bold" variant="h4">Recipe List</Typography>
-                <AddRecipeButton />
+                <AddRecipeButton currentCategory={currentCategory} />
                 <Grid columns={{ xs: 6, sm: 8, md: 12 }} container columnSpacing={6} pt={4} alignItems="center" justifyContent="center">
                     {Array.isArray(vegetableRecipeList) && vegetableRecipeList.map((vegetableRecipe, index) => (
                         <Grid item xs={6} sm="auto" md="auto" key={index} pb={6}>

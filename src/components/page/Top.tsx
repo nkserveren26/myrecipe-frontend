@@ -20,7 +20,6 @@ export const Top: React.FC = () => {
             />
             <Box>
               <Typography paddingBottom={3} fontWeight="bold" variant="h4">Recipe Category</Typography>
-                <AddRecipeButton />
                 <Grid columns={{ xs: 6, sm: 8, md: 12 }} pt={4} container columnSpacing={6} alignItems="center" justifyContent="center">
                   {RecipeCategoryButtonPropsList.map((props, index) => (
                     <Grid item xs={6} sm="auto" md="auto" pb={8} key={index}>
