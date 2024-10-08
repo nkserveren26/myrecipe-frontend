@@ -36,7 +36,7 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({
         <StyledCard onClick={() => handleCardClick(id)}  style={{ cursor: 'pointer' }} sx={{ width: 300, height: 310 }}>
               <CardMedia
                 sx={{ height: 180 }}
-                image={`${process.env.PUBLIC_URL}/${image}`}
+                image={image}
               />
               <CardContent
                 sx={{
