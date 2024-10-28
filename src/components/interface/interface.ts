@@ -93,3 +93,8 @@ export interface FormErrors {
     ingredients: string;
     steps: string;
 }
+
+// RecipeEditFormのProps
+export interface RecipeEditFormProps {
+    recipeDetail: RecipeDetail; // RecipeDetailをpropsとして渡す
+}
