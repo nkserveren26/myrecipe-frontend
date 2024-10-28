@@ -52,6 +52,7 @@ export interface RequiredLabelProps {
 export interface RecipeDetail {
     id: number,
     title: string,
+    servings: number,
     videoUrl: string,
     ingredients: Ingredient[],
     steps: Step[],

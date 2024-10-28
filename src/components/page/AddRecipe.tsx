@@ -223,12 +223,12 @@ export const AddRecipe: React.FC = () => {
             }
 
             try {
-                /*
+                
                 const response = await fetch(apiUrl, {
                     method: "POST",
                     body: formData
                 });
-                */
+                
                 setLoading(false);  // ローディング終了
                 setDialogOpen(true);  // 完了ダイアログを開く
             } catch (error) {
