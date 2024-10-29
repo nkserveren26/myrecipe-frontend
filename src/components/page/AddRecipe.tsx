@@ -10,6 +10,7 @@ import { ErrorMessage } from "../common/ErrorMessage";
 
 export const AddRecipe: React.FC = () => {
 
+    // カテゴリーの一覧
     const categories: Categories = {
         '魚': 'fish',
         '肉': 'beef',
