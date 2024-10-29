@@ -1,10 +1,19 @@
 import React, { useState } from 'react';
-import { FormErrors, Ingredient, RecipeEditFormProps, Step } from '../interface/interface';
+import { Categories, FormErrors, Ingredient, RecipeEditFormProps, Step } from '../interface/interface';
 import { MenuItem, TextField, Typography } from '@mui/material';
 import { RequiredLabel } from '../label/RequiredLabel';
 import { ErrorMessage } from '../common/ErrorMessage';
 
 export const RecipeEditForm: React.FC<RecipeEditFormProps> = ({ recipeDetail }) => {
+    
+    // カテゴリーの一覧
+    const categories: Categories = {
+        '魚': 'fish',
+        '肉': 'beef',
+        'スープ': 'soup',
+        '野菜': 'vegetable',
+    };
+
     const [title, setTitle] = useState(recipeDetail.title);
     const [videoUrl, setVideoUrl] = useState(recipeDetail.videoUrl);
     const [servings, setServings] = useState(recipeDetail.servings);
@@ -56,6 +65,26 @@ export const RecipeEditForm: React.FC<RecipeEditFormProps> = ({ recipeDetail }) 
                 </MenuItem>
             ))}
         </TextField>
+        <Typography variant="h6" sx={{ fontWeight: 'bold', mt: 4 }}>
+            カテゴリ <RequiredLabel fontSize='18px' />
+        </Typography>
+        <TextField
+            select
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+            variant="outlined"
+            margin="normal"
+            sx={{ border: '1px solid', borderRadius: '8px', width: 120, textAlign: 'left' }}
+        >
+            {Object.keys(categories).map((cat) => (
+                <MenuItem key={cat} value={cat}>
+                    {cat}
+                </MenuItem>
+            ))}
+        </TextField>
+        {errors.category && (
+            <ErrorMessage message={errors.category} />
+        )}
         </>
     )
 }
