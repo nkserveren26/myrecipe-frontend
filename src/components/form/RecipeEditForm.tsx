@@ -30,61 +30,94 @@ export const RecipeEditForm: React.FC<RecipeEditFormProps> = ({ recipeDetail }) 
     const [errors, setErrors] = useState<FormErrors>({ title: "", category: "", videoUrl: "", ingredients: "", steps: "" });
     const [formError, setFormError] = useState(""); // 全体エラーメッセージ用
 
+    // サムネイル画像が選択された時の処理
+    const handleThumbnailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files?.[0];
+        if (file) {
+            setThumbnail(file);  // サムネイルをセット
+        }
+    };
+
     return (
         <>
-        <Typography variant="h6" sx={{ fontWeight: 'bold', mt: 4 }}>
-            料理名 <RequiredLabel fontSize='18px' />
-        </Typography>
-        <TextField
-            fullWidth
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            variant="outlined"
-            margin="normal"
-            placeholder="例: 鮭のムニエル"
-            sx={{ border: '1px solid', borderRadius: '8px' }}
-        />
-        {errors.title && (
-            <ErrorMessage message={errors.title} />
-        )}
-        
-        <Typography variant="h6" sx={{ fontWeight: 'bold', mt: 4 }}>
-            何人前 <RequiredLabel fontSize='18px' />
-        </Typography>
-        <TextField
-            select
-            value={servings}
-            onChange={(e) => setServings(parseInt(e.target.value))}
-            variant="outlined"
-            margin="normal"
-            sx={{ border: '1px solid', borderRadius: '8px', width: 80, textAlign: 'left' }}
-        >
-            {options.map((option) => (
-                <MenuItem key={option} value={option}>
-                    {option}
-                </MenuItem>
-            ))}
-        </TextField>
-        <Typography variant="h6" sx={{ fontWeight: 'bold', mt: 4 }}>
-            カテゴリ <RequiredLabel fontSize='18px' />
-        </Typography>
-        <TextField
-            select
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-            variant="outlined"
-            margin="normal"
-            sx={{ border: '1px solid', borderRadius: '8px', width: 120, textAlign: 'left' }}
-        >
-            {Object.keys(categories).map((cat) => (
-                <MenuItem key={cat} value={cat}>
-                    {cat}
-                </MenuItem>
-            ))}
-        </TextField>
-        {errors.category && (
-            <ErrorMessage message={errors.category} />
-        )}
+            <Typography variant="h6" sx={{ fontWeight: 'bold', mt: 4 }}>
+                料理名 <RequiredLabel fontSize='18px' />
+            </Typography>
+            <TextField
+                fullWidth
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                variant="outlined"
+                margin="normal"
+                placeholder="例: 鮭のムニエル"
+                sx={{ border: '1px solid', borderRadius: '8px' }}
+            />
+            {errors.title && (
+                <ErrorMessage message={errors.title} />
+            )}
+
+            <Typography variant="h6" sx={{ fontWeight: 'bold', mt: 4 }}>
+                何人前 <RequiredLabel fontSize='18px' />
+            </Typography>
+            <TextField
+                select
+                value={servings}
+                onChange={(e) => setServings(parseInt(e.target.value))}
+                variant="outlined"
+                margin="normal"
+                sx={{ border: '1px solid', borderRadius: '8px', width: 80, textAlign: 'left' }}
+            >
+                {options.map((option) => (
+                    <MenuItem key={option} value={option}>
+                        {option}
+                    </MenuItem>
+                ))}
+            </TextField>
+            <Typography variant="h6" sx={{ fontWeight: 'bold', mt: 4 }}>
+                カテゴリ <RequiredLabel fontSize='18px' />
+            </Typography>
+            <TextField
+                select
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+                variant="outlined"
+                margin="normal"
+                sx={{ border: '1px solid', borderRadius: '8px', width: 120, textAlign: 'left' }}
+            >
+                {Object.keys(categories).map((cat) => (
+                    <MenuItem key={cat} value={cat}>
+                        {cat}
+                    </MenuItem>
+                ))}
+            </TextField>
+            {errors.category && (
+                <ErrorMessage message={errors.category} />
+            )}
+
+            <Typography variant="h6" sx={{ fontWeight: 'bold', mt: 4 }}>
+                レシピ動画URL <RequiredLabel fontSize='18px' />
+            </Typography>
+            <TextField
+                fullWidth
+                value={videoUrl}  // 動画URL入力欄
+                onChange={(e) => setVideoUrl(e.target.value)}  // 動画URLの変更をハンドリング
+                variant="outlined"
+                margin="normal"
+                placeholder="例: https://www.youtube.com/watch?v=example"
+                sx={{ border: '1px solid', borderRadius: '8px' }}
+            />
+            {errors.videoUrl && (
+                <ErrorMessage message={errors.videoUrl} />
+            )}
+
+            <Typography variant="h6" sx={{ fontWeight: 'bold', mt: 4, mb: 2 }}>
+                レシピのサムネイル画像
+            </Typography>
+            <input
+                accept="image/*"
+                type="file"
+                onChange={handleThumbnailChange}
+            />
         </>
     )
 }
