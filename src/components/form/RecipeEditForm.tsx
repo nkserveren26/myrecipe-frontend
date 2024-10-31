@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Categories, FormErrors, Ingredient, RecipeEditFormProps, Step } from '../interface/interface';
-import { MenuItem, TextField, Typography } from '@mui/material';
+import { Box, MenuItem, TextField, Typography } from '@mui/material';
 import { RequiredLabel } from '../label/RequiredLabel';
 import { ErrorMessage } from '../common/ErrorMessage';
+import { DeleteButton } from '../button/DeleteButton';
+import { AddButton } from '../button/AddButton';
 
 export const RecipeEditForm: React.FC<RecipeEditFormProps> = ({ recipeDetail }) => {
     
@@ -36,6 +38,24 @@ export const RecipeEditForm: React.FC<RecipeEditFormProps> = ({ recipeDetail }) 
         if (file) {
             setThumbnail(file);  // サムネイルをセット
         }
+    };
+
+    // 材料オブジェクトを更新する関数
+    const handleIngredientChange = (index: number, field: keyof Ingredient, value: string) => {
+        const newIngredients = [...ingredients];
+        newIngredients[index][field] = value;
+        setIngredients(newIngredients);
+    };
+
+    // 材料オブジェクトを追加する関数
+    const handleAddIngredient = () => {
+        setIngredients([...ingredients, { name: "", amount: "" }]);
+    };
+
+    // 材料オブジェクトを削除する関数
+    const handleRemoveIngredient = (index: number) => {
+        const newIngredients = ingredients.filter((_, i) => i !== index);
+        setIngredients(newIngredients);
     };
 
     return (
@@ -118,6 +138,33 @@ export const RecipeEditForm: React.FC<RecipeEditFormProps> = ({ recipeDetail }) 
                 type="file"
                 onChange={handleThumbnailChange}
             />
+
+            <Typography variant="h6" sx={{ fontWeight: 'bold', mt: 4 }}>
+                材料 <RequiredLabel fontSize='18px' />
+            </Typography>
+            {ingredients.map((ingredient, index) => (
+                <Box key={index} sx={{ display: 'flex', alignItems: 'center', mt: 2 }}>
+                    <TextField
+                        label="材料名"
+                        value={ingredient.name}
+                        onChange={(e) => handleIngredientChange(index, "name", e.target.value)}
+                        variant="outlined"
+                        sx={{ mr: 2, flex: 1, border: '1px solid', borderRadius: '8px' }}  // 余白と幅の指定
+                    />
+                    <TextField
+                        label="量"
+                        value={ingredient.amount}
+                        onChange={(e) => handleIngredientChange(index, "amount", e.target.value)}
+                        variant="outlined"
+                        sx={{ flex: 0.5, border: '1px solid', borderRadius: '8px' }}  // 幅の指定
+                    />
+                    <DeleteButton onClick={() => handleRemoveIngredient(index)} size="large" />
+                </Box>
+            ))}
+            <AddButton onClick={handleAddIngredient} />
+            {errors.ingredients && (
+                <ErrorMessage message={errors.ingredients} />
+            )}
         </>
     )
 }
