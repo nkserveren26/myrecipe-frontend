@@ -1,11 +1,12 @@
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Button, Dialog, DialogActions, DialogContent, DialogTitle, Grid, Menu, MenuItem, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import ReactPlayer from "react-player";
 import { useParams } from "react-router-dom";
 import { RecipeDetail } from "../interface/interface";
-import { DropdownButton } from "../button/DropdownButton";
 import { ScrollToTopButton } from "../button/ScrollToTopButton";
 import axios from "axios";
+import { RecipeEditForm } from "../form/RecipeEditForm";
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 
 export const RecipePage: React.FC = () => {
     // リクエストパラメータにあるidパラメータを取得
@@ -14,6 +15,10 @@ export const RecipePage: React.FC = () => {
     const [recipeDetail, setRecipeDetail] = useState<RecipeDetail>();
 
     const [loading, setLoading] = useState(true);
+
+    const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+    const [openDialog, setOpenDialog] = useState(false); // ダイアログ表示状態
+
 
     useEffect(() => {
         const fetchRecipeDetail = async () => {
@@ -35,6 +40,25 @@ export const RecipePage: React.FC = () => {
 
         fetchRecipeDetail();
     }, [id]);
+
+    // ボタンがクリックされたときに呼ばれるハンドラ
+    const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+        setAnchorEl(event.currentTarget);
+    };
+
+    // メニューが閉じられたときに呼ばれるハンドラ
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+
+    const handleEdit = () => {
+        setOpenDialog(true);  // ダイアログを表示
+        handleClose(); // メニューを閉じる
+    };
+
+    const handleCloseDialog = () => {
+        setOpenDialog(false); // ダイアログを閉じる
+    };
 
 
     // データ取得中は以下の画面を表示
@@ -58,7 +82,29 @@ export const RecipePage: React.FC = () => {
                                     {recipeDetail.title}
                                 </Typography>
                             </Box>
-                            <DropdownButton />
+                            <Box>
+                                <Button
+                                    aria-controls="simple-menu"
+                                    aria-haspopup="true"
+                                    variant="contained"
+                                    color="primary"
+                                    onClick={handleClick}
+                                    endIcon={<ArrowDropDownIcon />}
+                                >
+                                    Action
+                                </Button>
+                                <Menu
+                                    id="simple-menu"
+                                    anchorEl={anchorEl} // メニューのアンカー要素を設定
+                                    keepMounted
+                                    open={Boolean(anchorEl)} // anchorElがnullでない場合、メニューを表示
+                                    onClose={handleClose}
+                                >
+                                    <MenuItem onClick={handleEdit}>Edit</MenuItem>
+                                    <MenuItem onClick={handleClose}>Delete</MenuItem>
+                                </Menu>
+                                
+                            </Box>
                         </Box>
                         <Box display="flex" justifyContent="center">
                             <ReactPlayer
@@ -117,6 +163,18 @@ export const RecipePage: React.FC = () => {
                         </Typography>
                     </Box>
                     <ScrollToTopButton />
+
+                    {/* 編集用ダイアログ */}
+                    <Dialog open={openDialog} onClose={handleCloseDialog} fullWidth maxWidth="md">
+                        <DialogTitle>レシピの編集</DialogTitle>
+                        <DialogContent>
+                            <RecipeEditForm recipeDetail={recipeDetail} />
+                        </DialogContent>
+                        <DialogActions>
+                            <Button onClick={handleCloseDialog} variant="contained" style={{ backgroundColor: '#808080' }}>キャンセル</Button>
+                            <Button onClick={() => {/* 保存処理 */ }} color="primary" variant="contained">保存</Button>
+                        </DialogActions>
+                    </Dialog>
                 </div>
             ) : (
                 <div>No recipe data found.</div>
