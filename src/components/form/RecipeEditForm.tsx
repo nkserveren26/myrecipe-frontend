@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { Categories, FormErrors, Ingredient, RecipeEditFormProps, Step } from '../interface/interface';
-import { Box, MenuItem, TextField, Typography } from '@mui/material';
+import { Box, Button, CircularProgress, MenuItem, TextField, Typography } from '@mui/material';
 import { RequiredLabel } from '../label/RequiredLabel';
 import { ErrorMessage } from '../common/ErrorMessage';
 import { DeleteButton } from '../button/DeleteButton';
 import { AddButton } from '../button/AddButton';
+import { stepOptions } from "../variable/ArrayVariables";
 
 export const RecipeEditForm: React.FC<RecipeEditFormProps> = ({ recipeDetail }) => {
     
@@ -32,6 +33,9 @@ export const RecipeEditForm: React.FC<RecipeEditFormProps> = ({ recipeDetail }) 
     const [errors, setErrors] = useState<FormErrors>({ title: "", category: "", videoUrl: "", ingredients: "", steps: "" });
     const [formError, setFormError] = useState(""); // 全体エラーメッセージ用
 
+    // ロード表示用
+    const [loading, setLoading] = useState(false);
+
     // サムネイル画像が選択された時の処理
     const handleThumbnailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
@@ -56,6 +60,31 @@ export const RecipeEditForm: React.FC<RecipeEditFormProps> = ({ recipeDetail }) 
     const handleRemoveIngredient = (index: number) => {
         const newIngredients = ingredients.filter((_, i) => i !== index);
         setIngredients(newIngredients);
+    };
+
+    // 作り方オブジェクトを更新する関数
+    const handleStepChange = (index: number, field: keyof Step, value: string | number) => {
+        const newSteps = [...steps];
+
+        if (field === "stepNumber") {
+            console.log("stepNumber: aaaaaa");
+            newSteps[index][field] = value === '準備' ? 0 : parseInt(value as string);
+        } else if (field === "description" && typeof value === "string") {
+            newSteps[index][field] = value;
+        }
+
+        setSteps(newSteps);
+    };
+
+    // 任意の作り方オブジェクトを削除する関数
+    const handleRemoveStep = (index: number) => {
+        const newSteps = steps.filter((_, i) => i !== index);
+        setSteps(newSteps);
+    };
+
+    // 作り方オブジェクトを追加する関数
+    const handleAddStep = () => {
+        setSteps([...steps, { stepNumber: 0, description: "" }]);
     };
 
     return (
@@ -165,6 +194,58 @@ export const RecipeEditForm: React.FC<RecipeEditFormProps> = ({ recipeDetail }) 
             {errors.ingredients && (
                 <ErrorMessage message={errors.ingredients} />
             )}
+
+            <Typography variant="h6" sx={{ fontWeight: 'bold', mt: 5 }}>
+                作り方 <RequiredLabel fontSize='18px' />
+            </Typography>
+            {steps.map((step, index) => (
+                <Box key={index} sx={{ mt: 2 }}>
+                    <TextField
+                        select
+                        label="項番"
+                        value={step.stepNumber}
+                        onChange={(e) => handleStepChange(index, "stepNumber", e.target.value)}
+                        variant="outlined"
+                        margin="normal"
+                        sx={{ border: '1px solid', borderRadius: '8px', width: 80, textAlign: 'left', m: 0 }}
+                    >
+                        {stepOptions.map((option, index) => (
+                            <MenuItem key={index} value={option.value}>
+                                {option.label}
+                            </MenuItem>
+                        ))}
+                    </TextField>
+                    <Box display="flex" alignItems="center" mt={2}>
+                        <TextField
+                            label="説明"
+                            value={step.description}
+                            onChange={(e) => handleStepChange(index, "description", e.target.value)}
+                            variant="outlined"
+                            fullWidth
+                            sx={{ border: '1px solid', borderRadius: '8px' }}  // 余白と幅の指定
+                        />
+                        <DeleteButton onClick={() => handleRemoveStep(index)} size="large" />
+                    </Box>
+                </Box>
+            ))}
+            <AddButton onClick={handleAddStep} />
+            {errors.steps && (
+                <ErrorMessage message={errors.steps} />
+            )}
+
+            <Box sx={{ mt: 5 }}>
+                <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
+                    料理のコツ・ポイント
+                </Typography>
+                <TextField
+                    label="説明"
+                    value={point}
+                    onChange={(e) => setPoint(e.target.value)}
+                    variant="outlined"
+                    fullWidth
+                    sx={{ border: '1px solid', borderRadius: '8px', mt: 2 }}  // 余白と幅の指定
+                />
+            </Box>
         </>
     )
 }
