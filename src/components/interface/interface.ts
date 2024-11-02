@@ -98,3 +98,9 @@ export interface FormErrors {
 export interface RecipeEditFormProps {
     recipeDetail: RecipeDetail; // RecipeDetailをpropsとして渡す
 }
+
+// RecipeEditDialogのProps
+export interface RecipeEditDialogProps {
+    openDialog: boolean;
+    recipeDetail: RecipeDetail; // RecipeDetailをpropsとして渡す
+}
