@@ -1,11 +1,10 @@
-import { Box, Button, Dialog, DialogActions, DialogContent, DialogTitle, Grid, Menu, MenuItem, Typography } from "@mui/material";
+import { Box, Button, Grid, Menu, MenuItem, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import ReactPlayer from "react-player";
 import { useParams } from "react-router-dom";
 import { RecipeDetail } from "../interface/interface";
 import { ScrollToTopButton } from "../button/ScrollToTopButton";
 import axios from "axios";
-import { RecipeEditForm } from "../form/RecipeEditForm";
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import { RecipeEditDialog } from "../dialog/RecipeEditDialog";
 
@@ -56,11 +55,6 @@ export const RecipePage: React.FC = () => {
         setOpenDialog(true);  // ダイアログを表示
         handleClose(); // メニューを閉じる
     };
-
-    const handleCloseDialog = () => {
-        setOpenDialog(false); // ダイアログを閉じる
-    };
-
 
     // データ取得中は以下の画面を表示
     if (loading) {
