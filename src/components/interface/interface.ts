@@ -102,5 +102,6 @@ export interface RecipeEditFormProps {
 // RecipeEditDialogのProps
 export interface RecipeEditDialogProps {
     openDialog: boolean;
+    setOpenDialog: (openDialog: boolean) => void;
     recipeDetail: RecipeDetail; // RecipeDetailをpropsとして渡す
 }
