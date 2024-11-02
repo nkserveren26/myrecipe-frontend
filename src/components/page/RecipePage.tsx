@@ -7,6 +7,7 @@ import { ScrollToTopButton } from "../button/ScrollToTopButton";
 import axios from "axios";
 import { RecipeEditForm } from "../form/RecipeEditForm";
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import { RecipeEditDialog } from "../dialog/RecipeEditDialog";
 
 export const RecipePage: React.FC = () => {
     // リクエストパラメータにあるidパラメータを取得
@@ -164,17 +165,8 @@ export const RecipePage: React.FC = () => {
                     </Box>
                     <ScrollToTopButton />
 
-                    {/* 編集用ダイアログ */}
-                    <Dialog open={openDialog} onClose={handleCloseDialog} fullWidth maxWidth="md">
-                        <DialogTitle>レシピの編集</DialogTitle>
-                        <DialogContent>
-                            <RecipeEditForm recipeDetail={recipeDetail} />
-                        </DialogContent>
-                        <DialogActions>
-                            <Button onClick={handleCloseDialog} variant="contained" style={{ backgroundColor: '#808080' }}>キャンセル</Button>
-                            <Button onClick={() => {/* 保存処理 */ }} color="primary" variant="contained">保存</Button>
-                        </DialogActions>
-                    </Dialog>
+                    {/* レシピ編集用ダイアログ */}
+                    <RecipeEditDialog openDialog={openDialog} setOpenDialog={setOpenDialog} recipeDetail={recipeDetail} />
                 </div>
             ) : (
                 <div>No recipe data found.</div>
