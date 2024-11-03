@@ -20,7 +20,7 @@ export const RecipeEditDialog: React.FC<RecipeEditDialogProps> = ({ openDialog, 
             <Dialog open={openDialog} onClose={handleCloseDialog} fullWidth maxWidth="md">
                 <DialogTitle>レシピの編集</DialogTitle>
                 <DialogContent>
-                    <RecipeEditForm recipeDetail={recipeDetail} />
+                    <RecipeEditForm recipeDetail={recipeDetail} onSave={handleUpdateRecipe} />
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleCloseDialog} variant="contained" style={{ backgroundColor: '#808080' }}>キャンセル</Button>
