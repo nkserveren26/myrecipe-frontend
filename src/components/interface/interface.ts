@@ -96,7 +96,8 @@ export interface FormErrors {
 
 // RecipeEditFormのProps
 export interface RecipeEditFormProps {
-    recipeDetail: RecipeDetail; // RecipeDetailをpropsとして渡す
+    recipeDetail: RecipeDetail;
+    onSave: (updatedRecipe: RecipeDetail) => void;
 }
 
 // RecipeEditDialogのProps

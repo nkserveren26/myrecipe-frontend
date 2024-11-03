@@ -7,7 +7,7 @@ import { DeleteButton } from '../button/DeleteButton';
 import { AddButton } from '../button/AddButton';
 import { stepOptions } from "../variable/ArrayVariables";
 
-export const RecipeEditForm: React.FC<RecipeEditFormProps> = ({ recipeDetail }) => {
+export const RecipeEditForm: React.FC<RecipeEditFormProps> = ({ recipeDetail, onSave }) => {
     
     // カテゴリーの一覧
     const categories: Categories = {
