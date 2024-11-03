@@ -17,6 +17,7 @@ export const RecipeEditForm: React.FC<RecipeEditFormProps> = ({ recipeDetail, on
         '野菜': 'vegetable',
     };
 
+    const id: number = recipeDetail.id;
     const [title, setTitle] = useState(recipeDetail.title);
     const [videoUrl, setVideoUrl] = useState(recipeDetail.videoUrl);
     const [servings, setServings] = useState(recipeDetail.servings);
@@ -85,6 +86,25 @@ export const RecipeEditForm: React.FC<RecipeEditFormProps> = ({ recipeDetail, on
     // 作り方オブジェクトを追加する関数
     const handleAddStep = () => {
         setSteps([...steps, { stepNumber: 0, description: "" }]);
+    };
+
+    const handleSave = () => {
+
+        // 入力値のチェック処理
+        
+        // カテゴリ選択
+
+        // onSave propsに渡された関数を実行
+        onSave({
+            id,
+            title,
+            videoUrl,
+            servings,
+            category,
+            ingredients,
+            steps,
+            point
+        }, thumbnail);
     };
 
     return (
@@ -246,6 +266,7 @@ export const RecipeEditForm: React.FC<RecipeEditFormProps> = ({ recipeDetail, on
                     sx={{ border: '1px solid', borderRadius: '8px', mt: 2 }}  // 余白と幅の指定
                 />
             </Box>
+            <Button onClick={handleSave} style={{ display: "none" }} id="saveButton">Save</Button>
         </>
     )
 }

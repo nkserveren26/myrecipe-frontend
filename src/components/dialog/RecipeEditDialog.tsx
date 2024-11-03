@@ -1,14 +1,17 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle } from "@mui/material";
 import { RecipeEditForm } from "../form/RecipeEditForm";
-import { RecipeDetail, RecipeEditDialogProps } from "../interface/interface";
+import { RecipeDetail, RecipeEditDialogProps, SaveRecipeData } from "../interface/interface";
 
 export const RecipeEditDialog: React.FC<RecipeEditDialogProps> = ({ openDialog, setOpenDialog, recipeDetail }) => {
     
     // レシピの更新処理
-    const handleUpdateRecipe = (updatedRecipe: RecipeDetail) => {
+    const handleUpdateRecipe = (updatedRecipe: SaveRecipeData, thumbnail: File|null ) => {
         // 更新処理をここに追加
         console.log("更新データ:", updatedRecipe);
-        // 必要であればAPIコールやステートの更新を行います
+
+        // サムネイル画像の処理
+        
+        // レシピ更新APIを実行
     };
     
     const handleCloseDialog = () => {

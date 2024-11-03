@@ -59,6 +59,18 @@ export interface RecipeDetail {
     point: string,
 }
 
+// 登録するレシピ情報の型
+export interface SaveRecipeData {
+    id: number,
+    title: string,
+    servings: number,
+    category: string,
+    videoUrl: string,
+    ingredients: Ingredient[],
+    steps: Step[],
+    point: string,
+}
+
 // 材料オブジェクトの型
 export interface Ingredient {
     name: string;
@@ -97,7 +109,7 @@ export interface FormErrors {
 // RecipeEditFormのProps
 export interface RecipeEditFormProps {
     recipeDetail: RecipeDetail;
-    onSave: (updatedRecipe: RecipeDetail) => void;
+    onSave: (updatedRecipe: SaveRecipeData, thumbnail: File|null ) => void;
 }
 
 // RecipeEditDialogのProps
