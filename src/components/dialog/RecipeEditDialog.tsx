@@ -7,7 +7,7 @@ export const RecipeEditDialog: React.FC<RecipeEditDialogProps> = ({ openDialog, 
 
     // ロード表示用
     const [loading, setLoading] = useState(false);
-    const [dialogOpen, setDialogOpen] = useState(false);
+    const [completeDialogOpen, setCompleteDialogOpen] = useState(false);
     
     // レシピの更新処理
     const handleUpdateRecipe = async (updatedRecipe: SaveRecipeData, thumbnail: File|null ) => {
@@ -39,7 +39,7 @@ export const RecipeEditDialog: React.FC<RecipeEditDialogProps> = ({ openDialog, 
             });
 
             setLoading(false);  // ローディング終了
-            setDialogOpen(true);  // 完了ダイアログを開く
+            setCompleteDialogOpen(true);  // 完了ダイアログを開く
         } catch (error) {
             console.error('Error adding recipe:', error);
             setLoading(false);
@@ -47,6 +47,7 @@ export const RecipeEditDialog: React.FC<RecipeEditDialogProps> = ({ openDialog, 
     };
     
     const handleCloseDialog = () => {
+        setCompleteDialogOpen(false);
         setOpenDialog(false); // ダイアログを閉じる
     };
 
@@ -60,6 +61,16 @@ export const RecipeEditDialog: React.FC<RecipeEditDialogProps> = ({ openDialog, 
                 <DialogActions>
                     <Button onClick={handleCloseDialog} variant="contained" style={{ backgroundColor: '#808080' }}>キャンセル</Button>
                     <Button onClick={() => document.getElementById("saveButton")?.click()} color="primary" variant="contained">保存</Button>
+                </DialogActions>
+            </Dialog>
+
+            {/* 更新完了ダイアログ */}
+            <Dialog open={completeDialogOpen} onClose={handleCloseDialog}>
+                <DialogTitle>レシピの更新が完了しました！</DialogTitle>
+                <DialogActions sx={{ justifyContent: 'center' }}>
+                    <Button onClick={handleCloseDialog} color="primary" variant="contained">
+                        Close
+                    </Button>
                 </DialogActions>
             </Dialog>
         </>
