@@ -1,17 +1,49 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle } from "@mui/material";
 import { RecipeEditForm } from "../form/RecipeEditForm";
 import { RecipeDetail, RecipeEditDialogProps, SaveRecipeData } from "../interface/interface";
+import { useState } from "react";
 
 export const RecipeEditDialog: React.FC<RecipeEditDialogProps> = ({ openDialog, setOpenDialog, recipeDetail }) => {
+
+    // ロード表示用
+    const [loading, setLoading] = useState(false);
+    const [dialogOpen, setDialogOpen] = useState(false);
     
     // レシピの更新処理
-    const handleUpdateRecipe = (updatedRecipe: SaveRecipeData, thumbnail: File|null ) => {
-        // 更新処理をここに追加
+    const handleUpdateRecipe = async (updatedRecipe: SaveRecipeData, thumbnail: File|null ) => {
+        setLoading(true);  // ローディング開始
+        if (!process.env.REACT_APP_RECIPE_API_BASE_URL) {
+            throw new Error("REACT_APP_RECIPE_API_BASE_URL is not defined");
+        }
+        
         console.log("更新データ:", updatedRecipe);
 
-        // サムネイル画像の処理
+        const apiUrl: string = process.env.REACT_APP_RECIPE_API_BASE_URL;
+
+        // JSONデータを文字列化してFormDataに追加
+        const formData: FormData = new FormData();
+        formData.append("recipe", new Blob([JSON.stringify(updatedRecipe)], { type: "application/json" }));
+
+
+        // サムネイル画像をFormDataに追加（存在する場合）
+        if (thumbnail) {
+            formData.append("thumbnail", thumbnail);
+        }
         
         // レシピ更新APIを実行
+        try {
+
+            const response = await fetch(apiUrl, {
+                method: "POST",
+                body: formData
+            });
+
+            setLoading(false);  // ローディング終了
+            setDialogOpen(true);  // 完了ダイアログを開く
+        } catch (error) {
+            console.error('Error adding recipe:', error);
+            setLoading(false);
+        }
     };
     
     const handleCloseDialog = () => {
