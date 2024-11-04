@@ -88,23 +88,82 @@ export const RecipeEditForm: React.FC<RecipeEditFormProps> = ({ recipeDetail, on
         setSteps([...steps, { stepNumber: 0, description: "" }]);
     };
 
+    // 各入力項目のvalidate
+    const validateForm = () => {
+        let valid = true;
+        const newErrors: FormErrors = { title: "", category: "", videoUrl: "", ingredients: "", steps: "" };
+
+        // タイトルが空の場合
+        if (title.trim() === "") { //入力文字列からスペースを削除
+            newErrors.title = "タイトルは必須です。";
+            valid = false;
+        }
+
+        // カテゴリが未選択の場合
+        if (category === "") { //入力文字列からスペースを削除
+            newErrors.category = "カテゴリを選択してください。";
+            valid = false;
+        }
+
+        // レシピ動画URLが空の場合
+        if (videoUrl.trim() === "") { //入力文字列からスペースを削除
+            newErrors.videoUrl = "レシピ動画URLは必須です。";
+            valid = false;
+        }
+
+        // 材料が1つも入力されていない場合
+        if (ingredients.length === 0 || ingredients.some(ingredient => ingredient.name.trim() === "")) {
+            newErrors.ingredients = "少なくとも1つの材料を入力してください。";
+            valid = false;
+        }
+
+        // 作り方が1つも入力されていない場合
+        if (steps.length === 0 || steps.some(step => step.description.trim() === "")) {
+            newErrors.steps = "少なくとも作り方は1つ以上入力してください。";
+            valid = false;
+        }
+
+        setErrors(newErrors);
+
+        // 全体のエラーメッセージをセット
+        if (!valid) {
+            setFormError("入力項目にエラーがあります。内容を確認してください。");
+
+            // 画面の一番上にスクロールする処理を追加
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth", // スムーズにスクロール
+            });
+        } else {
+            setFormError(""); // エラーがない場合は全体のエラーメッセージをリセット
+        }
+
+        return valid;
+    };
+
     const handleSave = () => {
 
         // 入力値のチェック処理
-        
-        // カテゴリ選択
+        if (validateForm()) {
+            // カテゴリ選択
+            const selectedCategory: string = categories[category]; // 選択したカテゴリを英語に変換
 
-        // onSave propsに渡された関数を実行
-        onSave({
-            id,
-            title,
-            videoUrl,
-            servings,
-            category,
-            ingredients,
-            steps,
-            point
-        }, thumbnail);
+            // onSave propsに渡された関数を実行
+            onSave({
+                id,
+                title,
+                videoUrl,
+                servings,
+                category: selectedCategory,
+                ingredients,
+                steps,
+                point
+            }, thumbnail);
+        } else {
+            console.log('バリデーションエラーが発生しました');
+        }
+        
+        
     };
 
     return (
