@@ -33,10 +33,12 @@ export const RecipeEditDialog: React.FC<RecipeEditDialogProps> = ({ openDialog, 
         // レシピ更新APIを実行
         try {
 
+            /*
             const response = await fetch(apiUrl, {
                 method: "POST",
                 body: formData
             });
+            */
 
             setLoading(false);  // ローディング終了
             setCompleteDialogOpen(true);  // 完了ダイアログを開く
