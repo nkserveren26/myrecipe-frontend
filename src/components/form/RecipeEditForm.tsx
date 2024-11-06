@@ -168,6 +168,11 @@ export const RecipeEditForm: React.FC<RecipeEditFormProps> = ({ recipeDetail, on
 
     return (
         <>
+            {formError && (
+                <Typography variant="body1" color="error" sx={{ mt: 3, mb: 2 }}>
+                    {formError}
+                </Typography>
+            )}
             <Typography variant="h6" sx={{ fontWeight: 'bold', mt: 4 }}>
                 料理名 <RequiredLabel fontSize='18px' />
             </Typography>
@@ -326,11 +331,6 @@ export const RecipeEditForm: React.FC<RecipeEditFormProps> = ({ recipeDetail, on
                 />
             </Box>
             <Button onClick={handleSave} style={{ display: "none" }} id="saveButton">Save</Button>
-            {formError && (
-                <Typography variant="body1" color="error" sx={{ mt: 3, mb: 2 }}>
-                    {formError}
-                </Typography>
-            )}
         </>
     )
 }
