@@ -1,13 +1,15 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle } from "@mui/material";
 import { RecipeEditForm } from "../form/RecipeEditForm";
 import { RecipeDetail, RecipeEditDialogProps, SaveRecipeData } from "../interface/interface";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 export const RecipeEditDialog: React.FC<RecipeEditDialogProps> = ({ openDialog, setOpenDialog, recipeDetail }) => {
 
     // ロード表示用
     const [loading, setLoading] = useState(false);
     const [completeDialogOpen, setCompleteDialogOpen] = useState(false);
+
+    const dialogContentRef = useRef<HTMLDivElement | null>(null);
     
     // レシピの更新処理
     const handleUpdateRecipe = async (updatedRecipe: SaveRecipeData, thumbnail: File|null ) => {
@@ -57,8 +59,8 @@ export const RecipeEditDialog: React.FC<RecipeEditDialogProps> = ({ openDialog, 
         <>
             <Dialog open={openDialog} onClose={handleCloseDialog} fullWidth maxWidth="md">
                 <DialogTitle>レシピの編集</DialogTitle>
-                <DialogContent>
-                    <RecipeEditForm recipeDetail={recipeDetail} onSave={handleUpdateRecipe} />
+                <DialogContent ref={dialogContentRef}>
+                    <RecipeEditForm recipeDetail={recipeDetail} onSave={handleUpdateRecipe} dialogContentRef={dialogContentRef} />
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleCloseDialog} variant="contained" style={{ backgroundColor: '#808080' }}>キャンセル</Button>
