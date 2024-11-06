@@ -7,7 +7,7 @@ import { DeleteButton } from '../button/DeleteButton';
 import { AddButton } from '../button/AddButton';
 import { stepOptions } from "../variable/ArrayVariables";
 
-export const RecipeEditForm: React.FC<RecipeEditFormProps> = ({ recipeDetail, onSave }) => {
+export const RecipeEditForm: React.FC<RecipeEditFormProps> = ({ recipeDetail, onSave, dialogContentRef }) => {
     
     // カテゴリーの一覧
     const categories: Categories = {
@@ -129,10 +129,10 @@ export const RecipeEditForm: React.FC<RecipeEditFormProps> = ({ recipeDetail, on
         if (!valid) {
             setFormError("入力項目にエラーがあります。内容を確認してください。");
 
-            // 画面の一番上にスクロールする処理を追加
-            window.scrollTo({
+            // ダイアログのトップにスクロール
+            dialogContentRef.current?.scrollTo({
                 top: 0,
-                behavior: "smooth", // スムーズにスクロール
+                behavior: "smooth",
             });
         } else {
             setFormError(""); // エラーがない場合は全体のエラーメッセージをリセット

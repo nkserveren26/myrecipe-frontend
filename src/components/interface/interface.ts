@@ -110,6 +110,7 @@ export interface FormErrors {
 export interface RecipeEditFormProps {
     recipeDetail: RecipeDetail;
     onSave: (updatedRecipe: SaveRecipeData, thumbnail: File|null ) => void;
+    dialogContentRef: React.RefObject<HTMLDivElement>;
 }
 
 // RecipeEditDialogのProps
