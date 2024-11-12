@@ -2,6 +2,7 @@ import { Button, Dialog, DialogActions, DialogContent, DialogTitle } from "@mui/
 import { RecipeEditForm } from "../form/RecipeEditForm";
 import { RecipeDetail, RecipeEditDialogProps, SaveRecipeData } from "../interface/interface";
 import { useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const RecipeEditDialog: React.FC<RecipeEditDialogProps> = ({ openDialog, setOpenDialog, recipeDetail }) => {
 
@@ -10,6 +11,9 @@ export const RecipeEditDialog: React.FC<RecipeEditDialogProps> = ({ openDialog, 
     const [completeDialogOpen, setCompleteDialogOpen] = useState(false);
 
     const dialogContentRef = useRef<HTMLDivElement | null>(null);
+
+    // useNavigate
+    const navigate = useNavigate();
     
     // レシピの更新処理
     const handleUpdateRecipe = async (updatedRecipe: SaveRecipeData, thumbnail: File|null ) => {
@@ -50,6 +54,8 @@ export const RecipeEditDialog: React.FC<RecipeEditDialogProps> = ({ openDialog, 
     const handleCloseDialog = () => {
         setCompleteDialogOpen(false);
         setOpenDialog(false); // ダイアログを閉じる
+        // レシピのページを再ローディング
+        navigate(`/recipes/${recipeDetail.id}`);
     };
 
     return (
