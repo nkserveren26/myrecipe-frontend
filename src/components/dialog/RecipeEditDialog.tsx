@@ -20,7 +20,7 @@ export const RecipeEditDialog: React.FC<RecipeEditDialogProps> = ({ openDialog, 
         
         console.log("更新データ:", updatedRecipe);
 
-        const apiUrl: string = process.env.REACT_APP_RECIPE_API_BASE_URL;
+        const apiUrl: string = `${process.env.REACT_APP_RECIPE_API_BASE_URL}/${recipeDetail.id}`;
 
         // JSONデータを文字列化してFormDataに追加
         const formData: FormData = new FormData();
@@ -34,13 +34,10 @@ export const RecipeEditDialog: React.FC<RecipeEditDialogProps> = ({ openDialog, 
         
         // レシピ更新APIを実行
         try {
-
-            /*
             const response = await fetch(apiUrl, {
-                method: "POST",
+                method: "PUT",
                 body: formData
             });
-            */
 
             setLoading(false);  // ローディング終了
             setCompleteDialogOpen(true);  // 完了ダイアログを開く
