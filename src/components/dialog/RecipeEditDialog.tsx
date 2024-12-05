@@ -43,6 +43,8 @@ export const RecipeEditDialog: React.FC<RecipeEditDialogProps> = ({ openDialog, 
                 body: formData
             });
 
+            console.log("更新完了");
+
             setLoading(false);  // ローディング終了
             setCompleteDialogOpen(true);  // 完了ダイアログを開く
         } catch (error) {
@@ -55,7 +57,7 @@ export const RecipeEditDialog: React.FC<RecipeEditDialogProps> = ({ openDialog, 
         setCompleteDialogOpen(false);
         setOpenDialog(false); // ダイアログを閉じる
         // レシピのページを再ローディング
-        navigate(`/recipes/${recipeDetail.id}`);
+        navigate(`/recipes/${recipeDetail.id}`, { replace: true });
     };
 
     return (
