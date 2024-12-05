@@ -1,4 +1,4 @@
-import { Button, Dialog, DialogActions, DialogContent, DialogTitle } from "@mui/material";
+import { Button, Dialog, DialogActions, CircularProgress, DialogContent, DialogTitle } from "@mui/material";
 import { RecipeEditForm } from "../form/RecipeEditForm";
 import { RecipeEditDialogProps, SaveRecipeData } from "../interface/interface";
 import { useRef, useState } from "react";
@@ -64,8 +64,14 @@ export const RecipeEditDialog: React.FC<RecipeEditDialogProps> = ({ openDialog, 
                     <RecipeEditForm recipeDetail={recipeDetail} onSave={handleUpdateRecipe} dialogContentRef={dialogContentRef} />
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={handleCloseDialog} variant="contained" style={{ backgroundColor: '#808080' }}>キャンセル</Button>
-                    <Button onClick={() => document.getElementById("saveButton")?.click()} color="primary" variant="contained">保存</Button>
+                    <Button onClick={handleCloseDialog} variant="contained" style={{ backgroundColor: '#808080' }}>CANCEL</Button>
+                    {loading ? (
+                        // Submitボタンの代わりにローディングスピナーを表示
+                        <CircularProgress size={24} />
+                    ) : (
+                            <Button onClick={() => document.getElementById("saveButton")?.click()} color="primary" variant="contained">SUBMIT</Button>
+                    )}
+                    
                 </DialogActions>
             </Dialog>
 

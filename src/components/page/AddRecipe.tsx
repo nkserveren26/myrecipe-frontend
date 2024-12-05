@@ -420,7 +420,7 @@ export const AddRecipe: React.FC = () => {
                         </Button>
                     )}
                     <Button variant="contained" size="large" onClick={handleCancel} sx={{ml: 3}} style={{ backgroundColor: '#808080' }}>
-                        Cancel
+                        CANCEL
                     </Button>
                 </Box>
 
