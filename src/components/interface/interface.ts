@@ -119,3 +119,9 @@ export interface RecipeEditDialogProps {
     setOpenDialog: (openDialog: boolean) => void;
     recipeDetail: RecipeDetail; // RecipeDetailをpropsとして渡す
 }
+
+// RecipeDeleteDialogのProps
+export interface RecipeDeleteDialogProps {
+    openDialog: boolean;
+    setOpenDialog: (openDialog: boolean) => void;
+}

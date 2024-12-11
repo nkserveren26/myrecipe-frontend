@@ -7,6 +7,7 @@ import { ScrollToTopButton } from "../button/ScrollToTopButton";
 import axios from "axios";
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import { RecipeEditDialog } from "../dialog/RecipeEditDialog";
+import { RecipeDeleteDialog } from "../dialog/RecipeDeleteDialog";
 
 export const RecipePage: React.FC = () => {
     // リクエストパラメータにあるidパラメータを取得
@@ -18,7 +19,7 @@ export const RecipePage: React.FC = () => {
 
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
     const [openEditDialog, setOpenEditDialog] = useState(false); // 編集ダイアログ表示状態
-
+    const [openDeleteDialog, setOpenDeleteDialog] = useState(false); // 削除ダイアログ表示状態
 
     useEffect(() => {
         const fetchRecipeDetail = async () => {
@@ -163,6 +164,7 @@ export const RecipePage: React.FC = () => {
                     <RecipeEditDialog openDialog={openEditDialog} setOpenDialog={setOpenEditDialog} recipeDetail={recipeDetail} />
 
                     {/* 削除確認ダイアログ */}
+                    <RecipeDeleteDialog openDialog={openDeleteDialog} setOpenDialog={setOpenDeleteDialog} />
 
                 </div>
             ) : (
