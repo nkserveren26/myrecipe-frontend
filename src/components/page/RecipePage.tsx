@@ -17,7 +17,7 @@ export const RecipePage: React.FC = () => {
     const [loading, setLoading] = useState(true);
 
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-    const [openDialog, setOpenDialog] = useState(false); // ダイアログ表示状態
+    const [openEditDialog, setOpenEditDialog] = useState(false); // 編集ダイアログ表示状態
 
 
     useEffect(() => {
@@ -52,7 +52,7 @@ export const RecipePage: React.FC = () => {
     };
 
     const handleEdit = () => {
-        setOpenDialog(true);  // ダイアログを表示
+        setOpenEditDialog(true);  // ダイアログを表示
         handleClose(); // メニューを閉じる
     };
 
@@ -160,7 +160,10 @@ export const RecipePage: React.FC = () => {
                     <ScrollToTopButton />
 
                     {/* レシピ編集用ダイアログ */}
-                    <RecipeEditDialog openDialog={openDialog} setOpenDialog={setOpenDialog} recipeDetail={recipeDetail} />
+                    <RecipeEditDialog openDialog={openEditDialog} setOpenDialog={setOpenEditDialog} recipeDetail={recipeDetail} />
+
+                    {/* 削除確認ダイアログ */}
+
                 </div>
             ) : (
                 <div>No recipe data found.</div>
