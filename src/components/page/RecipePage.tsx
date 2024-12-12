@@ -164,7 +164,7 @@ export const RecipePage: React.FC = () => {
                     <RecipeEditDialog openDialog={openEditDialog} setOpenDialog={setOpenEditDialog} recipeDetail={recipeDetail} />
 
                     {/* 削除確認ダイアログ */}
-                    <RecipeDeleteDialog openDialog={openDeleteDialog} setOpenDialog={setOpenDeleteDialog} />
+                    <RecipeDeleteDialog openDialog={openDeleteDialog} setOpenDialog={setOpenDeleteDialog} recipeId={recipeDetail.id} />
 
                 </div>
             ) : (

@@ -124,4 +124,5 @@ export interface RecipeEditDialogProps {
 export interface RecipeDeleteDialogProps {
     openDialog: boolean;
     setOpenDialog: (openDialog: boolean) => void;
+    recipeId: number;
 }
