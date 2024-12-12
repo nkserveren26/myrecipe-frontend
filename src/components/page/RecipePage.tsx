@@ -57,6 +57,11 @@ export const RecipePage: React.FC = () => {
         handleClose(); // メニューを閉じる
     };
 
+    const handleDelete = () => {
+        setOpenDeleteDialog(true);  // ダイアログを表示
+        handleClose(); // メニューを閉じる
+    };
+
     // データ取得中は以下の画面を表示
     if (loading) {
         return <div>Loading...</div>;
@@ -97,7 +102,7 @@ export const RecipePage: React.FC = () => {
                                     onClose={handleClose}
                                 >
                                     <MenuItem onClick={handleEdit}>Edit</MenuItem>
-                                    <MenuItem onClick={handleClose}>Delete</MenuItem>
+                                    <MenuItem onClick={handleDelete}>Delete</MenuItem>
                                 </Menu>
                                 
                             </Box>
