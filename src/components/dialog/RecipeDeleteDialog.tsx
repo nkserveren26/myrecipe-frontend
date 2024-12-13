@@ -37,7 +37,7 @@ export const RecipeDeleteDialog: React.FC<RecipeDeleteDialogProps> = ({openDialo
                     <Button onClick={handleCancelDialog} variant="contained" style={{ backgroundColor: '#808080' }}>
                         CANCEL
                     </Button>
-                    <Button onClick={handleConfirmDelete} variant="contained" color="secondary">
+                    <Button onClick={handleConfirmDelete} variant="contained" color="error">
                         DELETE
                     </Button>
                 </DialogActions>
