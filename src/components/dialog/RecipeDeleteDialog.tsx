@@ -34,11 +34,11 @@ export const RecipeDeleteDialog: React.FC<RecipeDeleteDialogProps> = ({openDialo
             <Dialog open={openDialog} onClose={handleCloseDialog}>
                 <DialogTitle>本当に削除しますか？</DialogTitle>
                 <DialogActions>
-                    <Button onClick={handleCancelDialog} variant="outlined" color="primary">
-                        キャンセル
+                    <Button onClick={handleCancelDialog} variant="contained" style={{ backgroundColor: '#808080' }}>
+                        CANCEL
                     </Button>
                     <Button onClick={handleConfirmDelete} variant="contained" color="secondary">
-                        削除
+                        DELETE
                     </Button>
                 </DialogActions>
             </Dialog>
