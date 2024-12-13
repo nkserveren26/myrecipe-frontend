@@ -48,6 +48,10 @@ export const RecipeEditDialog: React.FC<RecipeEditDialogProps> = ({ openDialog, 
             setLoading(false);
         }
     };
+
+    const handleCancelDialog = () => {
+        setOpenDialog(false); // ダイアログを閉じる
+    };
     
     const handleCloseDialog = () => {
         setCompleteDialogOpen(false);
@@ -64,7 +68,7 @@ export const RecipeEditDialog: React.FC<RecipeEditDialogProps> = ({ openDialog, 
                     <RecipeEditForm recipeDetail={recipeDetail} onSave={handleUpdateRecipe} dialogContentRef={dialogContentRef} />
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={handleCloseDialog} variant="contained" style={{ backgroundColor: '#808080' }}>CANCEL</Button>
+                    <Button onClick={handleCancelDialog} variant="contained" style={{ backgroundColor: '#808080' }}>CANCEL</Button>
                     {loading ? (
                         // Submitボタンの代わりにローディングスピナーを表示
                         <CircularProgress size={24} />
