@@ -23,6 +23,8 @@ export const RecipeDeleteDialog: React.FC<RecipeDeleteDialogProps> = ({openDialo
             const response = await fetch(apiUrl, {
                 method: "DELETE",
             });
+
+            setCompleteDialogOpen(true);  // 完了ダイアログを開く
         } catch (error) {
             console.error("Failed to delete recipe:", error);
             alert("削除に失敗しました。");
