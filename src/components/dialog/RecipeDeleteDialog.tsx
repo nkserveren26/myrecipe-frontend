@@ -1,10 +1,14 @@
 import { Button, Dialog, DialogActions, DialogTitle } from "@mui/material";
 import React, { useState } from "react";
 import { RecipeDeleteDialogProps } from "../interface/interface";
+import { useNavigate } from "react-router-dom";
 
 export const RecipeDeleteDialog: React.FC<RecipeDeleteDialogProps> = ({openDialog, setOpenDialog, recipeId}) => {
 
     const [completeDialogOpen, setCompleteDialogOpen] = useState(false);
+
+    // useNavigate
+    const navigate = useNavigate();
 
     const handleCancelDialog = () => {
         setOpenDialog(false); // ダイアログを閉じる
@@ -14,6 +18,7 @@ export const RecipeDeleteDialog: React.FC<RecipeDeleteDialogProps> = ({openDialo
     const handleCloseDialog = () => {
         setCompleteDialogOpen(false);
         setOpenDialog(false); // ダイアログを閉じる
+        navigate(-1); // 前の画面に戻る
     };
 
     const handleConfirmDelete = async () => {
