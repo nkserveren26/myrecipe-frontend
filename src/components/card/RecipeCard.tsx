@@ -20,20 +20,12 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({
         // レシピIDに基づいて/recipes/:idページへ遷移
         navigate(`/recipes/${id}`);
     };
-    
-    const onEdit = () => {
-        console.log("Editting Recipe");
-    }
-
-    const onDelete = () => {
-        console.log("Deleting Recipe");
-    }
 
     const formatDate: string = createdAt.slice(0, 10);
 
     return (
         <>
-        <StyledCard onClick={() => handleCardClick(id)}  style={{ cursor: 'pointer' }} sx={{ width: 300, height: 310 }}>
+        <StyledCard onClick={() => handleCardClick(id)}  style={{ cursor: 'pointer' }} sx={{ width: 300, height: 280 }}>
               <CardMedia
                 sx={{ height: 180 }}
                 image={image}
@@ -61,12 +53,6 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({
                       padding: 0,
                 }}
               >
-                <IconButton onClick={onEdit} aria-label="edit" sx={{ color: theme.palette.primary.main, fontSize: 30, pr: 0 }}>
-                  <EditNoteIcon fontSize="inherit" />
-                </IconButton>
-                <IconButton onClick={onDelete} aria-label="delete" sx={{ color: 'red', fontSize: 30, pl: 0 }}>
-                  <DeleteIcon />
-                </IconButton>
               </CardActions>
             </StyledCard>
         </>
