@@ -155,6 +155,8 @@ export const RecipePage: React.FC = () => {
                             ))}
                         </Box>
                     </Box>
+                    {/* 点線のセパレータを追加 */}
+                    <Box sx={{ borderBottom: '1px dashed gray', marginY: 5 }} />
                     <Box mt={6}>
                         <Typography pb={2} fontWeight="bold" variant="h5" sx={{ textAlign: 'left' }}>
                             料理のコツ・ポイント
