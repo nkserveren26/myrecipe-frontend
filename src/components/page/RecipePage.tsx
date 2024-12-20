@@ -123,14 +123,18 @@ export const RecipePage: React.FC = () => {
                         <Typography variant="body1" sx={{ textAlign: 'left', fontSize: '16px' }}>2人前</Typography>
                         <Box sx={{ marginTop: 2 }}>
                             {recipeDetail.ingredients.map((ingredient, index) => (
-                                <Grid container key={index} sx={{ marginBottom: 2 }}>
-                                    <Grid item xs={6} style={{ textAlign: 'left' }}>
-                                        <Typography variant="body1" sx={{ fontSize: '20px' }}>{ingredient.name}</Typography>
+                                <Box key={index}>
+                                    <Grid container sx={{ marginBottom: 2 }}>
+                                        <Grid item xs={6} style={{ textAlign: 'left' }}>
+                                            <Typography variant="body1" sx={{ fontSize: '20px' }}>{ingredient.name}</Typography>
+                                        </Grid>
+                                        <Grid item xs={6} style={{ textAlign: 'right' }}>
+                                            <Typography variant="body1" sx={{ fontSize: '20px' }}>{ingredient.amount}</Typography>
+                                        </Grid>
                                     </Grid>
-                                    <Grid item xs={6} style={{ textAlign: 'right' }}>
-                                        <Typography variant="body1" sx={{ fontSize: '20px' }}>{ingredient.amount}</Typography>
-                                    </Grid>
-                                </Grid>
+                                    {/* 項目の下に線を挿入 */ }
+                                    < Box sx = {{ borderBottom: '1px solid rgba(0, 0, 0, 0.1)', marginY: 2 }} />
+                                </Box>
                             ))}
                         </Box>
                     </Box>
@@ -140,23 +144,25 @@ export const RecipePage: React.FC = () => {
                         </Typography>
                         <Box mt={2} >
                             {recipeDetail.steps.map((step, index) => (
-                                <Grid container key={index} sx={{ marginBottom: 3 }}>
-                                    <Grid item xs={step.stepNumber === 0 ? 0.6 : 0.4} style={{ textAlign: 'left' }}>
-                                        <Typography variant="body1" sx={{ fontSize: '19px', fontWeight: 'bold' }}>
-                                            {step.stepNumber === 0 ? '準備' : step.stepNumber}.
-                                        </Typography>
+                                <Box key={index}>
+                                    <Grid container sx={{ marginBottom: 3 }}>
+                                        <Grid item xs={step.stepNumber === 0 ? 0.6 : 0.4} style={{ textAlign: 'left' }}>
+                                            <Typography variant="body1" sx={{ fontSize: '19px', fontWeight: 'bold' }}>
+                                                {step.stepNumber === 0 ? '準備' : step.stepNumber}.
+                                            </Typography>
+                                        </Grid>
+                                        <Grid item xs={step.stepNumber === 0 ? 11.4 : 11.6} style={{ textAlign: 'left' }}>
+                                            <Typography variant="body1" sx={{ fontSize: '20px' }}>
+                                                {step.description}
+                                            </Typography>
+                                        </Grid>
                                     </Grid>
-                                    <Grid item xs={step.stepNumber === 0 ? 11.4 : 11.6} style={{ textAlign: 'left' }}>
-                                        <Typography variant="body1" sx={{ fontSize: '20px' }}>
-                                            {step.description}
-                                        </Typography>
-                                    </Grid>
-                                </Grid>
-                            ))}
+                                    {/* 項目の下に線を挿入 */}
+                                    <Box sx={{ borderBottom: '1px solid rgba(0, 0, 0, 0.1)', marginY: 2 }} />
+                                </Box>
+                            ))} 
                         </Box>
                     </Box>
-                    {/* 点線のセパレータを追加 */}
-                    <Box sx={{ borderBottom: '1px dashed gray', marginY: 5 }} />
                     <Box mt={6}>
                         <Typography pb={2} fontWeight="bold" variant="h5" sx={{ textAlign: 'left' }}>
                             料理のコツ・ポイント
