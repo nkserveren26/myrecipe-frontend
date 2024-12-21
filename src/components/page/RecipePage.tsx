@@ -8,6 +8,7 @@ import axios from "axios";
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import { RecipeEditDialog } from "../dialog/RecipeEditDialog";
 import { RecipeDeleteDialog } from "../dialog/RecipeDeleteDialog";
+import { Divider } from "../divider/Divider";
 
 export const RecipePage: React.FC = () => {
     // リクエストパラメータにあるidパラメータを取得
@@ -133,7 +134,7 @@ export const RecipePage: React.FC = () => {
                                         </Grid>
                                     </Grid>
                                     {/* 項目の下に線を挿入 */ }
-                                    < Box sx = {{ borderBottom: '1px solid rgba(0, 0, 0, 0.1)', marginY: 2 }} />
+                                    <Divider />
                                 </Box>
                             ))}
                         </Box>
@@ -158,7 +159,7 @@ export const RecipePage: React.FC = () => {
                                         </Grid>
                                     </Grid>
                                     {/* 項目の下に線を挿入 */}
-                                    <Box sx={{ borderBottom: '1px solid rgba(0, 0, 0, 0.1)', marginY: 2 }} />
+                                    <Divider />
                                 </Box>
                             ))} 
                         </Box>
