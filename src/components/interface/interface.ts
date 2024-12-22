@@ -126,3 +126,10 @@ export interface RecipeDeleteDialogProps {
     setOpenDialog: (openDialog: boolean) => void;
     recipeId: number;
 }
+
+// DividerのProps
+export interface DividerProps {
+    color?: string;
+    thickness?: string;
+    marginY?: number;
+}
