@@ -134,7 +134,7 @@ export const RecipePage: React.FC = () => {
                                         </Grid>
                                     </Grid>
                                     {/* 項目の下に線を挿入 */ }
-                                    <Divider />
+                                    <Divider color="rgba(0, 0, 0, 0.1)" thickness="1px" marginY={2} />
                                 </Box>
                             ))}
                         </Box>
@@ -159,7 +159,7 @@ export const RecipePage: React.FC = () => {
                                         </Grid>
                                     </Grid>
                                     {/* 項目の下に線を挿入 */}
-                                    <Divider />
+                                    <Divider color="rgba(0, 0, 0, 0.1)" thickness="1px" marginY={2} />
                                 </Box>
                             ))} 
                         </Box>
