@@ -133,3 +133,12 @@ export interface DividerProps {
     thickness?: string;
     marginY?: number;
 }
+
+// DividerWithColorのProps
+export interface DividerWithColorProps {
+    colorLeft?: string;
+    colorRight?: string;
+    thickness?: string;
+    marginY?: number;
+    textWidth?: string;
+}
