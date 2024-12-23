@@ -9,6 +9,7 @@ import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import { RecipeEditDialog } from "../dialog/RecipeEditDialog";
 import { RecipeDeleteDialog } from "../dialog/RecipeDeleteDialog";
 import { Divider } from "../divider/Divider";
+import { DividerWithColor } from "../divider/DividerWithColor";
 
 export const RecipePage: React.FC = () => {
     // リクエストパラメータにあるidパラメータを取得
@@ -121,6 +122,7 @@ export const RecipePage: React.FC = () => {
                         <Typography pb={1} fontWeight="bold" variant="h5" sx={{ textAlign: 'left' }}>
                             材料
                         </Typography>
+                        <DividerWithColor colorLeft="rgba(255, 99, 71, 1)" colorRight="rgba(0, 0, 0, 0.1)" thickness="2px" marginY={0.2} textWidth="20%" />
                         <Typography variant="body1" sx={{ textAlign: 'left', fontSize: '16px' }}>2人前</Typography>
                         <Box sx={{ marginTop: 2 }}>
                             {recipeDetail.ingredients.map((ingredient, index) => (
@@ -143,6 +145,7 @@ export const RecipePage: React.FC = () => {
                         <Typography pb={1} fontWeight="bold" variant="h5" sx={{ textAlign: 'left' }}>
                             作り方
                         </Typography>
+                        <DividerWithColor colorLeft="rgba(255, 99, 71, 1)" colorRight="rgba(0, 0, 0, 0.1)" thickness="2px" marginY={0.2} textWidth="20%" />
                         <Box mt={2} >
                             {recipeDetail.steps.map((step, index) => (
                                 <Box key={index}>
@@ -165,9 +168,10 @@ export const RecipePage: React.FC = () => {
                         </Box>
                     </Box>
                     <Box mt={6}>
-                        <Typography pb={2} fontWeight="bold" variant="h5" sx={{ textAlign: 'left' }}>
-                            料理のコツ・ポイント
+                        <Typography pb={0} fontWeight="bold" variant="h5" sx={{ textAlign: 'left' }}>
+                            コツ・ポイント
                         </Typography>
+                        <DividerWithColor colorLeft="rgba(255, 99, 71, 1)" colorRight="rgba(0, 0, 0, 0.1)" thickness="2px" marginY={1} textWidth="20%" />
                         <Typography variant="body1" sx={{ fontSize: '20px', textAlign: 'left', whiteSpace: 'pre-line' }}>
                             {recipeDetail.point}
                         </Typography>
