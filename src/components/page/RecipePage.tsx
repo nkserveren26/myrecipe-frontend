@@ -119,20 +119,19 @@ export const RecipePage: React.FC = () => {
                         </Box>
                     </Box>
                     <Box>
-                        <Typography pb={1} fontWeight="bold" variant="h5" sx={{ textAlign: 'left' }}>
-                            材料
+                        <Typography pb={0.5} fontWeight="bold" variant="h5" sx={{ textAlign: 'left' }}>
+                            材料（2人前）
                         </Typography>
-                        <DividerWithColor colorLeft="rgba(255, 99, 71, 1)" colorRight="rgba(0, 0, 0, 0.1)" thickness="2px" marginY={0.2} textWidth="20%" />
-                        <Typography variant="body1" sx={{ textAlign: 'left', fontSize: '16px' }}>2人前</Typography>
-                        <Box sx={{ marginTop: 2 }}>
+                        <DividerWithColor colorLeft="rgba(255, 99, 71, 1)" colorRight="rgba(0, 0, 0, 0.1)" thickness="2px" marginY={0} textWidth="20%" />
+                        <Box sx={{ marginTop: 4 }}>
                             {recipeDetail.ingredients.map((ingredient, index) => (
                                 <Box key={index}>
                                     <Grid container sx={{ marginBottom: 2 }}>
                                         <Grid item xs={6} style={{ textAlign: 'left' }}>
-                                            <Typography variant="body1" sx={{ fontSize: '20px' }}>{ingredient.name}</Typography>
+                                            <Typography variant="body1" sx={{ fontSize: '18px' }}>{ingredient.name}</Typography>
                                         </Grid>
                                         <Grid item xs={6} style={{ textAlign: 'right' }}>
-                                            <Typography variant="body1" sx={{ fontSize: '20px' }}>{ingredient.amount}</Typography>
+                                            <Typography variant="body1" sx={{ fontSize: '18px' }}>{ingredient.amount}</Typography>
                                         </Grid>
                                     </Grid>
                                     {/* 項目の下に線を挿入 */ }
