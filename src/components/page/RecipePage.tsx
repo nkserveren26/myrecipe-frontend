@@ -167,11 +167,11 @@ export const RecipePage: React.FC = () => {
                         </Box>
                     </Box>
                     <Box mt={6}>
-                        <Typography pb={0} fontWeight="bold" variant="h5" sx={{ textAlign: 'left' }}>
+                        <Typography pb={0.5} fontWeight="bold" variant="h5" sx={{ textAlign: 'left' }}>
                             コツ・ポイント
                         </Typography>
-                        <DividerWithColor colorLeft="rgba(255, 99, 71, 1)" colorRight="rgba(0, 0, 0, 0.1)" thickness="2px" marginY={1} textWidth="20%" />
-                        <Typography variant="body1" sx={{ fontSize: '20px', textAlign: 'left', whiteSpace: 'pre-line' }}>
+                        <DividerWithColor colorLeft="rgba(255, 99, 71, 1)" colorRight="rgba(0, 0, 0, 0.1)" thickness="2px" marginY={0} textWidth="20%" />
+                        <Typography variant="body1" sx={{ fontSize: '18px', textAlign: 'left', whiteSpace: 'pre-line' }} pt={4}>
                             {recipeDetail.point}
                         </Typography>
                     </Box>
