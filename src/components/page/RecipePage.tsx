@@ -141,21 +141,21 @@ export const RecipePage: React.FC = () => {
                         </Box>
                     </Box>
                     <Box mt={7}>
-                        <Typography pb={1} fontWeight="bold" variant="h5" sx={{ textAlign: 'left' }}>
+                        <Typography pb={0.5} fontWeight="bold" variant="h5" sx={{ textAlign: 'left' }}>
                             作り方
                         </Typography>
-                        <DividerWithColor colorLeft="rgba(255, 99, 71, 1)" colorRight="rgba(0, 0, 0, 0.1)" thickness="2px" marginY={0.2} textWidth="20%" />
-                        <Box mt={2} >
+                        <DividerWithColor colorLeft="rgba(255, 99, 71, 1)" colorRight="rgba(0, 0, 0, 0.1)" thickness="2px" marginY={0} textWidth="20%" />
+                        <Box mt={4} >
                             {recipeDetail.steps.map((step, index) => (
                                 <Box key={index}>
-                                    <Grid container sx={{ marginBottom: 3 }}>
+                                    <Grid container sx={{ marginBottom: 2 }}>
                                         <Grid item xs={step.stepNumber === 0 ? 0.6 : 0.4} style={{ textAlign: 'left' }}>
-                                            <Typography variant="body1" sx={{ fontSize: '19px', fontWeight: 'bold' }}>
+                                            <Typography variant="body1" sx={{ fontSize: '18px', fontWeight: 'bold' }}>
                                                 {step.stepNumber === 0 ? '準備' : step.stepNumber}.
                                             </Typography>
                                         </Grid>
                                         <Grid item xs={step.stepNumber === 0 ? 11.4 : 11.6} style={{ textAlign: 'left' }}>
-                                            <Typography variant="body1" sx={{ fontSize: '20px' }}>
+                                            <Typography variant="body1" sx={{ fontSize: '18px' }}>
                                                 {step.description}
                                             </Typography>
                                         </Grid>
