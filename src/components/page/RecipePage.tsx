@@ -120,7 +120,7 @@ export const RecipePage: React.FC = () => {
                     </Box>
                     <Box>
                         <Typography pb={0.5} fontWeight="bold" variant="h5" sx={{ textAlign: 'left' }}>
-                            材料（2人前）
+                            {`材料（${recipeDetail.servings}人前）`}
                         </Typography>
                         <DividerWithColor colorLeft="rgba(255, 99, 71, 1)" colorRight="rgba(0, 0, 0, 0.1)" thickness="2px" marginY={0} textWidth="20%" />
                         <Box sx={{ marginTop: 4 }}>
