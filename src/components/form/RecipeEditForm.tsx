@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Categories, FormErrors, Ingredient, RecipeEditFormProps, Step } from '../interface/interface';
-import { Box, Button, CircularProgress, MenuItem, TextField, Typography } from '@mui/material';
+import { Box, Button, MenuItem, TextField, Typography } from '@mui/material';
 import { RequiredLabel } from '../label/RequiredLabel';
 import { ErrorMessage } from '../common/ErrorMessage';
 import { DeleteButton } from '../button/DeleteButton';
@@ -33,9 +33,6 @@ export const RecipeEditForm: React.FC<RecipeEditFormProps> = ({ recipeDetail, on
     // エラーメッセージ格納用
     const [errors, setErrors] = useState<FormErrors>({ title: "", category: "", videoUrl: "", ingredients: "", steps: "" });
     const [formError, setFormError] = useState(""); // 全体エラーメッセージ用
-
-    // ロード表示用
-    const [loading, setLoading] = useState(false);
 
     // サムネイル画像が選択された時の処理
     const handleThumbnailChange = (e: React.ChangeEvent<HTMLInputElement>) => {

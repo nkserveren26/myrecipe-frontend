@@ -1,6 +1,4 @@
-import { Box, Card, CardActions, CardContent, CardMedia, IconButton, Typography, useTheme } from '@mui/material';
-import EditNoteIcon from '@mui/icons-material/EditNote';
-import DeleteIcon from '@mui/icons-material/Delete';
+import { Box, Card, CardActions, CardContent, CardMedia, Typography, useTheme } from '@mui/material';
 import styled from "styled-components";
 import React from 'react';
 import { RecipeCardProps } from '../interface/interface';
@@ -12,8 +10,7 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({
     title,
     createdAt
 }) => {
-    const theme = useTheme();
-
+    
     const navigate = useNavigate();
 
     const handleCardClick = (id: number) => {
