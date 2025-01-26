@@ -48,7 +48,11 @@ export const AddRecipe: React.FC = () => {
 
     // ロード表示用
     const [loading, setLoading] = useState(false);
+
+    // ダイアログ画面用
     const [dialogOpen, setDialogOpen] = useState(false);
+    const [dialogMessage, setDialogMessage] = useState('');
+    const [dialogTitle, setDialogTitle] = useState('');
 
     // useNavigate
     const navigate = useNavigate();
@@ -231,10 +235,28 @@ export const AddRecipe: React.FC = () => {
                 });
                 
                 setLoading(false);  // ローディング終了
-                setDialogOpen(true);  // 完了ダイアログを開く
+
+                if (response.ok) {
+                    // ステータスコード200-299の場合
+                    setDialogTitle('レシピの登録が完了しました！');
+                    setDialogMessage('レシピが正常に登録されました。');
+                } else if (response.status === 500) {
+                    // ステータスコード500の場合
+                    setDialogTitle('エラーが発生しました');
+                    setDialogMessage('サーバーエラーが発生しました。再試行してください。');
+                } else {
+                    // その他のエラー
+                    setDialogTitle('エラーが発生しました');
+                    setDialogMessage(`予期しないエラー: ステータスコード ${response.status}`);
+                }
+
+                setDialogOpen(true);  // ダイアログを開く
             } catch (error) {
                 console.error('Error adding recipe:', error);
                 setLoading(false);
+                setDialogTitle('エラーが発生しました');
+                setDialogMessage('処理中に問題が発生しました。再試行してください。');
+                setDialogOpen(true); // ダイアログを開く
             }
         } else {
             console.log('バリデーションエラーが発生しました');
