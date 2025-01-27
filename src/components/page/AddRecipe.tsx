@@ -1,4 +1,4 @@
-import { Box, Button, CircularProgress, Dialog, DialogActions, DialogTitle, MenuItem, TextField, Typography } from "@mui/material";
+import { Box, Button, CircularProgress, Dialog, DialogActions, DialogContent, DialogTitle, MenuItem, TextField, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { RequiredLabel } from "../label/RequiredLabel";
 import { Categories, FormErrors, Ingredient, Step } from "../interface/interface";
@@ -447,7 +447,10 @@ export const AddRecipe: React.FC = () => {
                 </Box>
 
                 <Dialog open={dialogOpen} onClose={handleCloseDialog}>
-                    <DialogTitle>レシピの登録が完了しました！</DialogTitle>
+                    <DialogTitle>{dialogTitle}</DialogTitle>
+                    <DialogContent>
+                        <p>{dialogMessage}</p>
+                    </DialogContent>
                     <DialogActions sx={{ justifyContent: 'center' }}>
                         <Button onClick={handleCloseDialog} color="primary" variant="contained">
                             Close
