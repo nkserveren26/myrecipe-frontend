@@ -1,4 +1,4 @@
-import { Box, Card, CardActions, CardContent, CardMedia, Typography, useTheme } from '@mui/material';
+import { Box, Card, CardActions, CardContent, CardMedia, Typography } from '@mui/material';
 import styled from "styled-components";
 import React from 'react';
 import { RecipeCardProps } from '../interface/interface';

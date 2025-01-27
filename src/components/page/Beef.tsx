@@ -7,13 +7,10 @@ import { RecipeCardProps } from "../interface/interface";
 import { RecipeCard } from "../card/RecipeCard";
 import { ScrollToTopButton } from "../button/ScrollToTopButton";
 import { getRecipeList } from "../function/GetRecipeList";
-import { useNavigate } from "react-router-dom";
-
 
 export const Beef: React.FC = () => {
     const [beefRecipeList, setBeefRecipeList] = useState<RecipeCardProps[]>([]);
 
-    const navigate = useNavigate();
     const currentCategory = "beef";
 
     useEffect(() => {
