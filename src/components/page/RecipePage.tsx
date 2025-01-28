@@ -37,6 +37,15 @@ export const RecipePage: React.FC = () => {
                 const response = await axios.get(apiUrl);
                 setRecipeDetail(response.data);
             } catch (error) {
+                if (axios.isAxiosError(error)) {
+                    if (error.response?.status === 500) {
+                        setErrorMessage('サーバーでエラーが発生しました。時間をおいて再試行してください。');
+                    } else {
+                        setErrorMessage('レシピの取得に失敗しました。');
+                    }
+                } else {
+                    setErrorMessage('予期しないエラーが発生しました。');
+                }
                 console.error(`Error getting recipe ${id} detail:`, error);
             } finally {
                 setLoading(false);  // ローディング完了
