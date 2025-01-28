@@ -23,6 +23,8 @@ export const RecipePage: React.FC = () => {
     const [openEditDialog, setOpenEditDialog] = useState(false); // 編集ダイアログ表示状態
     const [openDeleteDialog, setOpenDeleteDialog] = useState(false); // 削除ダイアログ表示状態
 
+    const [errorMessage, setErrorMessage] = useState('');
+
     useEffect(() => {
         const fetchRecipeDetail = async () => {
             if (!process.env.REACT_APP_RECIPE_API_BASE_URL) {
