@@ -80,6 +80,16 @@ export const RecipePage: React.FC = () => {
         return <div>Loading...</div>;
     }
 
+    if (errorMessage) {
+        return (
+            <div>
+                <Typography variant="h5" color="error" align="center">
+                    {errorMessage}
+                </Typography>
+            </div>
+        );
+    }
+
 
     if (!recipeDetail) {
         return <div>Recipe not found</div>;
