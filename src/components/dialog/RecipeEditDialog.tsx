@@ -7,7 +7,11 @@ export const RecipeEditDialog: React.FC<RecipeEditDialogProps> = ({ openDialog, 
 
     // ロード表示用
     const [loading, setLoading] = useState(false);
+
+    //更新処理完了ダイアログ画面用
     const [completeDialogOpen, setCompleteDialogOpen] = useState(false);
+    const [dialogMessage, setDialogMessage] = useState('');
+    const [dialogTitle, setDialogTitle] = useState('');
 
     const dialogContentRef = useRef<HTMLDivElement | null>(null);
 
@@ -39,7 +43,19 @@ export const RecipeEditDialog: React.FC<RecipeEditDialogProps> = ({ openDialog, 
                 body: formData
             });
 
-            console.log("更新完了");
+            if (response.ok) {
+                // ステータスコード200-299の場合
+                setDialogTitle('レシピの更新が完了しました！');
+                setDialogMessage('レシピが正常に更新されました。');
+            } else if (response.status === 500) {
+                // ステータスコード500の場合
+                setDialogTitle('エラーが発生しました');
+                setDialogMessage('サーバーエラーが発生しました。再試行してください。');
+            } else {
+                // その他のエラー
+                setDialogTitle('エラーが発生しました');
+                setDialogMessage(`予期しないエラー: ステータスコード ${response.status}`);
+            }
 
             setLoading(false);  // ローディング終了
             setCompleteDialogOpen(true);  // 完了ダイアログを開く
@@ -81,7 +97,10 @@ export const RecipeEditDialog: React.FC<RecipeEditDialogProps> = ({ openDialog, 
 
             {/* 更新完了ダイアログ */}
             <Dialog open={completeDialogOpen} onClose={handleCloseDialog}>
-                <DialogTitle>レシピの更新が完了しました！</DialogTitle>
+                <DialogTitle>{dialogTitle}</DialogTitle>
+                <DialogContent>
+                    <p>{dialogMessage}</p>
+                </DialogContent>
                 <DialogActions sx={{ justifyContent: 'center' }}>
                     <Button onClick={handleCloseDialog} color="primary" variant="contained">
                         Close
