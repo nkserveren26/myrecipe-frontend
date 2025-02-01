@@ -1,7 +1,7 @@
 import { Box, Button, Grid, Menu, MenuItem, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import ReactPlayer from "react-player";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { RecipeDetail } from "../interface/interface";
 import { ScrollToTopButton } from "../button/ScrollToTopButton";
 import axios from "axios";
@@ -14,6 +14,9 @@ import { DividerWithColor } from "../divider/DividerWithColor";
 export const RecipePage: React.FC = () => {
     // リクエストパラメータにあるidパラメータを取得
     const { id } = useParams<{ id: string }>();
+
+    // useNavigate
+    const navigate = useNavigate();
 
     const [recipeDetail, setRecipeDetail] = useState<RecipeDetail>();
 
@@ -38,7 +41,9 @@ export const RecipePage: React.FC = () => {
                 setRecipeDetail(response.data);
             } catch (error) {
                 if (axios.isAxiosError(error)) {
-                    if (error.response?.status === 500) {
+                    if (error.response?.status === 404) {
+                        setErrorMessage('指定されたレシピが見つかりませんでした。\nレシピIDが間違っているか、削除された可能性があります。');
+                    } else if (error.response?.status === 500) {
                         setErrorMessage('サーバーでエラーが発生しました。時間をおいて再試行してください。');
                     } else {
                         setErrorMessage('レシピの取得に失敗しました。');
@@ -83,17 +88,21 @@ export const RecipePage: React.FC = () => {
     if (errorMessage) {
         return (
             <div>
-                <Typography variant="h5" color="error" align="center">
+                <Typography variant="h5" color="error" align="center" sx={{ whiteSpace: 'pre-line' }}>
                     {errorMessage}
                 </Typography>
+                <Button
+                    variant="contained"
+                    color="primary"
+                    sx={{ mt: 2 }}
+                    onClick={() => navigate('/')} 
+                >
+                    トップページへ戻る
+                </Button>
             </div>
         );
     }
 
-
-    if (!recipeDetail) {
-        return <div>Recipe not found</div>;
-    }
 
     return (
         <>
