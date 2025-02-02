@@ -109,7 +109,6 @@ export const RecipePage: React.FC = () => {
 
     return (
         <>
-            
             <div>
                 <Box pt={3} pb={5}>
                     <Box display="flex" alignItems="center" justifyContent="space-between" pb={3}>
