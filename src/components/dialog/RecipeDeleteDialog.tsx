@@ -1,11 +1,14 @@
-import { Button, Dialog, DialogActions, DialogTitle } from "@mui/material";
+import { Button, Dialog, DialogActions, DialogContent, DialogTitle } from "@mui/material";
 import React, { useState } from "react";
 import { RecipeDeleteDialogProps } from "../interface/interface";
 import { useNavigate } from "react-router-dom";
 
 export const RecipeDeleteDialog: React.FC<RecipeDeleteDialogProps> = ({openDialog, setOpenDialog, recipeId}) => {
 
+    // 削除処理完了ダイアログ画面用
     const [completeDialogOpen, setCompleteDialogOpen] = useState(false);
+    const [dialogMessage, setDialogMessage] = useState('');
+    const [dialogTitle, setDialogTitle] = useState('');
 
     // useNavigate
     const navigate = useNavigate();
@@ -29,6 +32,20 @@ export const RecipeDeleteDialog: React.FC<RecipeDeleteDialogProps> = ({openDialo
                 method: "DELETE",
             });
 
+            if (response.ok) {
+                // ステータスコード200-299の場合
+                setDialogTitle('レシピの削除が完了しました！');
+                setDialogMessage('レシピが正常に削除されました。');
+            } else if (response.status === 500) {
+                // ステータスコード500の場合
+                setDialogTitle('エラーが発生しました');
+                setDialogMessage('サーバーエラーが発生しました。再試行してください。');
+            } else {
+                // その他のエラー
+                setDialogTitle('エラーが発生しました');
+                setDialogMessage(`予期しないエラー: ステータスコード ${response.status}`);
+            }
+
             setCompleteDialogOpen(true);  // 完了ダイアログを開く
         } catch (error) {
             console.error("Failed to delete recipe:", error);
@@ -51,8 +68,12 @@ export const RecipeDeleteDialog: React.FC<RecipeDeleteDialogProps> = ({openDialo
             </Dialog>
 
             {/* 削除完了ダイアログ */}
+            {/* 更新完了ダイアログ */}
             <Dialog open={completeDialogOpen} onClose={handleCloseDialog}>
-                <DialogTitle>レシピの削除が完了しました！</DialogTitle>
+                <DialogTitle>{dialogTitle}</DialogTitle>
+                <DialogContent>
+                    <p>{dialogMessage}</p>
+                </DialogContent>
                 <DialogActions sx={{ justifyContent: 'center' }}>
                     <Button onClick={handleCloseDialog} color="primary" variant="contained">
                         Close
