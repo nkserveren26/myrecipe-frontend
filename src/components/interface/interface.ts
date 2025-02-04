@@ -142,3 +142,11 @@ export interface DividerWithColorProps {
     marginY?: number;
     textWidth?: string;
 }
+
+// DividerWithColorのProps
+export interface CompleteDialogProps {
+    open: boolean;
+    title: string;
+    message: string;
+    onClose: () => void;
+}
