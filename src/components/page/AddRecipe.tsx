@@ -1,4 +1,4 @@
-import { Box, Button, CircularProgress, Dialog, DialogActions, DialogContent, DialogTitle, MenuItem, TextField, Typography } from "@mui/material";
+import { Box, Button, CircularProgress, MenuItem, TextField, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { RequiredLabel } from "../label/RequiredLabel";
 import { Categories, FormErrors, Ingredient, Step } from "../interface/interface";
@@ -7,6 +7,7 @@ import { AddButton } from "../button/AddButton";
 import { useLocation, useNavigate } from "react-router-dom";
 import { stepOptions } from "../variable/ArrayVariables";
 import { ErrorMessage } from "../common/ErrorMessage";
+import { CompleteDialog } from "../dialog/CompleteDialog";
 
 export const AddRecipe: React.FC = () => {
 
@@ -446,17 +447,13 @@ export const AddRecipe: React.FC = () => {
                     </Button>
                 </Box>
 
-                <Dialog open={dialogOpen} onClose={handleCloseDialog}>
-                    <DialogTitle>{dialogTitle}</DialogTitle>
-                    <DialogContent>
-                        <p>{dialogMessage}</p>
-                    </DialogContent>
-                    <DialogActions sx={{ justifyContent: 'center' }}>
-                        <Button onClick={handleCloseDialog} color="primary" variant="contained">
-                            Close
-                        </Button>
-                    </DialogActions>
-                </Dialog>
+                {/* 完了ダイアログ */}
+                <CompleteDialog
+                    open={dialogOpen}
+                    title={dialogTitle}
+                    message={dialogMessage}
+                    onClose={handleCloseDialog}
+                />
             </Box>
         </>
     );
