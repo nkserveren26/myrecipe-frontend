@@ -22,7 +22,7 @@ export const RecipeDeleteDialog: React.FC<RecipeDeleteDialogProps> = ({openDialo
     const handleCloseDialog = () => {
         setCompleteDialogOpen(false);
         setOpenDialog(false); // ダイアログを閉じる
-        navigate(-1); // 前の画面に戻る
+        navigate("/"); // 前の画面に戻る
     };
 
     const handleConfirmDelete = async () => {
