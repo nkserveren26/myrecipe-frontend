@@ -2,6 +2,8 @@ import { Button, Dialog, DialogActions, CircularProgress, DialogContent, DialogT
 import { RecipeEditForm } from "../form/RecipeEditForm";
 import { RecipeEditDialogProps, SaveRecipeData } from "../interface/interface";
 import { useRef, useState } from "react";
+import React from "react";
+import { CompleteDialog } from "./CompleteDialog";
 
 export const RecipeEditDialog: React.FC<RecipeEditDialogProps> = ({ openDialog, setOpenDialog, recipeDetail }) => {
 
@@ -95,18 +97,13 @@ export const RecipeEditDialog: React.FC<RecipeEditDialogProps> = ({ openDialog, 
                 </DialogActions>
             </Dialog>
 
-            {/* 更新完了ダイアログ */}
-            <Dialog open={completeDialogOpen} onClose={handleCloseDialog}>
-                <DialogTitle>{dialogTitle}</DialogTitle>
-                <DialogContent>
-                    <p>{dialogMessage}</p>
-                </DialogContent>
-                <DialogActions sx={{ justifyContent: 'center' }}>
-                    <Button onClick={handleCloseDialog} color="primary" variant="contained">
-                        Close
-                    </Button>
-                </DialogActions>
-            </Dialog>
+            {/* 完了ダイアログ */}
+            <CompleteDialog
+                open={completeDialogOpen}
+                title={dialogTitle}
+                message={dialogMessage}
+                onClose={handleCloseDialog}
+            />
         </>
     );
 }
