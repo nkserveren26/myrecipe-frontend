@@ -2,6 +2,7 @@ import { Button, Dialog, DialogActions, DialogContent, DialogTitle } from "@mui/
 import React, { useState } from "react";
 import { RecipeDeleteDialogProps } from "../interface/interface";
 import { useNavigate } from "react-router-dom";
+import { CompleteDialog } from "./CompleteDialog";
 
 export const RecipeDeleteDialog: React.FC<RecipeDeleteDialogProps> = ({openDialog, setOpenDialog, recipeId}) => {
 
@@ -67,19 +68,13 @@ export const RecipeDeleteDialog: React.FC<RecipeDeleteDialogProps> = ({openDialo
                 </DialogActions>
             </Dialog>
 
-            {/* 削除完了ダイアログ */}
-            {/* 更新完了ダイアログ */}
-            <Dialog open={completeDialogOpen} onClose={handleCloseDialog}>
-                <DialogTitle>{dialogTitle}</DialogTitle>
-                <DialogContent>
-                    <p>{dialogMessage}</p>
-                </DialogContent>
-                <DialogActions sx={{ justifyContent: 'center' }}>
-                    <Button onClick={handleCloseDialog} color="primary" variant="contained">
-                        Close
-                    </Button>
-                </DialogActions>
-            </Dialog>
+            {/* 完了ダイアログ */}
+            <CompleteDialog
+                open={completeDialogOpen}
+                title={dialogTitle}
+                message={dialogMessage}
+                onClose={handleCloseDialog}
+            />
         </>
     )
 }
