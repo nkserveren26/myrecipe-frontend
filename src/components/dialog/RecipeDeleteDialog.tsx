@@ -1,4 +1,4 @@
-import { Button, Dialog, DialogActions, DialogContent, DialogTitle } from "@mui/material";
+import { Button, Dialog, DialogActions, DialogTitle } from "@mui/material";
 import React, { useState } from "react";
 import { RecipeDeleteDialogProps } from "../interface/interface";
 import { useNavigate } from "react-router-dom";
