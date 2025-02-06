@@ -150,3 +150,11 @@ export interface CompleteDialogProps {
     message: string;
     onClose: () => void;
 }
+
+// RecipeListPageのProps
+export interface RecipeListPageProps {
+    category: string;
+    backgroundImage: string;
+    title: string;
+    description: string;
+}
