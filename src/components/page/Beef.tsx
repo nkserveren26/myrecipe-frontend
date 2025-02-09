@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import BeefHeaderImage from "../../images/BeefHeaderImage.jpg";
-import { RecipeCardProps } from "../interface/interface";
-import { getRecipeList } from "../function/GetRecipeList";
 import { RecipeListPage } from "./RecipeListPage";
 
 export const Beef: React.FC = () => {

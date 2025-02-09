@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import FishHeaderImage from "../../images/FishHeaderImage.jpg";
 import { RecipeListPage } from "./RecipeListPage";
 
