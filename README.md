@@ -1,46 +1,64 @@
-# Getting Started with Create React App
+# 料理レシピ管理アプリ - フロントエンド
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## プロジェクト概要 (Introduction)
+このリポジトリは、レシピ管理アプリのフロントエンド部分のソースコードを管理しています。  
+レシピの閲覧、検索、管理を直感的に行えるユーザーインターフェースを提供します。  
+バックエンドAPIの仕様や詳細は、以下のリポジトリに記載しています。  
 
-## Available Scripts
+<br>
 
-In the project directory, you can run:
+## 技術スタック (Tech Stack)
+- **フレームワーク:** React
+- **言語:** TypeScript
+- **UIライブラリ:** MUI (Material-UI)
+- **状態管理:** React Hooks (useState, useEffect)
+- **通信:** Axios
 
-### `npm start`
+<br>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 機能一覧
 
-### `npm test`
+- **トップページ**
+  - レシピのカテゴリ一覧を表示
+  - 各カテゴリのボタンを押すと、対応するレシピ一覧ページへ遷移
+- **レシピ一覧ページ**
+  - 選択したカテゴリごとのレシピ一覧を表示
+  - レシピをクリックすると、詳細ページへ遷移
+- **レシピ詳細ページ**
+  - 選択したレシピの詳細情報を表示
+  - 材料や手順、追加の調理ヒントを掲載
+- **レシピの新規登録・編集・削除**
+  - 新しいレシピの追加
+  - 既存のレシピの編集・削除をサポート
+- **エラーハンドリング**
+  - APIリクエストが失敗した場合に適切なエラーメッセージを表示
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<br>
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## インストールとセットアップ
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. リポジトリをクローン:
+   ```sh
+   git clone https://github.com/nkserveren26/myrecipe-frontend
+   ```
+2. プロジェクトディレクトリへ移動:
+   ```sh
+   cd myrecipe-frontend
+   ```
+3. 依存関係をインストール:
+   ```sh
+   npm install
+   ```
+4. 環境変数を設定:
+   - ルートディレクトリに `.env` ファイルを作成
+   - 以下の設定を追加:
+     ```sh
+     REACT_APP_RECIPE_API_BASE_URL=<バックエンドAPIのURL>
+     REACT_APP_GET_RECIPES_URL=<カテゴリ別レシピ一覧取得APIのURL>
+     ```
+5. 開発サーバーを起動:
+   ```sh
+   npm start
+   ```
