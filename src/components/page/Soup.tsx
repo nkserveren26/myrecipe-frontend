@@ -7,7 +7,7 @@ export const Soup: React.FC = () => {
     return (
         <>
             <RecipeListPage
-                category="vegetable"
+                category="soup"
                 backgroundImage={SoupHeaderImage}
                 title="Soup Recipes"
                 description="This page lists recipes for soups."
