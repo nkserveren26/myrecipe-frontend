@@ -95,17 +95,17 @@
   ![レシピタイトル](images/recipe-title.png)
   - レシピ名を表示
 - **レシピ動画**
-  ![レシピ動画](images/recipe-info.png)
+  ![レシピ動画](images/recipe-movie.png)
   - レシピ動画を表示
 - **材料リスト**
   ![材料リスト](images/ingredients-list.png)
   - 各材料とその分量を表示
 - **作り方**
-  ![作り方](images/instructions.png)
+  ![作り方](images/steps.png)
   - ステップごとに作り方を表示
-- **画像ギャラリー**
-  ![画像ギャラリー](images/gallery.png)
-  - レシピに関連する画像を表示
+- **コツ・ポイント**
+  ![作り方](images/recipe-point.png)
+  - レシピのコツ・ポイントを表示
 - **アクションボタン**
   ![アクションボタン](images/action-button.png)
   - クリックすると `Edit` と `Delete` の選択肢が表示されます。
