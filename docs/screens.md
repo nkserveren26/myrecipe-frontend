@@ -142,6 +142,7 @@
   - 例: https://www.youtube.com/watch?v=example
 
 - **レシピのサムネイル画像**  
+  ![レシピサムネイル画像](images/add-page-recipe-thumbnail.png)
   料理の画像をアップロードするファイル入力欄。
   - 任意項目
 
