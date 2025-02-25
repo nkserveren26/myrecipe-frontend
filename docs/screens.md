@@ -124,16 +124,19 @@
   - 例: 鮭のムニエル
 
 - **何人前**  
+  ![何人前](images/add-page-recipe-servings.png)
   料理の分量を選択するセレクトボックス。
   - 必須項目
   - 例: 1人前、2人前など
 
 - **カテゴリ**  
+  ![カテゴリ](images/add-page-recipe-category.png)
   料理の種類を選択するセレクトボックス。
   - 必須項目
   - 例: 和食、洋食、中華など
 
 - **レシピ動画URL**  
+  ![レシピ動画URL](images/add-page-recipe-movie-url.png)
   レシピのYouTube動画のURLを入力するテキストフィールド。
   - 必須項目
   - 例: https://www.youtube.com/watch?v=example
