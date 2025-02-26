@@ -164,7 +164,9 @@
   ![項番](images/add-page-recipe-steps-number.png)
   - 追加・削除が可能
     - 手順を追加する際は「ADD」ボタンを押下
+    ![ADDボタン](images/add-page-recipe-steps-add-button.png)
     - 入力した手順を削除する際は「説明」テキストボックス横のゴミ箱ボタンを押下
+    ![ゴミ箱ボタン](images/add-page-recipe-steps-trash-can-button.png)
 
 - **料理のコツ・ポイント**  
   料理を作る際の注意点やコツを入力するテキストフィールド。
