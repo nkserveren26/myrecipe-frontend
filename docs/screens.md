@@ -180,6 +180,7 @@
   登録処理が完了すると、完了ダイアログ画面が表示されます。
 
 - **CANCELボタン**  
+  ![CANCELボタン](images/add-page-recipe-cancel-button.png)
   入力内容を破棄して元の画面に戻るボタン。
 
 ### 入力バリデーション
