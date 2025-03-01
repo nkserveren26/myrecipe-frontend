@@ -169,11 +169,13 @@
     ![ゴミ箱ボタン](images/add-page-recipe-steps-trash-can-button.png)
 
 - **料理のコツ・ポイント**  
+  ![コツ・ポイント](images/add-page-recipe-steps-point.png)
   料理を作る際の注意点やコツを入力するテキストフィールド。
   - 任意項目
 
 - **SUBMITボタン**  
-  入力内容を送信するボタン。
+  入力内容を送信するボタン。  
+  このボタンを押下することでレシピの登録が実行されます。
 
 - **CANCELボタン**  
   入力内容を破棄して元の画面に戻るボタン。
