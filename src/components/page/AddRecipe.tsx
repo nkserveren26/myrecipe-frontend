@@ -172,7 +172,7 @@ export const AddRecipe: React.FC = () => {
 
         // 作り方が1つも入力されていない場合
         if (steps.length === 0 || steps.some(step => step.description.trim() === "")) {
-            newErrors.steps = "少なくとも作り方は1つ以上入力してください。";
+            newErrors.steps = "作り方は1つ以上入力してください。";
             valid = false;
         }
 
