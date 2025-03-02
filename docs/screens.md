@@ -198,6 +198,7 @@
   ![作り方未入力メッセージ](images/add-page-recipe-error-steps-required.png)
 
 ### 完了ダイアログ
+![作り方未入力メッセージ](images/add-page-recipe-complete-dialog.png)
 登録処理が成功した際に、完了メッセージを表示するダイアログを表示。
 
 
