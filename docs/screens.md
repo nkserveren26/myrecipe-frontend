@@ -203,3 +203,74 @@
 
 
 ## 5. レシピ編集ページ
+このページでは、レシピを編集できます。  
+ユーザーは、レシピ名、カテゴリ、材料、作り方、レシピ動画URL、画像などを入力し、レシピを保存できます。
+
+### 画面全体図
+![レシピ追加ページ](images/recipe-new.png)
+### 構成要素
+- **レシピタイトル** 
+  ![レシピタイトル](images/add-page-recipe-title.png) 
+  料理の名前を入力するテキストフィールド。
+  - 必須項目
+  - 例: 鮭のムニエル
+
+- **何人前**  
+  ![何人前](images/add-page-recipe-servings.png)
+  料理の分量を選択するセレクトボックス。
+  - 必須項目
+  - 例: 1人前、2人前など
+
+- **カテゴリ**  
+  ![カテゴリ](images/add-page-recipe-category.png)
+  料理の種類を選択するセレクトボックス。
+  - 必須項目
+  - 例: 和食、洋食、中華など
+
+- **レシピ動画URL**  
+  ![レシピ動画URL](images/add-page-recipe-movie-url.png)
+  レシピのYouTube動画のURLを入力するテキストフィールド。
+  - 必須項目
+  - 例: https://www.youtube.com/watch?v=example
+
+- **レシピのサムネイル画像**  
+  ![レシピサムネイル画像](images/add-page-recipe-thumbnail.png)
+  料理の画像をアップロードするファイル入力欄。
+  - 任意項目
+
+- **材料**  
+  ![材料](images/add-page-recipe-ingredients.png)
+  料理に必要な材料を入力するリスト形式の入力欄。
+  - 必須項目
+  - 各材料に対し「材料名」と「量」を入力可能
+  - 追加・削除が可能
+    - 材料を追加する際は「ADD」ボタンを押下
+    - 入力した材料を削除する際は「量」横のゴミ箱ボタンを押下
+
+- **作り方**  
+  ![作り方](images/add-page-recipe-steps.png)
+  調理手順を入力するリスト形式の入力欄。
+  - 必須項目
+  - 各手順に対し「項番」と「説明」を入力可能
+  - 項番には「1番からの番号」および「準備」の2種類が存在し、手順の流れを明確にできます。
+  ![項番](images/add-page-recipe-steps-number.png)
+  - 追加・削除が可能
+    - 手順を追加する際は「ADD」ボタンを押下
+    ![ADDボタン](images/add-page-recipe-steps-add-button.png)
+    - 入力した手順を削除する際は「説明」テキストボックス横のゴミ箱ボタンを押下
+    ![ゴミ箱ボタン](images/add-page-recipe-steps-trash-can-button.png)
+
+- **料理のコツ・ポイント**  
+  ![コツ・ポイント](images/add-page-recipe-steps-point.png)
+  料理を作る際の注意点やコツを入力するテキストフィールド。
+  - 任意項目
+
+- **SUBMITボタン**  
+  ![SUBMITボタン](images/add-page-recipe-submit-button.png)
+  入力内容を送信するボタン。  
+  このボタンを押下することでレシピの登録が実行されます。  
+  登録処理が完了すると、完了ダイアログ画面が表示されます。
+
+- **CANCELボタン**  
+  ![CANCELボタン](images/add-page-recipe-cancel-button.png)
+  入力内容を破棄して元の画面に戻るボタン。
