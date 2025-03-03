@@ -207,7 +207,8 @@
 ユーザーは、レシピ名、カテゴリ、材料、作り方、レシピ動画URL、画像などを入力し、レシピを保存できます。
 
 ### 画面全体図
-![レシピ追加ページ](images/recipe-new.png)
+![レシピ編集ダイアログ](images/edit-dialog.gif)
+
 ### 構成要素
 - **レシピタイトル** 
   ![レシピタイトル](images/add-page-recipe-title.png) 
