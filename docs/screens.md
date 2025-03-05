@@ -240,7 +240,7 @@
   - 任意項目
 
 - **材料**  
-  ![材料](images/add-page-recipe-ingredients.png)
+  ![材料](images/edit-page-recipe-ingredients.png)
   料理に必要な材料を入力するリスト形式の入力欄。
   - 必須項目
   - 各材料に対し「材料名」と「量」を入力可能
@@ -249,7 +249,7 @@
     - 入力した材料を削除する際は「量」横のゴミ箱ボタンを押下
 
 - **作り方**  
-  ![作り方](images/add-page-recipe-steps.png)
+  ![作り方](images/edit-page-recipe-steps.png)
   調理手順を入力するリスト形式の入力欄。
   - 必須項目
   - 各手順に対し「項番」と「説明」を入力可能
@@ -262,16 +262,16 @@
     ![ゴミ箱ボタン](images/add-page-recipe-steps-trash-can-button.png)
 
 - **料理のコツ・ポイント**  
-  ![コツ・ポイント](images/add-page-recipe-steps-point.png)
+  ![コツ・ポイント](images/edit-page-recipe-steps-point.png)
   料理を作る際の注意点やコツを入力するテキストフィールド。
   - 任意項目
 
 - **SUBMITボタン**  
-  ![SUBMITボタン](images/add-page-recipe-submit-button.png)
+  ![SUBMITボタン](images/edit-page-recipe-submit-button.png)
   入力内容を送信するボタン。  
   このボタンを押下することでレシピの登録が実行されます。  
   登録処理が完了すると、完了ダイアログ画面が表示されます。
 
 - **CANCELボタン**  
-  ![CANCELボタン](images/add-page-recipe-cancel-button.png)
+  ![CANCELボタン](images/edit-page-recipe-cancel-button.png)
   入力内容を破棄して元の画面に戻るボタン。
