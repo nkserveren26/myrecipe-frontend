@@ -211,31 +211,31 @@
 
 ### 構成要素
 - **レシピタイトル** 
-  ![レシピタイトル](images/add-page-recipe-title.png) 
+  ![レシピタイトル](images/edit-page-recipe-title.png) 
   料理の名前を入力するテキストフィールド。
   - 必須項目
   - 例: 鮭のムニエル
 
 - **何人前**  
-  ![何人前](images/add-page-recipe-servings.png)
+  ![何人前](images/edit-page-recipe-servings.png)
   料理の分量を選択するセレクトボックス。
   - 必須項目
   - 例: 1人前、2人前など
 
 - **カテゴリ**  
-  ![カテゴリ](images/add-page-recipe-category.png)
+  ![カテゴリ](images/edit-page-recipe-category.png)
   料理の種類を選択するセレクトボックス。
   - 必須項目
   - 例: 和食、洋食、中華など
 
 - **レシピ動画URL**  
-  ![レシピ動画URL](images/add-page-recipe-movie-url.png)
+  ![レシピ動画URL](images/edit-page-recipe-movie-url.png)
   レシピのYouTube動画のURLを入力するテキストフィールド。
   - 必須項目
   - 例: https://www.youtube.com/watch?v=example
 
 - **レシピのサムネイル画像**  
-  ![レシピサムネイル画像](images/add-page-recipe-thumbnail.png)
+  ![レシピサムネイル画像](images/edit-page-recipe-thumbnail.png)
   料理の画像をアップロードするファイル入力欄。
   - 任意項目
 
