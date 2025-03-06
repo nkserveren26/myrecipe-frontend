@@ -287,7 +287,15 @@
 ![レシピ編集ダイアログ](images/edit-dialog.gif)
 
 ### 構成要素
-- **確認メッセージ**: 「本当に削除しますか？」という確認テキストを表示。
-- **CANCELボタン**: 削除をキャンセル。
-- **DELETEボタン**: レシピを削除。
+- **確認メッセージ**  
+  ![確認メッセージ](images/delete-page-recipe-confirm-message.png)
+  「本当に削除しますか？」という確認テキストを表示。
+- **CANCELボタン**
+  ![CANCELボタン](images/delete-page-recipe-cancel-button.png)
+  削除をキャンセルし、元の画面に戻るボタン。
+- **DELETEボタン**
+  ![DELETEボタン](images/delete-page-recipe-delete-button.png)
+  レシピを削除するボタン。  
+  このボタンを押すと、レシピの削除が実行されます。  
+  削除処理が完了すると、完了ダイアログが表示されます。  
 - **完了ダイアログ**: 削除完了時に表示されるダイアログ。
