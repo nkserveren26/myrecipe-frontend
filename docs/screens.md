@@ -11,6 +11,7 @@
   - [3. レシピ詳細ページ](#3-レシピ詳細ページ)
   - [4. レシピ追加ページ](#4-レシピ追加ページ)
   - [5. レシピ編集ページ](#5-レシピ編集ページ)
+  - [6. レシピ削除ページ](#6-レシピ削除ページ)
 
 <br >
 
@@ -295,13 +296,13 @@ CLOSEボタンを押すと、更新したレシピの画面に戻ります。
 
 ### 構成要素
 - **確認メッセージ**  
-  ![確認メッセージ](images/delete-page-recipe-confirm-message.png)
-  「本当に削除しますか？」という確認テキストを表示。
+  ![確認メッセージ](images/delete-page-recipe-confirm-message.png)  
+  「本当に削除しますか？」という確認テキストを表示。  
 - **CANCELボタン**
-  ![CANCELボタン](images/delete-page-recipe-cancel-button.png)
-  削除をキャンセルし、元の画面に戻るボタン。
+  ![CANCELボタン](images/delete-page-recipe-cancel-button.png)  
+  削除をキャンセルし、元の画面に戻るボタン。  
 - **DELETEボタン**
-  ![DELETEボタン](images/delete-page-recipe-delete-button.png)
+  ![DELETEボタン](images/delete-page-recipe-delete-button.png)  
   レシピを削除するボタン。  
   このボタンを押すと、レシピの削除が実行されます。  
   削除処理が完了すると、完了ダイアログが表示されます。  
