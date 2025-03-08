@@ -303,6 +303,13 @@ CLOSEボタンを押すと、更新したレシピの画面に戻ります。
   ![CANCELボタン](images/delete-page-recipe-cancel-button.png)  
   削除をキャンセルし、元の画面に戻るボタン。
 
+- **DELETEボタン**  
+  ![CANCELボタン](images/delete-page-recipe-delete-button.png)  
+  レシピを削除するボタン。  
+  このボタンを押すと、レシピの削除が実行されます。  
+  削除処理が完了すると、完了ダイアログが表示されます。
+
+
 - **DELETEボタン**
   ![DELETEボタン](images/delete-page-recipe-delete-button.png)  
   レシピを削除するボタン。  
