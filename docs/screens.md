@@ -300,7 +300,7 @@ CLOSEボタンを押すと、更新したレシピの画面に戻ります。
   「本当に削除しますか？」という確認テキストを表示。  
 
 - **CANCELボタン**  
-  ![CANCELボタン](images/delete-page-recipe-cancel-button.png)
+  ![CANCELボタン](images/delete-page-recipe-cancel-button.png)  
   削除をキャンセルし、元の画面に戻るボタン。
 
 - **DELETEボタン**
