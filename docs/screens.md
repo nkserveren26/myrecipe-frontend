@@ -198,8 +198,117 @@
   ![作り方未入力メッセージ](images/add-page-recipe-error-steps-required.png)
 
 ### 完了ダイアログ
-![作り方未入力メッセージ](images/add-page-recipe-complete-dialog.png)
+![完了ダイアログ](images/add-page-recipe-complete-dialog.png)
 登録処理が成功した際に、完了メッセージを表示するダイアログを表示。
 
+[🔼 目次へ戻る](#📌-目次)
 
 ## 5. レシピ編集ページ
+このページでは、レシピを編集できます。  
+ユーザーは、レシピ名、カテゴリ、材料、作り方、レシピ動画URL、画像などを入力し、レシピを保存できます。
+
+### 画面全体図
+![レシピ編集ダイアログ](images/edit-dialog.gif)
+
+### 構成要素
+- **レシピタイトル** 
+  ![レシピタイトル](images/edit-page-recipe-title.png) 
+  料理の名前を入力するテキストフィールド。
+  - 必須項目
+  - 例: 鮭のムニエル
+
+- **何人前**  
+  ![何人前](images/edit-page-recipe-servings.png)
+  料理の分量を選択するセレクトボックス。
+  - 必須項目
+  - 例: 1人前、2人前など
+
+- **カテゴリ**  
+  ![カテゴリ](images/edit-page-recipe-category.png)
+  料理の種類を選択するセレクトボックス。
+  - 必須項目
+  - 例: 和食、洋食、中華など
+
+- **レシピ動画URL**  
+  ![レシピ動画URL](images/edit-page-recipe-movie-url.png)
+  レシピのYouTube動画のURLを入力するテキストフィールド。
+  - 必須項目
+  - 例: https://www.youtube.com/watch?v=example
+
+- **レシピのサムネイル画像**  
+  ![レシピサムネイル画像](images/edit-page-recipe-thumbnail.png)
+  料理の画像をアップロードするファイル入力欄。
+  - 任意項目
+
+- **材料**  
+  ![材料](images/edit-page-recipe-ingredients.png)
+  料理に必要な材料を入力するリスト形式の入力欄。
+  - 必須項目
+  - 各材料に対し「材料名」と「量」を入力可能
+  - 追加・削除が可能
+    - 材料を追加する際は「ADD」ボタンを押下
+    - 入力した材料を削除する際は「量」横のゴミ箱ボタンを押下
+
+- **作り方**  
+  ![作り方](images/edit-page-recipe-steps.png)
+  調理手順を入力するリスト形式の入力欄。
+  - 必須項目
+  - 各手順に対し「項番」と「説明」を入力可能
+  - 項番には「1番からの番号」および「準備」の2種類が存在し、手順の流れを明確にできます。
+  ![項番](images/add-page-recipe-steps-number.png)
+  - 追加・削除が可能
+    - 手順を追加する際は「ADD」ボタンを押下
+    ![ADDボタン](images/add-page-recipe-steps-add-button.png)
+    - 入力した手順を削除する際は「説明」テキストボックス横のゴミ箱ボタンを押下
+    ![ゴミ箱ボタン](images/add-page-recipe-steps-trash-can-button.png)
+
+- **料理のコツ・ポイント**  
+  ![コツ・ポイント](images/edit-page-recipe-steps-point.png)
+  料理を作る際の注意点やコツを入力するテキストフィールド。
+  - 任意項目
+
+- **SUBMITボタン**  
+  ![SUBMITボタン](images/edit-page-recipe-submit-button.png)
+  入力内容を送信するボタン。  
+  このボタンを押下することでレシピの登録が実行されます。  
+  登録処理が完了すると、完了ダイアログ画面が表示されます。
+
+- **CANCELボタン**  
+  ![CANCELボタン](images/edit-page-recipe-cancel-button.png)
+  入力内容を破棄して元の画面に戻るボタン。
+
+
+### 完了ダイアログ
+![完了ダイアログ](images/edit-page-recipe-complete-dialog.png)
+登録処理が成功した際に、完了メッセージを表示するダイアログを表示。  
+CLOSEボタンを押すと、更新したレシピの画面に戻ります。  
+
+
+  [🔼 目次へ戻る](#📌-目次)
+
+
+## 6. レシピ削除ページ
+レシピ詳細ページのDeleteボタンを押すと表示されるダイアログ画面で、レシピを削除できます。  
+
+### 画面全体図
+![レシピ削除ダイアログ](images/delete-dialog.gif)
+
+### 構成要素
+- **確認メッセージ**  
+  ![確認メッセージ](images/delete-page-recipe-confirm-message.png)
+  「本当に削除しますか？」という確認テキストを表示。
+- **CANCELボタン**
+  ![CANCELボタン](images/delete-page-recipe-cancel-button.png)
+  削除をキャンセルし、元の画面に戻るボタン。
+- **DELETEボタン**
+  ![DELETEボタン](images/delete-page-recipe-delete-button.png)
+  レシピを削除するボタン。  
+  このボタンを押すと、レシピの削除が実行されます。  
+  削除処理が完了すると、完了ダイアログが表示されます。  
+
+### 完了ダイアログ
+![完了ダイアログ](images/delete-page-recipe-complete-dialog.gif)
+削除処理が成功した際に、完了メッセージを表示するダイアログを表示。  
+CLOSEボタンを押すと、トップページの画面に戻ります。
+
+  [🔼 目次へ戻る](#📌-目次)
