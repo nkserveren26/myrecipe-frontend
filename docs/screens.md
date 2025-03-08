@@ -230,13 +230,13 @@
   - 例: 鮭のムニエル
 
 - **何人前**  
-  ![何人前](images/edit-page-recipe-servings.png)
+  ![何人前](images/edit-page-recipe-servings.png)  
   料理の分量を選択するセレクトボックス。
   - 必須項目
   - 例: 1人前、2人前など
 
 - **カテゴリ**  
-  ![カテゴリ](images/edit-page-recipe-category.png)
+  ![カテゴリ](images/edit-page-recipe-category.png)  
   料理の種類を選択するセレクトボックス。
   - 必須項目
   - 例: 和食、洋食、中華など
