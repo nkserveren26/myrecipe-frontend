@@ -29,4 +29,24 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: nkdeveloper26/myrecipe-frontend:${{ env.VERSION }}
+          tags: |
+            nkdeveloper26/myrecipe-frontend:${{ env.VERSION }}
+            nkdeveloper26/myrecipe-frontend:latest
+
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ vars.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+
+      - name: Checkout Manifest repo
+        uses: actions/checkout@v4
+        with:
+          repository: nkserveren26/recipe_k8s_yaml
+          path: manifest
+          github-token: ${{ steps.app-token.outputs.token }}
+
+      - name: Update Deployment manifest
+        run: |
+          sed -i "s#image: nkdeveloper26/myrecipe-frontend:.*#image: nkdeveloper26/myrecipe-frontend:${VERSION}#g" manifest/frontend/deployment.yaml
