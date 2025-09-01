@@ -51,7 +51,7 @@ jobs:
 
       - name: Update Deployment manifest
         run: |
-          sed -i "s#image: nkdeveloper26/myrecipe-frontend:.*#image: nkdeveloper26/myrecipe-frontend:${VERSION}#g" manifest/frontend/deployment.yaml
+          sed -i "s#image: nkdeveloper26/myrecipe-frontend:.*#image: nkdeveloper26/myrecipe-frontend:${VERSION}#g" manifest/frontend/Deployment/frontend-deployment.yaml
 
       - name: Commit and push changes
         run: |
