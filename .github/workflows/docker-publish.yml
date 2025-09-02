@@ -47,7 +47,7 @@ jobs:
         with:
           repository: nkserveren26/recipe_k8s_yaml
           path: manifest
-          github-token: ${{ steps.app-token.outputs.token }}
+          token: ${{ steps.app-token.outputs.token }}
 
       - name: Update Deployment manifest
         run: |
