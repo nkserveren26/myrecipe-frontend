@@ -62,6 +62,8 @@ jobs:
           git add frontend/Deployment/frontend-deployment.yaml
           git commit -m "Update frontend to ${VERSION}"
           git push origin update-frontend-${VERSION}
+        with:
+          github-token: ${{ steps.app-token.outputs.token }}
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
