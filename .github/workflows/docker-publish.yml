@@ -59,7 +59,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git checkout -b update-frontend-${VERSION}
-          git add frontend/deployment.yaml
+          git add frontend/Deployment/frontend-deployment.yaml
           git commit -m "Update frontend to ${VERSION}"
           git push origin update-frontend-${VERSION}
 
