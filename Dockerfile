@@ -21,8 +21,14 @@ RUN rm /etc/nginx/conf.d/default.conf
 # カスタム設定をコピー
 COPY nginx.conf /etc/nginx/conf.d
 
+# entrypoint.sh をコピー
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+# ビルド成果物を配置
 COPY --from=build /app/build /usr/share/nginx/html
 
 EXPOSE 80
 
+ENTRYPOINT ["/entrypoint.sh"]
 CMD ["nginx", "-g", "daemon off;"]
